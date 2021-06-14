@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
