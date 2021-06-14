@@ -8,9 +8,25 @@ $plexus-dark-blue: #191E3A;
 $plexus-light-blue: #62B0E5;
 $plexus-gray: #4F4F4F;
 $plexus-font-family: 'Azo Sans Regular';
+$white: white;
+$bg-dark-color: #050818;
 
 .App {
   background-color: $plexus-dark;
   min-height: 100vh;
   min-width: 100vw;
+}
+
+.gredent_text {
+  background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gray-3 {
+  color: #828282;
+}
+
+.text-gray-4 {
+  color: #BDBDBD;
 }
