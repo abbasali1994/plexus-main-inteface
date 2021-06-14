@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.scss';
-import {Container, Row, Col, Button, Table} from 'react-bootstrap';
+import {Container, Row, Col, Table} from 'react-bootstrap';
 import ETH from '../../assets/eth.svg';
 import Wallet from '../../assets/wallet.svg';
 import Liquidity from '../../assets/liquidity.svg';
