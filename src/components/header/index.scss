@@ -1,0 +1,75 @@
+@import "App.scss";
+
+.navbar {
+  margin-top: 10px;
+  padding-bottom: 0 !important;
+  border: 1px solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.logo {
+  margin-left: 10px;
+  height: 20px;
+}
+
+.navbar-dark {
+
+  .navbar-nav {
+    border: 1px solid;
+    border-color: $plexus-light-blue;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+    .nav-link {
+      color: $plexus-white !important;
+      margin-right: 30px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 36px;
+      font-family: $plexus-font-family;
+      letter-spacing: 1px;
+
+      &:hover,
+      &:focus {
+        color: $plexus-light-blue !important;
+      }
+
+      &.disabled {
+        color: $navbar-dark-disabled-color;
+      }
+    }
+
+    .show > .nav-link,
+    .nav-link.active {
+      color: $plexus-light-blue !important;      
+      border: 4px solid;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+
+    .nav-link.disabled {
+      color: $plexus-gray !important;
+    }
+  }
+
+  .navbar-text {
+    color: $plexus-white !important;
+    a,
+    a:hover,
+    a:focus {
+      color: $plexus-light-blue !important;
+    }
+  }
+}
+
+.navbar-end {
+  margin-right: 0 !important;
+}
+
+.navbar-start {
+  margin-left: 0 !important;
+}
