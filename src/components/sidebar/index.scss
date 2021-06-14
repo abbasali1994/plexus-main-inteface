@@ -1,0 +1,80 @@
+@import "App.scss";
+
+.title-container {
+  background-color: $plexus-light-dark;
+  margin-top: 87px;
+  padding: 0.6em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.address-text {
+  color: $plexus-white;
+  font-family: 'Nova Mono Regular';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 36px;
+  letter-spacing: 1px;
+}
+
+.net-worth-label {
+  color: $plexus-white;
+  font-family: $plexus-font-family;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 36px;
+  letter-spacing: 1px;
+}
+
+.info-container {
+  background-color: $plexus-dark-blue;
+  margin-top: 0;
+  padding: 1.5em;
+  padding-left: 2em;
+  padding-right: 2.5em;
+  padding-bottom: 4em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.net-worth-row {
+  padding: 1em;
+  border-radius: 10px;
+  background-color: $plexus-light-dark;
+}
+
+.balance-text {
+  font-family: 'Nova Mono Regular';
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: $plexus-light-blue;
+}
+
+.subtitle-text {
+  color: $plexus-light-blue;
+  font-weight: 600;
+  font-family: $plexus-font-family;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.description-text {
+  color: $plexus-light-white;
+  font-weight: 600;
+  font-family: $plexus-font-family;
+  font-size: 13px;
+  line-height: 24px;
+  word-break: break-all;
+}
+
+.description-row {
+  padding-left: 1em;
+  margin-top: 3.5em;
+}
+
+.caret-down {
+  color: $plexus-light-blue;
+  margin-left: 5px;
+}
