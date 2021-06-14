@@ -1,8 +1,24 @@
+@import "~bootstrap/scss/bootstrap";
+
 $white: white;
-$bg-dark-color: #0E1726;
+$bg-dark-color: #050818;
 
 .App {
   background-color: $bg-dark-color;
   min-height: 100vh;
- min-width: 100vw;
+  min-width: 100vw;
+}
+
+.gredent_text {
+  background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gray-3 {
+  color: #828282;
+}
+
+.text-gray-4 {
+  color: #BDBDBD;
 }
