@@ -1,7 +1,9 @@
 import Dashboard from './pages/dashboard';
+import Yield from './pages/yield';
 
 const routes = {
-  "/": () => <Dashboard/>
+  "/": () => <Dashboard/>,
+  "/yield": () => <Yield/>
 };
 
 export default routes;
