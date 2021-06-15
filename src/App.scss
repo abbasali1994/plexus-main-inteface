@@ -10,6 +10,7 @@ $plexus-gray: #4F4F4F;
 $plexus-font-family: 'Azo Sans Regular';
 $white: white;
 $bg-dark-color: #050818;
+$plexus-currency-font: 'Nova Mono Regular';
 
 .App {
   background-color: $plexus-dark;
@@ -21,6 +22,7 @@ $bg-dark-color: #050818;
   background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: $plexus-currency-font;
 }
 
 .text-gray-3 {
