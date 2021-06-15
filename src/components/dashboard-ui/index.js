@@ -99,7 +99,7 @@ const DashboardUI = () => {
     ];
 
     return (
-        <Container fluid className="p-md-5">
+        <Container fluid className="p-md-5 ms-4">
             <Row className="pb-md-4 pb-3">
                 <Col md={4} className="mb-2">
                     <div className="py-2 px-3 assets_border_div">
