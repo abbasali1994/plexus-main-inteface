@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.scss';
 import {Container, Row, Col, Table} from 'react-bootstrap';
 import ETH from '../../assets/eth.svg';
@@ -12,6 +12,7 @@ import Sushi from '../../assets/sushi.svg';
 import Binance from '../../assets/binance.svg';
 import Soloana from '../../assets/soloana.svg';
 
+import LiquidityPositions from '../liquidity-positions';
 
 const DashboardUI = () => {
     const assetsData = [{
@@ -98,6 +99,12 @@ const DashboardUI = () => {
     }
     ];
 
+    const [ overview, setOverview ] = useState('All');
+
+    const backToDashboard = () => {
+        setOverview('All');
+    }
+
     return (
         <Container fluid className="p-md-5 ml-4">
             <Row className="pb-md-4 pb-3">
@@ -130,79 +137,85 @@ const DashboardUI = () => {
                 </Col>
                 
             </Row>
-            <Row>
-                <Col md={12} className="mb-3 mb-md-5">
-                    <h6 className="text-muted mb-3">ASSETS OVERVIEW</h6>
-                    <Row className="text-white">
-                        {assetsData.map(e => 
-                            <Col md={6} className="mb-2 mb-md-4">
-                            <div className="asset_div p-3 d-flex justify-content-between align-items-center">
-                                <div className="d-flex align-items-center">
-                                    <img src={e.icon} alt="" className="mr-2" />
-                                    <b>{e.name}</b>
+            {overview === 'All' && (
+                <Row>
+                    <Col md={12} className="mb-3 mb-md-5">
+                        <h6 className="text-muted mb-3">ASSETS OVERVIEW</h6>
+                        <Row className="text-white">
+                            {assetsData.map(e => 
+                                <Col md={6} className="mb-2 mb-md-4" onClick={() => setOverview(e.name)}>
+                                <div className="asset_div p-3 d-flex justify-content-between align-items-center">
+                                    <div className="d-flex align-items-center">
+                                        <img src={e.icon} alt="" className="mr-2" />
+                                        <b>{e.name}</b>
+                                    </div>
+                                    <div className="d-flex align-items-center">
+                                        <span className="mr-3 gredent_text">{e.amount}</span>
+                                        <span className="mr-2">{e.percentage}</span>
+                                        <img src={Chart} alt="" />
+                                    </div>
                                 </div>
-                                <div className="d-flex align-items-center">
-                                    <span className="mr-3 gredent_text">{e.amount}</span>
-                                    <span className="mr-2">{e.percentage}</span>
-                                    <img src={Chart} alt="" />
-                                </div>
-                            </div>
-                        </Col>
-                        )}
-                    </Row>
-                </Col>
-                <Col md={12} className="mb-md-3">
-                    <div className="d-flex">
-                        <h5 className="text-white mr-2">YOUR YIELD FARMING</h5>
-                        <h5 className="font-weight-normal gredent_text">$20,114.82</h5>
-                    </div>
-                </Col>
-                <Col md={12}>
-                    <Table responsive="md" borderless>
-                        <thead>
-                            <tr className="text-gray-3">
-                                <th>ASSETS</th>
-                                <th>PROTOCOL</th>
-                                <th>YOUR DEPOSITS</th>
-                                <th>EARNINGS</th>
-                                <th>REWARDS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tableData.map(e => (
-                            <>
-                                <tr className="text-gray-4">
-                                    <td className="table_col_first d-flex align-items-center">
-                                        <div className="d-flex mr-3">
-                                            <img src={Rat} alt="" className="mr-2" />
-                                            <img src={ETH} alt="" />
-                                        </div>
-                                        <div>
-                                            <h6 className="mb-0">{e.assets1}</h6>
-                                            <span>{e.assets2}</span>
-                                        </div>
-                                    </td>
-                                    <td className="table_col">{e.protocol}</td>
-                                    <td className="table_col">{e.deposit}</td>
-                                    <td className="table_col">{e.earning}</td>
-                                    <td className="table_col_last">
-                                        <div className="d-flex mr-3">
-                                            <img src={Rat} alt="" className="mr-2" />
-                                            <img src={Sushi} alt="" />
-                                        </div>
-                                    </td>
+                            </Col>
+                            )}
+                        </Row>
+                    </Col>
+                    <Col md={12} className="mb-md-3">
+                        <div className="d-flex">
+                            <h5 className="text-white mr-2">YOUR YIELD FARMING</h5>
+                            <h5 className="font-weight-normal gredent_text">$20,114.82</h5>
+                        </div>
+                    </Col>
+                    <Col md={12}>
+                        <Table responsive="md" borderless>
+                            <thead>
+                                <tr className="text-gray-3">
+                                    <th>ASSETS</th>
+                                    <th>PROTOCOL</th>
+                                    <th>YOUR DEPOSITS</th>
+                                    <th>EARNINGS</th>
+                                    <th>REWARDS</th>
                                 </tr>
-                                <tr>
-                                    <td className="p-2"></td>
-                                </tr>
-                            </>
-                            ))}
-                        
-                        </tbody>
-                    </Table>
-                </Col>
-                
-            </Row>
+                            </thead>
+                            <tbody>
+                                {tableData.map(e => (
+                                <>
+                                    <tr className="text-gray-4">
+                                        <td className="table_col_first d-flex align-items-center">
+                                            <div className="d-flex mr-3">
+                                                <img src={Rat} alt="" className="mr-2" />
+                                                <img src={ETH} alt="" />
+                                            </div>
+                                            <div>
+                                                <h6 className="mb-0">{e.assets1}</h6>
+                                                <span>{e.assets2}</span>
+                                            </div>
+                                        </td>
+                                        <td className="table_col">{e.protocol}</td>
+                                        <td className="table_col">{e.deposit}</td>
+                                        <td className="table_col">{e.earning}</td>
+                                        <td className="table_col_last">
+                                            <div className="d-flex mr-3">
+                                                <img src={Rat} alt="" className="mr-2" />
+                                                <img src={Sushi} alt="" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-2"></td>
+                                    </tr>
+                                </>
+                                ))}
+                            
+                            </tbody>
+                        </Table>
+                    </Col>
+                </Row>
+            )}
+            {overview === 'LIQUIDITY' && (
+                <LiquidityPositions
+                    goBack={backToDashboard}
+                />
+            )}
         </Container>
     )
 }
