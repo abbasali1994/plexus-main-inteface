@@ -1,13 +1,20 @@
 @import "App.scss";
+.arrow-left {
+  color: $plexus-light-blue;
+  margin-left: 15px;
+  margin-top: 3px;
+  margin-right: 10px;
+}
+
+.go-back{
+  cursor: pointer;
+}
+
 .asset_div {
     background-color: #0E1726 !important;
     border-radius: 10px;
     font-family: $plexus-font-family;
     cursor: pointer;
-}
-
-.asset_text {
-  font-family: $plexus-font-family;
 }
 
 .table_col_first {
@@ -25,9 +32,4 @@
 .table_col {
     background-color: #0E1726 !important;
     font-family: $plexus-font-family;
-}
-
-.assets_border_div {
-    border: 1px solid #4ea4d3 ;
-    border-radius: 10px;
 }
