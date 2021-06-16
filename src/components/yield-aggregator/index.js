@@ -153,8 +153,7 @@ const tableData = [{
                             </Badge>
                         </div>
                     </div>
-                </Col>
-                
+                </Col>    
                 <Col md={12} className="mt-md-4  my-3">
                     <div className="d-flex align-items-center">
                         <h5 className="text-white mr-2 mb-0">PLEXUS YIELD OPPORTUNITIES</h5>
