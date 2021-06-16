@@ -99,17 +99,17 @@ const DashboardUI = () => {
     ];
 
     return (
-        <Container fluid className="p-md-5 ms-4">
+        <Container fluid className="p-md-5 ml-4">
             <Row className="pb-md-4 pb-3">
                 <Col md={4} className="mb-2">
                     <div className="py-2 px-3 assets_border_div">
-                        <div className="d-flex align-items-center"><img src={ETH} alt="" className="me-3" /> <span className="text-white font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
+                        <div className="d-flex align-items-center"><img src={ETH} alt="" className="mr-3" /> <span className="text-white font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
                     </div>
                 </Col>
                 <Col md={4} className="mb-2">
                     <div className="py-2 px-3 asset_div">
                         <div className="d-flex align-items-center">
-                            <img src={Binance} alt="" className="me-3" />
+                            <img src={Binance} alt="" className="mr-3" />
                             <div className = "asset_text"> 
                                 <h6 className="text-gray-3 font-weight-bold pe-5 mb-0">BSC</h6>
                                 <h6 className="mb-0 text-gray-4">COMING SOON</h6>
@@ -120,7 +120,7 @@ const DashboardUI = () => {
                 <Col md={4} className="mb-2">
                     <div className="py-2 px-3 asset_div">
                         <div className="d-flex align-items-center">
-                            <img src={Soloana} alt="" className="me-3" />
+                            <img src={Soloana} alt="" className="mr-3" />
                             <div> 
                                 <h6 className="text-gray-3 font-weight-bold pe-5 mb-0">SOLANA</h6>
                                 <h6 className="mb-0 text-gray-4">COMING SOON</h6>
@@ -138,12 +138,12 @@ const DashboardUI = () => {
                             <Col md={6} className="mb-2 mb-md-4">
                             <div className="asset_div p-3 d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center">
-                                    <img src={e.icon} alt="" className="me-2" />
+                                    <img src={e.icon} alt="" className="mr-2" />
                                     <b>{e.name}</b>
                                 </div>
                                 <div className="d-flex align-items-center">
-                                    <span className="me-3 gredent_text">{e.amount}</span>
-                                    <span className="me-2">{e.percentage}</span>
+                                    <span className="mr-3 gredent_text">{e.amount}</span>
+                                    <span className="mr-2">{e.percentage}</span>
                                     <img src={Chart} alt="" />
                                 </div>
                             </div>
@@ -153,7 +153,7 @@ const DashboardUI = () => {
                 </Col>
                 <Col md={12} className="mb-md-3">
                     <div className="d-flex">
-                        <h5 className="text-white me-2">YOUR YIELD FARMING</h5>
+                        <h5 className="text-white mr-2">YOUR YIELD FARMING</h5>
                         <h5 className="font-weight-normal gredent_text">$20,114.82</h5>
                     </div>
                 </Col>
@@ -173,8 +173,8 @@ const DashboardUI = () => {
                             <>
                                 <tr className="text-gray-4">
                                     <td className="table_col_first d-flex align-items-center">
-                                        <div className="d-flex me-3">
-                                            <img src={Rat} alt="" className="me-2" />
+                                        <div className="d-flex mr-3">
+                                            <img src={Rat} alt="" className="mr-2" />
                                             <img src={ETH} alt="" />
                                         </div>
                                         <div>
@@ -186,8 +186,8 @@ const DashboardUI = () => {
                                     <td className="table_col">{e.deposit}</td>
                                     <td className="table_col">{e.earning}</td>
                                     <td className="table_col_last">
-                                        <div className="d-flex me-3">
-                                            <img src={Rat} alt="" className="me-2" />
+                                        <div className="d-flex mr-3">
+                                            <img src={Rat} alt="" className="mr-2" />
                                             <img src={Sushi} alt="" />
                                         </div>
                                     </td>
