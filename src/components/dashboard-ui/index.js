@@ -106,15 +106,15 @@ const DashboardUI = () => {
     }
 
     return (
-        <Container fluid className="p-md-5 ml-4">
+        <Container fluid className="py-md-5 pr-md-5  ml-4">
             <Row className="pb-md-4 pb-3">
                 <Col md={4} className="mb-2">
-                    <div className="py-2 px-3 assets_border_div">
+                    <div className="py-3 px-3 assets_border_div">
                         <div className="d-flex align-items-center"><img src={ETH} alt="" className="mr-3" /> <span className="text-white font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
                     </div>
                 </Col>
                 <Col md={4} className="mb-2">
-                    <div className="py-2 px-3 asset_div">
+                    <div className="py-3 px-3 asset_div">
                         <div className="d-flex align-items-center">
                             <img src={Binance} alt="" className="mr-3" />
                             <div className = "asset_text"> 
@@ -125,7 +125,7 @@ const DashboardUI = () => {
                     </div>
                 </Col>
                 <Col md={4} className="mb-2">
-                    <div className="py-2 px-3 asset_div">
+                    <div className="py-3 px-3 asset_div">
                         <div className="d-flex align-items-center">
                             <img src={Soloana} alt="" className="mr-3" />
                             <div> 
