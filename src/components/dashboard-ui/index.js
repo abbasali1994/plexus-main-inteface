@@ -14,6 +14,8 @@ import Soloana from '../../assets/soloana.svg';
 
 import LiquidityPositions from '../liquidity-positions';
 import UserYieldFarming from '../user-yield-farming';
+import RewardsComponent from '../rewards';
+
 
 const DashboardUI = () => {
     const assetsData = [{
@@ -107,6 +109,11 @@ const DashboardUI = () => {
             )}
             {overview === 'LIQUIDITY' && (
                 <LiquidityPositions
+                    goBack={backToDashboard}
+                />
+            )}
+            {overview === 'REWARDS' && (
+                <RewardsComponent
                     goBack={backToDashboard}
                 />
             )}
