@@ -1,0 +1,56 @@
+@import "App.scss";
+
+.arrow-left {
+  color: $plexus-light-blue;
+  margin-left: 15px;
+  margin-top: 3px;
+  margin-right: 10px;
+}
+
+.go-back{
+  cursor: pointer;
+}
+
+.asset_div {
+  background-color: #0E1726 !important;
+  border-radius: 10px;
+  font-family: $plexus-font-family;
+  cursor: pointer;
+}
+
+.table_col_first {
+  background-color: #0E1726 !important;
+  border-radius: 10px 0 0 10px;
+  font-family: $plexus-font-family;
+}
+
+.table_col_last {
+  background-color: #0E1726 !important;
+  border-radius: 0 10px 10px 0;
+  font-family: $plexus-font-family;
+}
+
+.table_col {
+  background-color: #0E1726 !important;
+  font-family: $plexus-font-family;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.asset-icon {
+  width: 32px;
+}
+
+.h-30 {
+  height: 30px;
+}
+
+.color-light {
+  color: $plexus-light-blue;
+}
+
+.w-fixed-120 {
+  width: 130px;
+}

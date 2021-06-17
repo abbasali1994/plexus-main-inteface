@@ -4,7 +4,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import './index.scss';
 
 import ETH from '../../assets/eth.svg';
-import Wallet from '../../assets/wallet.svg';
+import WalletIcon from '../../assets/wallet.svg';
 import Liquidity from '../../assets/liquidity.svg';
 import Lock from '../../assets/lock.svg';
 import Rewards from '../../assets/rewards.svg';
@@ -15,12 +15,12 @@ import Soloana from '../../assets/soloana.svg';
 import LiquidityPositions from '../liquidity-positions';
 import UserYieldFarming from '../user-yield-farming';
 import RewardsComponent from '../rewards';
-
+import Wallet from '../wallet';
 
 const DashboardUI = () => {
     const assetsData = [{
             name: 'WALLET',
-            icon: Wallet,
+            icon: WalletIcon,
             amount: '$8,782.34',
             percentage: '23%'
         },
@@ -114,6 +114,11 @@ const DashboardUI = () => {
             )}
             {overview === 'REWARDS' && (
                 <RewardsComponent
+                    goBack={backToDashboard}
+                />
+            )}
+            {overview === 'WALLET' && (
+                <Wallet
                     goBack={backToDashboard}
                 />
             )}
