@@ -8,7 +8,7 @@ import './index.scss';
 import ETH from '../../assets/eth.svg';
 import Rat from '../../assets/rat.svg';
 import Chart from '../../assets/chart.svg';
-import Sushi from '../../assets/sushi_small.svg';
+import Sushi from '../../assets/sushi_medium.svg';
 
 
 const RewardsComponent = (props) => {

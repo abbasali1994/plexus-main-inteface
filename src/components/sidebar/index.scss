@@ -114,3 +114,168 @@
   width: 90%;
   z-index: 0;
 }
+
+.info-container-yield {
+  background-color: $plexus-dark-blue;
+  background-image: url('../../assets/Subtract.png');
+  margin-top: 0;
+  padding: 1.5em;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 4em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle-text-yield {
+  color: $plexus-light-blue;
+  font-weight: 600;
+  font-family: $plexus-font-family;
+  font-size: 16px;
+  line-height: 36px;
+}
+
+.yield-info-box {
+  padding: 0.5em;
+  padding-left: 1em;
+  width: 100%;
+  border-radius: 5px;
+  background-color: $plexus-light-dark;
+}
+
+.yield-info-title-text {
+  color: $plexus-white;
+  font-family: $plexus-font-family;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+}
+
+.yield-info-value-text {
+  color: $plexus-white;
+  font-family: $plexus-currency-font;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: -0.05em;
+}
+
+.yield-personal-info-title-text {
+  color: $plexus-white;
+  font-family: $plexus-font-family;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+}
+
+.yield-personal-info-value-text {
+  color: $plexus-light-gray;
+  font-family: $plexus-currency-font;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 36px;
+  letter-spacing: -0.05em;
+  float: right;
+}
+
+.yield-info-box-seperator {
+  border: solid 1px $plexus-light-dark;
+}
+
+.yield-action {
+
+  .yield-action-button-box {
+    border-radius: 5px;
+    background-color: $plexus-dark;
+    padding:2px;
+    display: inline-flex;
+    width: 100%;
+  }
+
+  .yield-action-button-text-box {
+    
+    border-radius: 5px;
+    background: $plexus-dark;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-family: $plexus-font-family;
+    font-weight: 600;
+    font-size: 12px;
+    color: #F2F2F2;
+   
+  }
+
+  .yield-action-button-text-box.active {
+    background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
+  }
+
+  .yield-action-value-box {
+    border-radius: 10px;
+    background: $plexus-dark;
+    padding:1em;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .value-text {
+      font-family: $plexus-currency-font;
+      font-size: 16px;
+      line-height: 36px;
+      font-style: normal;
+    }
+
+    .max-button-text {
+      font-size: 12px;
+      line-height: 36px;
+      font-weight: normal;
+      font-style: normal;
+      font-family: 'CODEINK Regular';
+      color: $plexus-light-white;
+      float: right;
+    }
+  }
+
+  .available-text {
+    color: $plexus-light-white;
+    font-family: $plexus-font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.02em; 
+  }
+  
+  .approve-button {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 36px;
+    font-family: $plexus-font-family;
+    color: $plexus-white;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.5em;
+    padding-bottom:0.5em;
+    border-radius: 10px;
+    background-color: #236EDC;
+    text-align: center;
+  }
+
+  .comment {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+    font-family: $plexus-font-family;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: $plexus-light-white;
+  }
+}

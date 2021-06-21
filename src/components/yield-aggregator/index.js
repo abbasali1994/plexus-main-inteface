@@ -109,7 +109,7 @@ const tableData = [{
                         </div>
                         <div className="d-flex justify-content-center">
                             <h5 className="mb-0 mr-2 text-white">PLEXUS</h5>
-                            <Badge pill variant="primary px-2 py-1">
+                            <Badge pill variant="primary" className="pt-1">
                                 17
                             </Badge>
                         </div>
@@ -122,7 +122,7 @@ const tableData = [{
                         </div>
                         <div className="d-flex justify-content-center">
                             <h5 className="mb-0 mr-2 text-white">SUSHISWAP</h5>
-                            <Badge pill variant="primary" className="pt-1">
+                            <Badge pill variant="primary" className=" pt-2">
                                 25
                             </Badge>
                         </div>
@@ -135,7 +135,7 @@ const tableData = [{
                         </div>
                         <div className="d-flex justify-content-center">
                             <h5 className="mb-0 mr-2 text-white">1INCH</h5>
-                            <Badge pill variant="primary" className="pt-1">
+                            <Badge pill variant="primary" className="pt-2">
                                 25
                             </Badge>
                         </div>
@@ -148,7 +148,7 @@ const tableData = [{
                         </div>
                         <div className="d-flex justify-content-center mt-auto">
                             <h5 className="mb-0 mr-2 text-white">AAVE</h5>
-                            <Badge pill variant="primary" className="pt-1">
+                            <Badge pill variant="primary" className="pt-2">
                                 25
                             </Badge>
                         </div>

@@ -13,7 +13,7 @@ const YieldAggregatorPage = () => {
                 <YieldAggregator/>
             </Col>
             <Col lg={3}>
-                <Sidebar/>
+                <Sidebar  whichSidebar={"yield"}/>
             </Col>
         </Row>
     );
