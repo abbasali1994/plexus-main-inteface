@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {Container, Row, Col} from 'react-bootstrap';
+
+import { changeSidebar } from '../../redux/sidebarSlice';
 
 import './index.scss';
 
@@ -45,9 +48,18 @@ const DashboardUI = () => {
     ];
 
     const [ overview, setOverview ] = useState('All');
+    const dispatch = useDispatch();
+
+    const handleClickAsset = (name) => {
+        setOverview(name);
+        if (name === 'LIQUIDITY') {
+            dispatch(changeSidebar('dashboard-liquidity'));
+        }
+    }
 
     const backToDashboard = () => {
         setOverview('All');
+        dispatch(changeSidebar('dashboard-all'));
     }
 
     return (
@@ -88,7 +100,7 @@ const DashboardUI = () => {
                         <h6 className="text-muted mb-3">ASSETS OVERVIEW</h6>
                         <Row className="text-white">
                             {assetsData.map(e => 
-                                <Col md={6} className="mb-2 mb-md-4" onClick={() => setOverview(e.name)}>
+                                <Col md={6} className="mb-2 mb-md-4" onClick={() => handleClickAsset(e.name)}>
                                 <div className="asset_div p-3 d-flex justify-content-between align-items-center">
                                     <div className="d-flex align-items-center">
                                         <img src={e.icon} alt="" className="mr-2" />
