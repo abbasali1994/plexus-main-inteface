@@ -1,0 +1,11 @@
+@import "App.scss";
+
+.point-cursor {
+  cursor: pointer;
+}
+
+.tr-active {
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: $plexus-light-blue;
+}
