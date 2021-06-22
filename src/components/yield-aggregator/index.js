@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.scss';
-import { useDispatch } from 'react-redux';
 import {Container, Row, Col, Table, Badge} from 'react-bootstrap';
-
-import { changeSidebar } from '../../redux/sidebarSlice';
-
 import ETH from '../../assets/eth.svg';
 import Rat from '../../assets/rat.svg';
 import Sushi from '../../assets/sushi.svg';
@@ -14,76 +10,62 @@ import Binance from '../../assets/binance.svg';
 import Soloana from '../../assets/soloana.svg';
 
 const YieldAggregator = () => { 
-    const dispatch = useDispatch();
-    const [selected, setSelected] = useState(0);
 
-    const tableData = [
-        {
-            id: 1,
-            assetsIcon1: Rat,
-            assetsIcon2: ETH,
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            deposit: '$18.3M',
-            roi: '45.6% (1Y)',
-            rewards: [Rat, Sushi]
-        },
-        {
-            id: 2,
-            assetsIcon1: Rat,
-            assetsIcon2: ETH,
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            deposit: '$18.3M',
-            roi: '45.6% (1Y)',
-            rewards: [Rat, Sushi]
-        },
-        {
-            id: 3,
-            assetsIcon1: Rat,
-            assetsIcon2: ETH,
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            deposit: '$18.3M',
-            roi: '45.6% (1Y)',
-            rewards: [Rat, Sushi]
-        },
-        {
-            id: 4,
-            assetsIcon1: Rat,
-            assetsIcon2: ETH,
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            deposit: '$18.3M',
-            roi: '45.6% (1Y)',
-            rewards: [Rat, Sushi]
-        },
-        {
-            id: 5,
-            assetsIcon1: Rat,
-            assetsIcon2: ETH,
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            deposit: '$18.3M',
-            roi: '45.6% (1Y)',
-            rewards: [Rat, Sushi]
-        },
-        {
-            id: 6,
-            assetsIcon1: Rat,
-            assetsIcon2: ETH,
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            deposit: '$18.3M',
-            roi: '45.6% (1Y)',
-            rewards: [Rat, Sushi]
-        },
-    ];
-
-    const handleClickAsset = (id) => {
-        dispatch(changeSidebar('yield-asset'));
-        setSelected(id);
-    }
+const tableData = [{
+        assetsIcon1: Rat,
+        assetsIcon2: ETH,
+        assets1: 'PLX/ETH',
+        assets2: 'SushiSwap LP',
+        deposit: '$18.3M',
+        roi: '45.6% (1Y)',
+        rewards: [Rat, Sushi]
+    },
+    {
+        assetsIcon1: Rat,
+        assetsIcon2: ETH,
+        assets1: 'PLX/ETH',
+        assets2: 'SushiSwap LP',
+        deposit: '$18.3M',
+        roi: '45.6% (1Y)',
+        rewards: [Rat, Sushi]
+    },
+    {
+        assetsIcon1: Rat,
+        assetsIcon2: ETH,
+        assets1: 'PLX/ETH',
+        assets2: 'SushiSwap LP',
+        deposit: '$18.3M',
+        roi: '45.6% (1Y)',
+        rewards: [Rat, Sushi]
+    },
+    {
+        assetsIcon1: Rat,
+        assetsIcon2: ETH,
+        assets1: 'PLX/ETH',
+        assets2: 'SushiSwap LP',
+        deposit: '$18.3M',
+        roi: '45.6% (1Y)',
+        rewards: [Rat, Sushi]
+    },
+    {
+        assetsIcon1: Rat,
+        assetsIcon2: ETH,
+        assets1: 'PLX/ETH',
+        assets2: 'SushiSwap LP',
+        deposit: '$18.3M',
+        roi: '45.6% (1Y)',
+        rewards: [Rat, Sushi]
+    },
+    {
+        assetsIcon1: Rat,
+        assetsIcon2: ETH,
+        assets1: 'PLX/ETH',
+        assets2: 'SushiSwap LP',
+        deposit: '$18.3M',
+        roi: '45.6% (1Y)',
+        rewards: [Rat, Sushi]
+    },
+];
 
     return (
         <Container fluid className="py-md-5 pr-md-5 ml-4">
@@ -193,8 +175,8 @@ const YieldAggregator = () => {
                         <tbody>
                             {tableData.map(e => (
                             <>
-                                <tr className={"text-gray-4 point-cursor" + (selected === e.id ? " tr-active" : "")} onClick={() => handleClickAsset(e.id)}>
-                                    <td className={"table_col_first d-flex align-items-center" + (selected === e.id ? " bg-transparent" : "")}>
+                                <tr className="text-gray-4">
+                                    <td className="table_col_first d-flex align-items-center">
                                         <div className="d-flex mr-3">
                                             <img src={e.assetsIcon1} alt="" className="mr-2" />
                                             {e.assetsIcon2 &&<img src={ETH} alt="" /> }
@@ -204,9 +186,9 @@ const YieldAggregator = () => {
                                             {!e.assets2 && <br/>}<span>{e.assets2}</span>
                                         </div>
                                     </td>
-                                    <td className={"table_col" + (selected === e.id ? " bg-transparent tr-active" : "")}>{e.deposit}</td>
-                                    <td className={"table_col" + (selected === e.id ? " bg-transparent" : "")}>{e.roi}</td>
-                                    <td className={"table_col_last" + (selected === e.id ? " bg-transparent" : "")}>
+                                    <td className="table_col">{e.deposit}</td>
+                                    <td className="table_col">{e.roi}</td>
+                                    <td className="table_col_last">
                                         <div className="d-flex mr-3">
                                             {e.rewards.map(i => 
                                                 <img src={i} alt="" className="mr-2" />

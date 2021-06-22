@@ -13,6 +13,7 @@ const DashboardPage = () => {
 
     useEffect(() => {
         dispatch(changeSidebar('dashboard-all'));
+
     });
 
     return (

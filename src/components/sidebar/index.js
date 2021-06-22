@@ -37,16 +37,7 @@ const Sidebar = () => {
             {sidebar === 'dashboard-liquidity' && (
                 <LiquiditySidebar />
             )}
-            {sidebar === 'dashboard-wallet' && (
-                <WalletSidebar />
-            )}
-            {sidebar === 'dashboard-rewards' && (
-                <RewardsSidebar />
-            )}
-            {sidebar === 'yield-main' && (
-                <YieldMainSidebar />
-            )}
-            {sidebar === 'yield-asset' && (
+            {sidebar === 'dashboard-yield' && (
                 <YieldSidebar />
             )}
             <Container className="table-grid">
@@ -186,77 +177,6 @@ const YieldSidebar = () => {
                 </Row>
                 <Row className="mt-4">
                     <Col><div className="comment">Need PLX/ETH SLP tokens to join this farm?<br/> <a href="/">Zap in liquidity </a>with any ERC-20 token in<br/> your wallet.</div></Col>
-                </Row>
-            </Container>
-        </Container>
-    )
-}
-
-const WalletSidebar = () => {
-    return (
-        <Container className="info-container">
-            <Container className="net-worth-row">
-                <div className="net-worth-label">WALLET</div>
-                <div className="balance-text gredent_text">$8,782.34</div>
-            </Container>
-            <Container className="description-yield">
-                <Row>
-                    <Col lg="2" className="description-part"></Col>
-                    <Col className="ml-4 mr-4">
-                        <div className="subtitle-text">YOUR TOKENS</div>
-                        <div className="description-text">Select a token to view stats, information, and available actions to perform.</div>
-                    </Col>
-                </Row>
-            </Container>
-        </Container>
-    )
-}
-
-const RewardsSidebar = () => {
-    return (
-        <Container className="info-container">
-            <Container className="net-worth-row">
-                <div className="net-worth-label">REWARDS</div>
-                <div className="balance-text gredent_text">$2,716.43</div>
-            </Container>
-            <Container className="description-row mt-6e">
-                <Row>
-                    <Col lg="2" className="description-part"></Col>
-                    <Col className="ml-4 mr-4">
-                        <div className="subtitle-text">YOUR REWARDS</div>
-                        <div className="description-text">Select an active yield farm you’re participating in to claim your earned PLX and/or protocol token rewards.</div>
-                    </Col>
-                </Row>
-            </Container>
-        </Container>
-    )
-}
-
-const YieldMainSidebar = () => {
-    return (
-        <Container className="info-container">
-            <Container className="description-row mt-1">
-                <Col className="ml-4 mr-4 p-4">
-                    <div className="subtitle-text-white">YIELD AGGREGATOR</div>
-                    <div className="description-text">View and enter yield farms from popular protocols with quick zap in functions and competitive ROIs.</div>
-                </Col>
-            </Container>
-            <Container className="description-row">
-                <Row>
-                    <Col lg="2" className="description-part"></Col>
-                    <Col className="ml-4 mr-4">
-                        <div className="subtitle-text">PROTOCOLS</div>
-                        <div className="description-text">Select any protocol to view the available yield opportunities and perform any available actions.</div>
-                    </Col>
-                </Row>
-            </Container>
-            <Container className="description-yield">
-                <Row>
-                    <Col lg="2" className="description-part"></Col>
-                    <Col className="ml-4 mr-4">
-                        <div className="subtitle-text">YIELD OPPORTUNITIES</div>
-                        <div className="description-text">See the various farming opportunities for your selected protocol, see what reward tokens are offered, and their ROI.</div>
-                    </Col>
                 </Row>
             </Container>
         </Container>

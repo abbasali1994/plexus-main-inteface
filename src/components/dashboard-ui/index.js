@@ -52,21 +52,8 @@ const DashboardUI = () => {
 
     const handleClickAsset = (name) => {
         setOverview(name);
-        switch (name) {
-            case 'LIQUIDITY':
-                dispatch(changeSidebar('dashboard-liquidity'));
-                break;
-            case 'WALLET':
-                dispatch(changeSidebar('dashboard-wallet'));
-                break;
-            case 'STAKING':
-                dispatch(changeSidebar('dashboard-staking'));
-                break;
-            case 'REWARDS':
-                dispatch(changeSidebar('dashboard-rewards'));
-                break;
-            default:
-                break;
+        if (name === 'LIQUIDITY') {
+            dispatch(changeSidebar('dashboard-liquidity'));
         }
     }
 
