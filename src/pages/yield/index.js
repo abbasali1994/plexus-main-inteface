@@ -12,8 +12,7 @@ const YieldAggregatorPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(changeSidebar('dashboard-yield'));
-
+        dispatch(changeSidebar('yield-main'));
     });
 
     return (

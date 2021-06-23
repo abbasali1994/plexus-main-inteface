@@ -8,13 +8,14 @@
   border-top-right-radius: 10px;
   position: relative;
   z-index: 2;
+  min-width: 300px;
 }
 
 .address-text {
   color: $plexus-white;
   font-family: 'Nova Mono Regular';
   font-weight: 400;
-  font-size: 16px;
+  font-size: 0.8em;
   line-height: 36px;
   letter-spacing: 1px;
 }
@@ -23,7 +24,7 @@
   color: $plexus-white;
   font-family: $plexus-font-family;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 0.8em;
   line-height: 36px;
   letter-spacing: 1px;
 }
@@ -64,7 +65,15 @@
   color: $plexus-light-blue;
   font-weight: 600;
   font-family: $plexus-font-family;
-  font-size: 16px;
+  font-size: 0.9em;
+  line-height: 24px;
+}
+
+.subtitle-text-white {
+  color: $plexus-white;
+  font-weight: 600;
+  font-family: $plexus-font-family;
+  font-size: 0.9em;
   line-height: 24px;
 }
 
@@ -72,13 +81,18 @@
   color: $plexus-light-white;
   font-weight: 600;
   font-family: $plexus-font-family;
-  font-size: 13px;
+  font-size: 0.65em;
   line-height: 24px;
   word-break: break-all;
+  margin-top: 10px;
 }
 
 .description-row {
   margin-top: 4.0em;
+}
+
+.mt-6e {
+  margin-top: 6.0em;
 }
 
 .caret-down {
@@ -128,13 +142,14 @@
   background-size: cover;
   position: relative;
   z-index: 2;
+  min-width: 300px;
 }
 
 .subtitle-text-yield {
   color: $plexus-light-blue;
   font-weight: 600;
   font-family: $plexus-font-family;
-  font-size: 16px;
+  font-size: 0.9em;
   line-height: 36px;
 }
 
@@ -150,7 +165,7 @@
   color: $plexus-white;
   font-family: $plexus-font-family;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 0.7em;
   line-height: 36px;
   letter-spacing: -0.02em;
 }
@@ -159,7 +174,7 @@
   color: $plexus-white;
   font-family: $plexus-currency-font;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.8em;
   line-height: 36px;
   letter-spacing: -0.05em;
 }
@@ -168,7 +183,7 @@
   color: $plexus-white;
   font-family: $plexus-font-family;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.8em;
   line-height: 36px;
   letter-spacing: -0.02em;
 }
@@ -177,7 +192,7 @@
   color: $plexus-light-gray;
   font-family: $plexus-currency-font;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.8em;
   line-height: 36px;
   letter-spacing: -0.05em;
   float: right;
@@ -207,9 +222,13 @@
     padding-bottom: 1em;
     font-family: $plexus-font-family;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.63em;
     color: #F2F2F2;
-   
+    width: 33%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .yield-action-button-text-box.active {
@@ -226,13 +245,13 @@
 
     .value-text {
       font-family: $plexus-currency-font;
-      font-size: 16px;
+      font-size: 0.9em;
       line-height: 36px;
       font-style: normal;
     }
 
     .max-button-text {
-      font-size: 12px;
+      font-size: 0.7em;
       line-height: 36px;
       font-weight: normal;
       font-style: normal;
@@ -247,14 +266,14 @@
     font-family: $plexus-font-family;
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.7em;
     letter-spacing: 0.02em; 
   }
   
   .approve-button {
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.7em;
     line-height: 36px;
     font-family: $plexus-font-family;
     color: $plexus-white;
@@ -270,7 +289,7 @@
   .comment {
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.7em;
     line-height: 17px;
     font-family: $plexus-font-family;
     align-items: center;
