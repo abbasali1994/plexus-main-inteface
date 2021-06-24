@@ -54,6 +54,12 @@
     .nav-link.disabled {
       color: $plexus-gray !important;
     }
+    .navbar-grey {
+      color: $navbar-dark-disabled-color !important;
+    }
+    .navbar-grey:hover {
+      color: $navbar-dark-disabled-color !important;
+    }
   }
 
   .navbar-text {
@@ -72,4 +78,7 @@
 
 .navbar-start {
   margin-left: 0 !important;
+}
+.navbar-grey {
+  color: $navbar-dark-disabled-color;
 }

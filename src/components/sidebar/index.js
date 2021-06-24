@@ -49,6 +49,12 @@ const Sidebar = () => {
             {sidebar === 'yield-asset' && (
                 <YieldSidebar />
             )}
+            {sidebar === 'lend-borrow' && (
+                <LendBorrowSidebar/>
+            )}
+            {sidebar === 'cross-chain-tools' && (
+                <CrossChainToolsSidebar/>
+            )}
             <Container className="table-grid">
                 {rows.map(row => (
                     <Row key={"row" + row}>
@@ -261,6 +267,33 @@ const YieldMainSidebar = () => {
             </Container>
         </Container>
     )
+}
+const LendBorrowSidebar = () => {
+    return (
+        <Container className="info-container lend-borrow-sidebar">
+            <Container className="description-row mt-1">
+                <Col className="ml-2 mr-4 p-4">
+                    <div className="subtitle-text-white">LENDING AND<br/>BORROWING ARE<br/><span className="subtitle-text-gradient">COMMING SOON</span></div>
+                    <div className="description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+                </Col>
+            </Container>
+           
+        </Container>
+    )
+}
+const CrossChainToolsSidebar = () => {
+    return (
+        <Container className="info-container lend-borrow-sidebar">
+            <Container className="description-row mt-1">
+                <Col className="ml-2 mr-4 p-4">
+                    <div className="subtitle-text-white">CROSS-CHAIN<br/>TOOLS ARE<br/><span className="subtitle-text-gradient">COMMING SOON</span></div>
+                    <div className="description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+                </Col>
+            </Container>
+           
+        </Container>
+    )
+
 }
 
 export default Sidebar;

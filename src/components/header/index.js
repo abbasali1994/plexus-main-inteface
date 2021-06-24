@@ -15,8 +15,8 @@ const Header = () => {
                     <Nav.Link href="/" className="navbar-start" active={pathName === '/'}>DASHBOARD</Nav.Link>
                     <Nav.Link href="/yield" active={pathName === '/yield'}>YIELD AGGREGATOR</Nav.Link>
                     <Nav.Link href="/lp" active={pathName === '/lp'}>LP TOOLS</Nav.Link>
-                    <Nav.Link href="#lend" disabled>LEND & BORROW</Nav.Link>
-                    <Nav.Link href="#cross" disabled>CROSS-CHAIN TOOLS</Nav.Link>
+                    <Nav.Link href="/lendborrow" className="navbar-grey">LEND & BORROW</Nav.Link>
+                    <Nav.Link href="/crosschaintools" className="navbar-grey">CROSS-CHAIN TOOLS</Nav.Link>
                     <Nav.Link href="/faq" className="navbar-end" active={pathName === '/faq'}>FAQ</Nav.Link>
                 </Nav>
             </Navbar>
