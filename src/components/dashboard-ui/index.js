@@ -19,6 +19,7 @@ import LiquidityPositions from '../liquidity-positions';
 import UserYieldFarming from '../user-yield-farming';
 import RewardsComponent from '../rewards';
 import Wallet from '../wallet';
+import StakingComponent from '../staking';
 
 const DashboardUI = () => {
     const assetsData = [{
@@ -144,6 +145,11 @@ const DashboardUI = () => {
             )}
             {overview === 'WALLET' && (
                 <Wallet
+                    goBack={backToDashboard}
+                />
+            )}
+            {overview === 'STAKING' && (
+                <StakingComponent
                     goBack={backToDashboard}
                 />
             )}

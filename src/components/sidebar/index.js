@@ -43,6 +43,9 @@ const Sidebar = () => {
             {sidebar === 'dashboard-rewards' && (
                 <RewardsSidebar />
             )}
+            {sidebar === 'dashboard-staking' && (
+                <StakingSidebar />
+            )}
             {sidebar === 'yield-main' && (
                 <YieldMainSidebar />
             )}
@@ -230,6 +233,26 @@ const RewardsSidebar = () => {
                     <Col lg="2" className="description-part"></Col>
                     <Col className="ml-4 mr-4">
                         <div className="subtitle-text">YOUR REWARDS</div>
+                        <div className="description-text">Select an active yield farm you’re participating in to claim your earned PLX and/or protocol token rewards.</div>
+                    </Col>
+                </Row>
+            </Container>
+        </Container>
+    )
+}
+
+const StakingSidebar = () => {
+    return (
+        <Container className="info-container">
+            <Container className="net-worth-row">
+                <div className="net-worth-label">STAKING</div>
+                <div className="balance-text gredent_text">$2,716.43</div>
+            </Container>
+            <Container className="description-row mt-6e">
+                <Row>
+                    <Col lg="2" className="description-part"></Col>
+                    <Col className="ml-4 mr-4">
+                        <div className="subtitle-text">YOUR STAKING</div>
                         <div className="description-text">Select an active yield farm you’re participating in to claim your earned PLX and/or protocol token rewards.</div>
                     </Col>
                 </Row>
