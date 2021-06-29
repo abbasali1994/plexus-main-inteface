@@ -10,6 +10,7 @@ import Rat from '../../assets/rat_small.svg';
 import Sushi from '../../assets/sushi_small.svg';
 import LogoIcon from '../../assets/LogoIcon.png';
 import ArrowUpIcon from '../../assets/arrow_up.svg';
+import UserStaking from '../user-staking'
 import ETH from '../../assets/eth.svg';
 import Uniswap from '../../assets/uniswap.svg';
 import Close from '../../assets/close.svg';
@@ -64,6 +65,15 @@ const Sidebar = () => {
             )}
             {sidebar === 'zap-liquidity' && (
                 <ZapSidebar />
+            )}
+            {sidebar === 'user-stake-sushiswap' && (
+                <UserStaking/>
+            )}
+            {sidebar === 'user-stake-uniswap' && (
+                <UserStaking />
+            )}
+            {sidebar === 'user-stake-1inch' && (
+                <UserStaking />
             )}
             <Container className="table-grid">
                 {rows.map(row => (
