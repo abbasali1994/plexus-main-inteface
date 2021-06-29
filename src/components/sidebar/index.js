@@ -1,15 +1,19 @@
-import { useSelector } from 'react-redux';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-import { currentSidebar } from '../../redux/sidebarSlice';
+import { currentSidebar, changeSidebar } from '../../redux/sidebarSlice';
 
 import Rat from '../../assets/rat_small.svg';
 import Sushi from '../../assets/sushi_small.svg';
 import LogoIcon from '../../assets/LogoIcon.png';
 import ArrowUpIcon from '../../assets/arrow_up.svg';
+import ETH from '../../assets/eth.svg';
+import Uniswap from '../../assets/uniswap.svg';
+import Close from '../../assets/close.svg';
+import SushiIllustrate from '../../assets/sushi_illustration.svg';
 
 import './index.scss';
 
@@ -53,10 +57,13 @@ const Sidebar = () => {
                 <YieldSidebar />
             )}
             {sidebar === 'lend-borrow' && (
-                <LendBorrowSidebar/>
+                <LendBorrowSidebar />
             )}
             {sidebar === 'cross-chain-tools' && (
-                <CrossChainToolsSidebar/>
+                <CrossChainToolsSidebar />
+            )}
+            {sidebar === 'zap-liquidity' && (
+                <ZapSidebar />
             )}
             <Container className="table-grid">
                 {rows.map(row => (
@@ -135,6 +142,12 @@ const LiquiditySidebar = () => {
 
 const YieldSidebar = () => {
     const [buttonState, setButtonState] = useState('deposit');
+    const dispatch = useDispatch();
+
+    const handleClickZap = () => {
+        dispatch(changeSidebar('zap-liquidity'));
+    }
+
     return (
         <Container className="info-container-yield">
             <Container className="px-3">
@@ -194,7 +207,7 @@ const YieldSidebar = () => {
                     <Col><div className="approve-button">APPROVE PLX/ETH SLP</div></Col>
                 </Row>
                 <Row className="mt-4">
-                    <Col><div className="comment">Need PLX/ETH SLP tokens to join this farm?<br/> <a href="/">Zap in liquidity </a>with any ERC-20 token in<br/> your wallet.</div></Col>
+                    <Col><div className="comment">Need PLX/ETH SLP tokens to join this farm?<br/> <span className="zap-link" onClick={() => handleClickZap()}>Zap in liquidity</span> with any ERC-20 token in<br/> your wallet.</div></Col>
                 </Row>
             </Container>
         </Container>
@@ -291,6 +304,7 @@ const YieldMainSidebar = () => {
         </Container>
     )
 }
+
 const LendBorrowSidebar = () => {
     return (
         <Container className="info-container lend-borrow-sidebar">
@@ -304,6 +318,7 @@ const LendBorrowSidebar = () => {
         </Container>
     )
 }
+
 const CrossChainToolsSidebar = () => {
     return (
         <Container className="info-container lend-borrow-sidebar">
@@ -317,6 +332,160 @@ const CrossChainToolsSidebar = () => {
         </Container>
     )
 
+}
+
+const ZapSidebar = () => {
+    const assets = [
+        {
+            assetName: 'PLX',
+            assetIcon: Rat,
+            assetValue: '$2,8723.32'
+        },
+        {
+            assetName: 'SUSHI',
+            assetIcon: Sushi,
+            assetValue: '$1,923.45'
+        },
+        {
+            assetName: 'ETH',
+            assetIcon: ETH,
+            assetValue: '$9832.21'
+        },
+        {
+            assetName: 'UNI',
+            assetIcon: Uniswap,
+            assetValue: '$58.76'
+        }
+    ];
+    const dispatch = useDispatch();
+    const [selectedAsset, setSelectedAsset] = useState('');
+    const [zapAmount, setZapAmount] = useState(null);
+
+    const backToFarm = () => {
+        dispatch(changeSidebar('yield-asset'));
+    };
+
+    const handleClickAsset = () => {
+        setSelectedAsset('Sushi');
+    };
+
+    const handleClose = () => {
+        setSelectedAsset('');
+    };
+
+    const handleClickMax = () => {
+        setZapAmount('1532.34');
+    }
+
+    return (
+        <Container className="zap-info-container">
+            <Container className="zap-top-container">
+                <Container className="description-row mt-1">
+                    <Row className="back-to-farm" onClick={() => backToFarm()}>
+                        <FontAwesomeIcon className="arrow-left" icon={faArrowLeft} />
+                        <h6 className="mb-3">BACK TO FARM</h6>
+                    </Row>
+                </Container>
+                <Container className="description-row mt-3">
+                    {selectedAsset === '' ? (
+                        <>
+                            <div className="zap-title-white">ZAP IN TO:</div>
+                            <div className="subtitle-text-yield">PLX/ETH SUSHISWAP LP</div>
+                            <div className="zap-comment mt-3 mb-3">Convert any asset in your wallet into two equal-value halves of the pair in this farm, and stake it for rewards, all in one action.</div>
+                            <div className="subtitle-text-yield mt-5">SELECT A WALLET ASSET</div>
+                            <Row className="zap-table-container mt-3 py-3 mx-1">
+                                <Col className="zap-asset-title p-0">ASSET</Col>
+                                <Col className="zap-asset-title p-0 text-right">VALUE</Col>
+                            </Row>
+                            {assets.map(asset => (
+                                <Row className="zap-asset-row my-2 py-3 mx-1 align-items-center" onClick={() => handleClickAsset()}>
+                                    <Col className="p-0 d-flex align-items-center">
+                                        <img src={asset.assetIcon} alt="" className="mr-2 zap-asset-icon" />
+                                        <div className="zap-asset-white">{asset.assetName}</div>
+                                    </Col>
+                                    <Col className="zap-asset-white p-0 text-right">{asset.assetValue}</Col>
+                                </Row>
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            <div className="d-flex justify-content-between align-items-center">
+                                <div className="d-flex align-items-center">
+                                    <img src={Sushi} alt="" className="icon-w-48" />
+                                    <div className="ml-2">
+                                        <div className="zap-asset-white">SUSHI</div>
+                                        <div className="gredent_text">$1,923.45</div>
+                                    </div>
+                                </div>
+                                <img src={Close} alt="close" className="close-icon" onClick={() => handleClose()} />
+                            </div>
+                            <div className="subtitle-text-white mt-5 font-weight-normal">Input amount of SUSHI to Zap</div>
+                            <Container className="p-0">
+                                <Row className="mt-4">
+                                    <Col>
+                                        <div className="yield-action-value-box align-items-center">
+                                            <input
+                                                type="text" 
+                                                id="zap-amount" 
+                                                className="value-input-text" 
+                                                placeholder="0.00" 
+                                                value={zapAmount}
+                                                onChange={(e) => setZapAmount(e.target.value)}
+                                            />
+                                            {!zapAmount && (
+                                                <div className="max-button-text" onClick={() => handleClickMax()}>
+                                                    MAX<img src={ArrowUpIcon} alt="" className="mb-1 ml-1"/>
+                                                </div>
+                                            )}
+                                        </div>  
+                                    </Col>
+                                </Row>
+                                <Row className="mt-3">
+                                    <Col><div className="available-text">Balance: 15.6754 SUSHI</div></Col>
+                                </Row>
+                            </Container>
+                        </>
+                    )}
+                </Container>
+            </Container>
+            {selectedAsset !== '' && (
+                <Container className="zap-bottom-container">
+                    <img
+                        class="zap-bg"
+                        src={SushiIllustrate}
+                        alt=""
+                    />
+                    <div className="subtitle-text-white px-3 mt-5 font-weight-normal">Generating & Staking:</div>
+                    {zapAmount ? (
+                        <div className="currency-text px-3 mt-2 gredent_text">43.212</div>
+                    ) : (
+                        <div className="currency-text px-3 mt-2 text-muted">0.00</div>
+                    )}
+                    <div className="subtitle-text-white px-3 mt-1">PLX/ETH SUSHISWAP LP</div>
+                    <Row className="mt-3 px-3">
+                        <Col className="d-flex align-items-center">
+                            <img src={Rat} alt="" className="icon-w-28" />
+                            <div className={"zap-comment ml-2 " + (!zapAmount ? "text-muted" : "")}>
+                                {!zapAmount ? '0.00' : '321.21'} PLX
+                            </div>
+                        </Col>
+                        <Col className="d-flex align-items-center">
+                            <img src={ETH} alt="" className="icon-w-28" />
+                            <div className={"zap-comment ml-2 " + (!zapAmount ? "text-muted" : "")}>
+                                {!zapAmount ? '0.00' : '0.43'} ETH
+                            </div>
+                        </Col>
+                    </Row>
+                    {zapAmount ? (
+                        <div className="currency-text px-3 mt-4 gredent_text">~$1,923.45</div>
+                    ) : (
+                        <div className="currency-text px-3 mt-4 text-muted">~$0.00</div>
+                    )}
+                    <Button className="confirm-button px-3 mt-4" disabled={!zapAmount}>CONFIRM ZAP</Button>
+                </Container>
+            )}
+        </Container>
+    )
 }
 
 export default Sidebar;

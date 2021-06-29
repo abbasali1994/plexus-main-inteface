@@ -42,6 +42,7 @@
   background-size: cover;
   position: relative;
   z-index: 2;
+  min-width: 300px;
 }
 
 .net-worth-row {
@@ -73,7 +74,7 @@
   color: $plexus-white;
   font-weight: 600;
   font-family: $plexus-font-family;
-  font-size: 0.9em;
+  font-size: 1.0em;
   line-height: 24px;
 }
 
@@ -149,7 +150,7 @@
   color: $plexus-light-blue;
   font-weight: 600;
   font-family: $plexus-font-family;
-  font-size: 0.9em;
+  font-size: 1.0em;
   line-height: 36px;
 }
 
@@ -235,69 +236,87 @@
     background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
   }
 
-  .yield-action-value-box {
-    border-radius: 10px;
-    background: $plexus-dark;
-    padding:1em;
-    display: inline-flex;
-    width: 100%;
-    justify-content: space-between;
+}
 
-    .value-text {
-      font-family: $plexus-currency-font;
-      font-size: 0.9em;
-      line-height: 36px;
-      font-style: normal;
-    }
+.available-text {
+  color: $plexus-light-white;
+  font-family: $plexus-font-family;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.7em;
+  letter-spacing: 0.02em; 
+}
 
-    .max-button-text {
-      font-size: 0.7em;
-      line-height: 36px;
-      font-weight: normal;
-      font-style: normal;
-      font-family: 'CODEINK Regular';
-      color: $plexus-light-white;
-      float: right;
-    }
+.approve-button {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.7em;
+  line-height: 36px;
+  font-family: $plexus-font-family;
+  color: $plexus-white;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.5em;
+  padding-bottom:0.5em;
+  border-radius: 10px;
+  background-color: #236EDC;
+  text-align: center;
+}
+
+.comment {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.7em;
+  line-height: 17px;
+  font-family: $plexus-font-family;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: $plexus-light-white;
+}
+
+.yield-action-value-box {
+  border-radius: 10px;
+  background: $plexus-dark;
+  padding:1em;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .value-text {
+    font-family: $plexus-currency-font;
+    font-size: 0.9em;
+    line-height: 36px;
+    font-style: normal;
   }
 
-  .available-text {
-    color: $plexus-light-white;
-    font-family: $plexus-font-family;
+  .value-input-text {
+    font-family: $plexus-currency-font;
+    font-size: 0.9em;
+    line-height: 36px;
     font-style: normal;
-    font-weight: 600;
-    font-size: 0.7em;
-    letter-spacing: 0.02em; 
+    color: $plexus-white;
+    background-color: transparent;
+    border: none;
+    width: 80%;
   }
-  
-  .approve-button {
-    font-style: normal;
-    font-weight: 600;
+
+  .value-input-text:focus {
+    outline: none !important;
+  }
+
+  .max-button-text {
     font-size: 0.7em;
     line-height: 36px;
-    font-family: $plexus-font-family;
-    color: $plexus-white;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    padding-top: 0.5em;
-    padding-bottom:0.5em;
-    border-radius: 10px;
-    background-color: #236EDC;
-    text-align: center;
-  }
-
-  .comment {
+    font-weight: normal;
     font-style: normal;
-    font-weight: 600;
-    font-size: 0.7em;
-    line-height: 17px;
-    font-family: $plexus-font-family;
-    align-items: center;
-    text-align: center;
-    letter-spacing: -0.02em;
+    font-family: 'CODEINK Regular';
     color: $plexus-light-white;
+    float: right;
+    cursor: pointer;
   }
 }
+
 .lend-borrow-sidebar {
   .subtitle-text-white {
     font-weight: 600;
@@ -307,11 +326,13 @@
     font-family: $plexus-font-family;
     letter-spacing: 0.1em;
   }
+
   .subtitle-text-gradient {
     background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
   .description-text {
     font-style: normal;
     font-weight: 600;
@@ -319,5 +340,162 @@
     line-height: 24px;
     font-family: $plexus-font-family;
     color: #F2F2F2;
+  }
+}
+
+.back-to-farm {
+  cursor: pointer;
+  color: $plexus-white;
+}
+
+.zap-title-white {
+  color: $plexus-white;
+  font-weight: 600;
+  font-family: $plexus-font-family;
+  font-size: 1.4em;
+  line-height: 36px;
+  letter-spacing: 4px;
+  margin-bottom: -6px;
+}
+
+.zap-comment {
+  color: $plexus-white;
+  font-weight: 400;
+  font-family: $plexus-font-family;
+  font-size: 0.8em;
+  line-height: 17px;
+}
+
+.zap-asset-title {
+  color: $plexus-light-gray;
+  font-weight: 600;
+  font-family: $plexus-font-family;
+  font-size: 0.8em;
+  line-height: 17px;
+}
+
+.zap-asset-white {
+  color: $plexus-white;
+  font-weight: 500;
+  font-family: $plexus-font-family;
+  font-size: 1em;
+}
+
+.zap-table-container {
+  border: 1px solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: $plexus-gray;
+}
+
+.zap-asset-icon {
+  width: 20px;
+}
+
+.zap-asset-row {
+  cursor: pointer;
+}
+
+.close-icon {
+  width: 17px;
+  cursor: pointer;
+}
+
+.icon-w-48 {
+  width: 48px;
+}
+
+.icon-w-28 {
+  width: 28px;
+}
+
+.zap-info-container {
+  background-color: $plexus-light-dark;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  position: relative;
+  z-index: 2;
+  min-width: 300px;
+}
+
+.zap-top-container {
+  background-color: $plexus-dark-blue;
+  margin-top: 0;
+  padding: 1.5em;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 2em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.zap-bottom-container {
+  position: relative;
+  background-color: $plexus-light-dark;
+  margin-top: 0;
+  padding: 1.5em;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 1em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  // background-image: url('../../assets/sushi_illustration.svg');
+  // background-size: cover;
+
+  .btn.disabled, .btn:disabled {
+    background-color: $plexus-dark-blue !important;
+    border-color: $plexus-dark-blue !important;
+  }
+}
+
+.zap-bg {
+opacity: 0.3;
+  position: absolute;
+  left: 70px;
+  top: 30px;
+  height: 90%;
+}
+
+.currency-text {
+  font-family: $plexus-currency-font;
+  font-size: 1.2em;
+  line-height: 36px;
+  font-weight: 500;
+  font-style: normal;
+  color: $plexus-white;
+  background-color: transparent;
+  border: none;
+  width: 80%;
+}
+
+.confirm-button {
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 36px !important;
+  font-family: "Azo Sans Regular";
+  color: #E0E0E0 !important;
+  padding-left: 1.5em !important;
+  padding-right: 1.5em !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+  border-radius: 10px !important;
+  background-color: #236EDC !important;
+  text-align: center !important;
+  width: 100%;
+  letter-spacing: 2px;
+}
+
+.zap-link {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  cursor: pointer;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+
+  @include hover() {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
   }
 }
