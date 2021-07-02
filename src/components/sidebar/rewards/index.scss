@@ -1,0 +1,91 @@
+@import "App.scss";
+
+.reward-asset {
+  background-color: $plexus-dark-blue;
+  background-image: url('../../../assets/1inch_grey.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: overlay;
+  margin-top: 0;
+  padding: 1.5em;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 2em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+  min-width: 300px;
+
+  .reward-asset-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .reward-asset-img-small {
+    width: 22px;
+    height: 22px;
+  }
+
+  .title-text {
+    color: $plexus-light-blue;
+    font-weight: 600;
+    font-family: $plexus-font-family;
+    font-size: 1.4em;
+    // line-height: 36px;
+  }
+
+  .description-text {
+    font-weight: 500;
+    font-size: 1.0em;
+    // line-height: 36px;
+    font-family: $plexus-font-family;
+    color: $plexus-light-white;
+  }
+
+  .reward-earned-text {
+    font-family: $plexus-font-family;
+    font-weight: 500;
+    font-size: 0.85em;
+    color: $plexus-white;
+  }
+
+  .reward-asset-info-box {
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 0.5em;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $plexus-dark;
+  }
+
+  .reward-earned-value {
+    font-family: $plexus-currency-font;
+    font-weight: 500;
+    font-size: 1.0em;
+    color: $plexus-white;
+    line-height: 36px;
+    letter-spacing: 0.05em;
+  }
+
+  .claim-button {
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: 32px !important;
+    font-size: 0.9em;
+    font-family: "Azo Sans Regular";
+    color: #E0E0E0 !important;
+    padding-left: 1.5em !important;
+    padding-right: 1.5em !important;
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+    border-radius: 10px !important;
+    background-color: #236EDC !important;
+    text-align: center !important;
+    width: 100%;
+    letter-spacing: 2px;
+  }
+}
