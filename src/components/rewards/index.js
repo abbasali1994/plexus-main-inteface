@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Table } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+
+import { changeSidebar } from '../../redux/sidebarSlice';
 
 import './index.scss';
 
@@ -12,8 +15,12 @@ import Sushi from '../../assets/sushi_medium.svg';
 
 
 const RewardsComponent = (props) => {
+    const dispatch = useDispatch();
+    const [selected, setSelected] = useState(0);
+
     const liquidityData = [
         {
+            id: 1,
             assets1: 'PLX/ETH',
             assets2: 'SushiSwap LP',
             asset1Icon: Rat,
@@ -26,6 +33,7 @@ const RewardsComponent = (props) => {
             deposit: '$2,384.58'
         },
         {
+            id: 2,
             assets1: 'SUSHI/ETH',
             assets2: 'SushiSwap LP',
             asset1Icon: Sushi,
@@ -38,6 +46,7 @@ const RewardsComponent = (props) => {
             deposit: '$934.56'
         },
         {
+            id: 3,
             assets1: 'PLX/ETH',
             assets2: '1Inch LP',
             asset1Icon: Rat,
@@ -50,6 +59,7 @@ const RewardsComponent = (props) => {
             deposit: '$356.32'
         },
         {
+            id: 4,
             assets1: 'Plexus Token',
             assets2: '',
             asset1Icon: Rat,
@@ -62,6 +72,12 @@ const RewardsComponent = (props) => {
             deposit: '$314.56'
         }
     ];
+
+    const handleClickAsset = (id) => {
+        dispatch(changeSidebar('reward-asset'));
+        setSelected(id);
+    }
+
     return (
         <Row>
             <Col md={12} className="mb-3 mb-md-3">
@@ -98,8 +114,8 @@ const RewardsComponent = (props) => {
                     <tbody>
                         {liquidityData.map(e => (
                         <>
-                            <tr className="text-gray-4 w-25">
-                                <td className="table_col_first d-flex align-items-center">
+                            <tr className={"text-gray-4 w-25 point-cursor" + (selected === e.id ? " tr-active" : "")} onClick={() => handleClickAsset(e.id)}>
+                                <td className={"table_col_first d-flex align-items-center" + (selected === e.id ? " bg-transparent" : "")}>
                                     <div className="d-flex mr-3">
                                         <img src={e.asset1Icon} alt="" className="mr-2" />
                                         <img src={e.asset2Icon} alt="" />
@@ -109,11 +125,11 @@ const RewardsComponent = (props) => {
                                         <span>{e.assets2}</span>
                                     </div>
                                 </td>
-                                <td className="table_col ">
+                                <td className={"table_col" + (selected === e.id ? " bg-transparent" : "")}>
                                     <div>{e.protocol}</div>
                                 </td>
-                                <td className="table_col">{e.rewardsEarned1}&nbsp;&nbsp;&nbsp;&nbsp;{e.rewardsEarned2}</td>
-                                <td className="table_col_last">
+                                <td className={"table_col" + (selected === e.id ? " bg-transparent" : "")}>{e.rewardsEarned1}&nbsp;&nbsp;&nbsp;&nbsp;{e.rewardsEarned2}</td>
+                                <td className={"table_col_last" + (selected === e.id ? " bg-transparent" : "")}>
                                     <div className="d-flex mr-3">
                                         <img src={e.rewardsIcon1} alt="" className="mr-2" />
                                         <img src={e.rewardsIcon2} alt="" />

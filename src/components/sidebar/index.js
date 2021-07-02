@@ -16,6 +16,8 @@ import Uniswap from '../../assets/uniswap.svg';
 import Close from '../../assets/close.svg';
 import SushiIllustrate from '../../assets/sushi_illustration.svg';
 
+import RewardAssetSidebar from './rewards';
+
 import './index.scss';
 
 const Sidebar = () => {
@@ -74,6 +76,9 @@ const Sidebar = () => {
             )}
             {sidebar === 'user-stake-1inch' && (
                 <UserStaking />
+            )}
+            {sidebar === 'reward-asset' && (
+                <RewardAssetSidebar />
             )}
             <Container className="table-grid">
                 {rows.map(row => (
