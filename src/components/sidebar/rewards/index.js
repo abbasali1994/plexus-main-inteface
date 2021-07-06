@@ -33,7 +33,7 @@ const RewardAssetSidebar = () => {
                             <div className="reward-earned-value">345.12</div>
                         </div>
                     </Col>
-                    <Col lg={6}>
+                    <Col lg={6} className="pl-0">
                         <div className="d-flex align-items-center mb-2 ml-1">
                             <img src={Sushi} alt="" className="reward-asset-img-small mb-1 mr-1" />
                             <div className="reward-earned-text ml-1">SUSHI Earned</div>
@@ -43,7 +43,7 @@ const RewardAssetSidebar = () => {
                         </div>
                     </Col>
                 </Row>
-                <Row className="mt-1">
+                <Row className="mt-1 px-3">
                     <Button className="claim-button px-3 mt-4">CLAIM ALL REWARDS</Button>
                 </Row>
             </Container>            

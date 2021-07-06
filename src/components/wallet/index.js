@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Table } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+
+import { changeSidebar } from '../../redux/sidebarSlice';
 
 import './index.scss';
 
@@ -12,8 +15,12 @@ import Sushi from '../../assets/sushi.svg';
 import Uniswap from '../../assets/uniswap.svg';
 
 const Wallet = (props) => {
+    const dispatch = useDispatch();
+    const [selected, setSelected] = useState(0);
+
     const walletData = [
         {
+            id: 1,
             asset: 'Plexus',
             assetIcon: Rat,
             protocol: 'PLX',
@@ -22,6 +29,7 @@ const Wallet = (props) => {
             percentage: '47%'
         },
         {
+            id: 2,
             asset: 'Sushi',
             assetIcon: Sushi,
             protocol: 'SUSHI',
@@ -30,6 +38,7 @@ const Wallet = (props) => {
             percentage: '33%'
         },
         {
+            id: 3,
             asset: 'Ethereum',
             assetIcon: ETH,
             protocol: 'ETH',
@@ -38,6 +47,7 @@ const Wallet = (props) => {
             percentage: '16%'
         },
         {
+            id: 4,
             asset: 'Uniswap',
             assetIcon: Uniswap,
             protocol: 'UNI',
@@ -46,12 +56,18 @@ const Wallet = (props) => {
             percentage: '4%'
         }
     ];
+
+    const handleClickAsset = (id) => {
+        dispatch(changeSidebar('wallet-asset'));
+        setSelected(id);
+    }
+
     return (
         <Row>
             <Col md={12} className="mb-3 mb-md-4">
-                <Row className="go-back" onClick={() => props.goBack()}>
+                <Row>
                     <FontAwesomeIcon className="arrow-left" icon={faArrowLeft} />
-                    <h6 className="text-muted mb-3">BACK TO DASHBOARD</h6>
+                    <h6 className="text-muted mb-3 go-back" onClick={() => props.goBack()}>BACK TO DASHBOARD</h6>
                 </Row>
                 <Row className="text-white">
                     <Col md={6} className="mb-2 mb-md-4 mt-4">
@@ -83,8 +99,8 @@ const Wallet = (props) => {
                     <tbody>
                         {walletData.map(e => (
                         <>
-                            <tr className="text-gray-4 w-20">
-                                <td className="table_col_first d-flex align-items-center">
+                            <tr className={"text-gray-4 w-20 point-cursor" + (selected === e.id ? " tr-active" : "")} onClick={() => handleClickAsset(e.id)}>
+                                <td className={"table_col_first d-flex align-items-center" + (selected === e.id ? " bg-transparent" : "")}>
                                     <div className="d-flex mr-3">
                                         <img src={e.assetIcon} alt="" className="mr-2 asset-icon" />
                                     </div>
@@ -92,16 +108,16 @@ const Wallet = (props) => {
                                         <h6 className="mb-0 font-weight-bold">{e.asset}</h6>
                                     </div>
                                 </td>
-                                <td className="table_col w-20">
+                                <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
                                     <div className="d-flex align-items-center h-30 color-light">{e.protocol}</div>
                                 </td>
-                                <td className="table_col w-20">
+                                <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
                                     <div className="d-flex align-items-center h-30">{e.amount}</div>
                                 </td>
-                                <td className="table_col w-20">
+                                <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
                                     <div className="d-flex align-items-center h-30">{e.value}</div>
                                 </td>
-                                <td className="table_col_last w-fixed-120 pr-4">
+                                <td className={"table_col_last w-fixed-120 pr-4" + (selected === e.id ? " bg-transparent" : "")}>
                                     <div className="d-flex align-items-center h-30 justify-content-between">
                                         <span className="mr-3">{e.percentage}</span>
                                         <img src={Chart} alt="" />
