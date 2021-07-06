@@ -17,6 +17,7 @@ import Close from '../../assets/close.svg';
 import SushiIllustrate from '../../assets/sushi_illustration.svg';
 
 import RewardAssetSidebar from './rewards';
+import WalletAssetSidebar from './wallets';
 
 import './index.scss';
 
@@ -79,6 +80,9 @@ const Sidebar = () => {
             )}
             {sidebar === 'reward-asset' && (
                 <RewardAssetSidebar />
+            )}            
+            {sidebar === 'wallet-asset' && (
+                <WalletAssetSidebar />
             )}
             <Container className="table-grid">
                 {rows.map(row => (
