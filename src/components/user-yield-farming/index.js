@@ -6,89 +6,33 @@ import './index.scss';
 import Sushi from '../../assets/sushi.svg';
 import Rat from '../../assets/rat.svg';
 import ETH from '../../assets/eth.svg';
+import TableDataJson from "./data.json";
 
 const UserYieldFarming = () => { 
     
-    const tableData = [
-        {
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            protocol: 'Plexus',
-            deposit: '$8,782.34',
-            earning: '$2,384.58'
-        },
-        {
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            protocol: 'Plexus',
-            deposit: '$8,782.34',
-            earning: '$2,384.58'
-        },
-        {
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            protocol: 'Plexus',
-            deposit: '$8,782.34',
-            earning: '$2,384.58'
-        },
-        {
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            protocol: 'Plexus',
-            deposit: '$8,782.34',
-            earning: '$2,384.58'
-        },
-        {
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            protocol: 'Plexus',
-            deposit: '$8,782.34',
-            earning: '$2,384.58'
-        },
-        {
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            protocol: 'Plexus',
-            deposit: '$8,782.34',
-            earning: '$2,384.58'
-        },
-        {
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            protocol: 'Plexus',
-            deposit: '$8,782.34',
-            earning: '$2,384.58'
-        },
-        {
-            assets1: 'PLX/ETH',
-            assets2: 'SushiSwap LP',
-            protocol: 'Plexus',
-            deposit: '$8,782.34',
-            earning: '$2,384.58'
-        }
-    ];
+    const tableData = TableDataJson;
 
     return (
         <>
             <Col md={12} className="mb-md-3">
                 <div className="d-flex">
-                    <h5 className="text-white mr-2">YOUR YIELD FARMING</h5>
-                    <h5 className="font-weight-normal gredent_text">$20,114.82</h5>
+                    <h5 id="yourYieldText" className="text-white mr-2">YOUR YIELD FARMING</h5>
+                    <h5 id="dollarText" className="font-weight-normal gredent_text">$20,114.82</h5>
                 </div>
             </Col>
             <Col md={12}>
                 <Table responsive="md" borderless>
                     <thead>
                         <tr className="text-gray-3">
-                            <th>ASSETS</th>
-                            <th>PROTOCOL</th>
-                            <th>YOUR DEPOSITS</th>
-                            <th>EARNINGS</th>
-                            <th>REWARDS</th>
+                            <th id="assetsText">ASSETS</th>
+                            <th id="protocolText">PROTOCOL</th>
+                            <th id="yourDepositText">YOUR DEPOSITS</th>
+                            <th id="earningText">EARNINGS</th>
+                            <th id="rewardsText">REWARDS</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {tableData.map(e => (
+                        {tableData.map((e) => (
                         <>
                             <tr className="text-gray-4">
                                 <td className="table_col_first d-flex align-items-center">

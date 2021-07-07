@@ -67,20 +67,20 @@ const Wallet = (props) => {
             <Col md={12} className="mb-3 mb-md-4">
                 <Row>
                     <FontAwesomeIcon className="arrow-left" icon={faArrowLeft} />
-                    <h6 className="text-muted mb-3 go-back" onClick={() => props.goBack()}>BACK TO DASHBOARD</h6>
+                    <h6 id="backText" className="text-muted mb-3 go-back" onClick={() => props.goBack()}>BACK TO DASHBOARD</h6>
                 </Row>
                 <Row className="text-white">
                     <Col md={6} className="mb-2 mb-md-4 mt-4">
                         <div className="d-flex align-items-center">
-                            <h5 className="text-white mr-4 mb-0">WALLET</h5>
-                            <h5 className="font-weight-normal gredent_text mb-0">$8,782.34</h5>
+                            <h5 id="walletText" className="text-white mr-4 mb-0">WALLET</h5>
+                            <h5 id="dollarText" className="font-weight-normal gredent_text mb-0">$8,782.34</h5>
                         </div>
                     </Col>
                     <Col md={6} className="mb-2 mb-md-4 mt-4">
                         <div className="d-flex justify-content-end align-items-center">
-                            <h5 className="font-weight-normal gredent_text mb-0">23%</h5>
-                            <h5 className="text-white ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
-                            <img src={Chart} alt="" />
+                            <h5 id="percentText" className="font-weight-normal gredent_text mb-0">23%</h5>
+                            <h5 id="portfolioText" className="text-white ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
+                            <img id="chartImg" src={Chart} alt="" />
                         </div>
                     </Col>                    
                 </Row>
@@ -89,11 +89,11 @@ const Wallet = (props) => {
                 <Table responsive="md" borderless>
                     <thead>
                         <tr className="text-gray-3">
-                            <th>ASSETS</th>
+                            <th id="assetsText">ASSETS</th>
                             <th></th>
-                            <th>AMOUNT</th>
-                            <th>VALUE</th>
-                            <th>% OF WALLET</th>
+                            <th id="amountText">AMOUNT</th>
+                            <th id="valueText">VALUE</th>
+                            <th id="percentWalletText">% OF WALLET</th>
                         </tr>
                     </thead>
                     <tbody>

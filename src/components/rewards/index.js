@@ -83,20 +83,20 @@ const RewardsComponent = (props) => {
             <Col md={12} className="mb-3 mb-md-3">
                 <Row className="go-back" onClick={() => props.goBack()}>
                     <FontAwesomeIcon className="arrow-left" icon={faArrowLeft} />
-                    <h6 className="text-muted mb-3">BACK TO DASHBOARD</h6>
+                    <h6 id="backText" className="text-muted mb-3">BACK TO DASHBOARD</h6>
                 </Row>
                 <Row className="texte-white">
                     <Col md={6} className="mb-2 mb-md-4 mt-4">
                         <div className="d-flex align-items-center">
-                            <h5 className="text-white mr-4 mb-0">REWARDS</h5>
-                            <h5 className="font-weight-normal gredent_text mb-0">$2,716.43</h5>
+                            <h5 id="rewardsText" className="text-white mr-4 mb-0">REWARDS</h5>
+                            <h5 id="dollarText" className="font-weight-normal gredent_text mb-0">$2,716.43</h5>
                         </div>
                     </Col>
                     <Col md={6} className="mb-2 mb-md-4 mt-4">
                         <div className="d-flex justify-content-end align-items-center">
-                            <h5 className="font-weight-normal gredent_text mb-0">23%</h5>
-                            <h5 className="text-white ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
-                            <img src={Chart} alt="" />
+                            <h5 id="percentText" className="font-weight-normal gredent_text mb-0">23%</h5>
+                            <h5 id="portfolioText" className="text-white ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
+                            <img id="chartImg" src={Chart} alt="" />
                         </div>
                     </Col>  
                 </Row>
@@ -105,10 +105,10 @@ const RewardsComponent = (props) => {
                 <Table responsive="md" borderless>
                     <thead>
                         <tr className="text-gray-3">
-                            <th>ASSETS</th>
-                            <th>PROTOCOL</th>
-                            <th>REWARDS EARNED</th>
-                            <th>REWARDS</th>
+                            <th id="assetsText">ASSETS</th>
+                            <th id="protocolText">PROTOCOL</th>
+                            <th id="earnedText">REWARDS EARNED</th>
+                            <th id="rewardsText">REWARDS</th>
                         </tr>
                     </thead>
                     <tbody>
