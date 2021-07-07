@@ -81,16 +81,16 @@ const DashboardUI = () => {
             <Row className="pb-md-4 pb-3">
                 <Col md={4} className="mb-2">
                     <div className="py-3 px-3 assets_border_div">
-                        <div className="d-flex align-items-center"><img src={ETH} alt="" className="mr-3" /> <span className="text-white font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
+                        <div className="d-flex align-items-center"><img data-testid="ethImg" src={ETH} alt="" className="mr-3" /> <span data-testid="ethText" className="text-white font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
                     </div>
                 </Col>
                 <Col md={4} className="mb-2">
                     <div className="py-3 px-3 asset_div">
                         <div className="d-flex align-items-center">
-                            <img src={Binance} alt="" className="mr-3" />
+                            <img data-testid="bscImg" src={Binance} alt="" className="mr-3" />
                             <div className = "asset_text"> 
-                                <h6 className="text-gray-3 font-weight-bold pe-5 mb-0">BSC</h6>
-                                <h6 className="mb-0 text-gray-4">COMING SOON</h6>
+                                <h6 data-testid="bscText" className="text-gray-3 font-weight-bold pe-5 mb-0">BSC</h6>
+                                <h6 data-testid="bscComingSoonText" className="mb-0 text-gray-4">COMING SOON</h6>
                             </div>
                         </div>
                     </div>
@@ -98,10 +98,10 @@ const DashboardUI = () => {
                 <Col md={4} className="mb-2">
                     <div className="py-3 px-3 asset_div">
                         <div className="d-flex align-items-center">
-                            <img src={Soloana} alt="" className="mr-3" />
+                            <img  data-testid="solanaImg"  src={Soloana} alt="" className="mr-3" />
                             <div> 
-                                <h6 className="text-gray-3 font-weight-bold pe-5 mb-0">SOLANA</h6>
-                                <h6 className="mb-0 text-gray-4">COMING SOON</h6>
+                                <h6 data-testid="solanaText" className="text-gray-3 font-weight-bold pe-5 mb-0">SOLANA</h6>
+                                <h6 data-testid="solanaComingSoonText" className="mb-0 text-gray-4">COMING SOON</h6>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,8 @@ const DashboardUI = () => {
                     <Col md={12} className="mb-3 mb-md-5">
                         <h6 className="text-muted mb-3">ASSETS OVERVIEW</h6>
                         <Row className="text-white">
-                            {assetsData.map(e => 
+                            {assetsData.map((e) => 
+                            <>
                                 <Col md={6} className="mb-2 mb-md-4" onClick={() => handleClickAsset(e.name)}>
                                 <div className="asset_div p-3 d-flex justify-content-between align-items-center">
                                     <div className="d-flex align-items-center">
@@ -127,6 +128,7 @@ const DashboardUI = () => {
                                     </div>
                                 </div>
                             </Col>
+                            </>
                             )}
                         </Row>
                     </Col>

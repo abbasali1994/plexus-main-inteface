@@ -184,8 +184,8 @@ const YieldSidebar = () => {
                     </Col>
                     <Col lg={6}>
                         <div className="yield-info-box">
-                            <div className="yield-info-title-text">ROI</div>   
-                            <div className="yield-info-value-text">45.6% (1Y)</div>
+                            <div className = "yield-info-title-text">ROI</div>   
+                            <div className = "yield-info-value-text">45.6% (1Y)</div>
                         </div>
                     </Col>
                 </Row>
