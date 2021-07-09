@@ -1,10 +1,12 @@
 @import "App.scss";
-.user-staking {
+
+.user-staking-uniswap {
   background-color: $plexus-dark-blue;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-blend-mode: overlay;
+  background-blend-mode: color-burn;
+  background-image: url('../../assets/uniswap_grey.svg');
   margin-top: 0;
   padding: 1.5em;
   padding-left: 0;
@@ -16,104 +18,162 @@
   position: relative;
   z-index: 2;
   min-width: 300px;
-  .user-staking-img {
-    width: 38px;
-    height: 38px;
-  }
+}
 
-  .total-value-text {
-    font-size: 20px;
-    line-height: 16px;
-  }
+.user-staking-1inch {
+  background-color: $plexus-dark-blue;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: overlay;
+  background-image: url('../../assets/1inch_grey.svg');
+  margin-top: 0;
+  padding: 1.5em;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 4em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+  min-width: 300px;
+}
 
-  .title-text {
-    color: $plexus-light-blue;
-    font-weight: 600;
-    font-family: $plexus-font-family;
-    font-size: 1.2em;
-    line-height: 36px;
-  }
-  .description-text {
-    font-weight: 600;
-    font-size: 0.9em;
-    line-height: 36px;
-    font-family: $plexus-font-family;
-    color: $plexus-light-white;
-  }
-  .value-text1 {
-    color: #f2f2f2;
-    font-family: $plexus-currency-font;
-    font-weight: normal;
-    font-size: 0.8em;
-    letter-spacing: -0.05em;
-  }
-  .value-text2 {
-    color: $plexus-light-white;
-    font-family: $plexus-currency-font;
-    font-weight: 400;
-    font-size: 0.6em;
-    letter-spacing: -0.05em;
-  }
-  .user-staking-info-box {
-    padding: 0.5em;
-    padding-left: 1em;
-    width: 100%;
-    border-radius: 5px;
-    background-color: $plexus-light-dark;
-  }
-  .user-staking-info-title-text {
-    color: $plexus-light-white;
-    font-family: $plexus-font-family;
-    font-weight: 400;
-    font-size: 0.7em;
-    line-height: 36px;
-    letter-spacing: -0.02em;
-  }
-  .action-title-text {
-    font-family: $plexus-font-family;
-    color: $plexus-light-white;
-    line-height: 36px;
-    font-weight: 600;
-    font-size: 0.8em;
-  }
-  .stake-button {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 36px;
-    font-family: $plexus-font-family;
-    color: $plexus-white;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    border-radius: 10px;
-    letter-spacing: 0.1em;
-    background-color: #236edc;
-    text-align: center;
-  }
+.user-staking-sushiswap {
+  background-color: $plexus-dark-blue;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: overlay;
+  background-image: url('../../assets/sushi_illustration.svg');
+  margin-top: 0;
+  padding: 1.5em;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 4em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+  min-width: 300px;
+}
 
-  .stake-description {
-    font-family: $plexus-font-family;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    color: $plexus-light-white;
-  }
+.user-staking-img {
+  width: 38px;
+  height: 38px;
+}
 
-  .question-text {
-    font-family: $plexus-font-family;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    color: $plexus-light-blue;
-  }
+.total-value-text {
+  font-size: 1.5em;
+  // line-height: 16px;
+}
 
-  .question-description {
-    font-family: $plexus-font-family;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 20px;
-    color: $plexus-light-white;
-  }
+.staking-title-text {
+  color: $plexus-light-blue;
+  font-weight: 600;
+  font-family: $plexus-font-family;
+  font-size: 1.4em;
+  letter-spacing: 3px;
+}
+
+.staking-description-text {
+  font-weight: 500;
+  font-size: 1.0;
+  // line-height: 36px;
+  font-family: $plexus-font-family;
+  color: $plexus-light-white;
+  letter-spacing: 1px;
+}
+
+.value-text1 {
+  color: #f2f2f2;
+  font-family: $plexus-currency-font;
+  font-weight: 400;
+  font-size: 0.9em;
+  letter-spacing: -0.02em;
+}
+
+.value-text2 {
+  color: $plexus-light-white;
+  font-family: $plexus-currency-font;
+  font-weight: 400;
+  font-size: 0.8em;
+  letter-spacing: 0.02em;
+}
+
+.user-staking-info-box {
+  padding: 0.5em;
+  // padding-left: 1em;
+  width: 100%;
+  border-radius: 5px;
+  background-color: $plexus-light-dark;
+}
+
+.user-staking-info-title-text {
+  color: $plexus-white;
+  font-family: $plexus-font-family;
+  font-weight: 400;
+  font-size: 0.9em;
+  // line-height: 36px;
+  letter-spacing: -0.02em;
+}
+
+.action-title-text {
+  color: $plexus-white;
+  font-weight: 500;
+  font-family: $plexus-font-family;
+  font-size: 1.1em;
+  // line-height: 36px;
+  letter-spacing: 2px;
+}
+
+.stake-button {
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 32px !important;
+  font-size: 0.8em;
+  font-family: "Azo Sans Regular";
+  color: #E0E0E0 !important;
+  padding-left: 0.5em !important;
+  padding-right: 0.5em !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+  border-radius: 10px !important;
+  background-color: #236EDC !important;
+  text-align: center !important;
+  width: 100%;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h-28 {
+  height: 28px;
+}
+
+.stake-description {
+  font-family: $plexus-font-family;
+  font-weight: 500;
+  font-size: 0.95em;
+  // line-height: 20px;
+  color: $plexus-light-white;
+}
+
+.question-text {
+  font-family: $plexus-font-family;
+  font-weight: 500;
+  font-size: 0.95em;
+  // line-height: 20px;
+  color: $plexus-light-blue;
+}
+
+.question-description {
+  font-family: $plexus-font-family;
+  font-weight: 500;
+  font-size: 0.75em;
+  // line-height: 20px;
+  color: $plexus-light-white;
 }
