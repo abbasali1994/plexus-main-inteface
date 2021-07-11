@@ -33,6 +33,13 @@ const LiquidityPositions = (props) => {
         }
     }
 
+    const handleClickClose = () => {
+        setCurrentPosition("all");
+        setSelectedLiquidityData(liquidityData);
+        setSelected('');
+        dispatch(changeSidebar('dashboard-liquidity'));
+    }
+
     const handleClickAsset = (asset) => {
         setSelected(asset.id);
         switch (asset.protocol) {
@@ -82,10 +89,7 @@ const LiquidityPositions = (props) => {
                             {currentPosition === "SUSHISWAP" && (
                                 <img
                                     src={Exit} alt="" className="ml-5" 
-                                    onClick={() => {
-                                        setCurrentPosition("all");
-                                        setSelectedLiquidityData(liquidityData);
-                                    }}
+                                    onClick={handleClickClose}
                                 />
                             )}
                         </div>
@@ -100,10 +104,7 @@ const LiquidityPositions = (props) => {
                             {currentPosition === "1INCH" && (
                                 <img
                                     src={Exit} alt="" className="ml-5" 
-                                    onClick={() => {
-                                        setCurrentPosition("all");
-                                        setSelectedLiquidityData(liquidityData);
-                                    }}
+                                    onClick={handleClickClose}
                                 />
                             )}
                         </div>
@@ -118,10 +119,7 @@ const LiquidityPositions = (props) => {
                             {currentPosition === "UNISWAP" && (
                                 <img
                                     src={Exit} alt="" className="ml-5" 
-                                    onClick={() => {
-                                        setCurrentPosition("all");
-                                        setSelectedLiquidityData(liquidityData);
-                                    }}
+                                    onClick={handleClickClose}
                                 />
                             )}
                         </div>

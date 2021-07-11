@@ -16,6 +16,7 @@ import Soloana from '../../assets/soloana.svg';
 const YieldAggregator = () => { 
     const dispatch = useDispatch();
     const [selected, setSelected] = useState(0);
+    const [protocol, setProtocol] = useState('PLEXUS');
 
     const tableData = [
         {
@@ -85,6 +86,12 @@ const YieldAggregator = () => {
         setSelected(id);
     }
 
+    const handleClickProtocol = (protocol) => {
+        setProtocol(protocol);
+        setSelected(0);
+        dispatch(changeSidebar('yield-main'));
+    }
+
     return (
         <Container fluid className="py-md-5 pr-md-5 ml-4">
             <Row className="pb-md-4 pb-3">
@@ -121,20 +128,26 @@ const YieldAggregator = () => {
                     <h5 className="text-white">PROTOCOLS</h5>
                 </Col>
                 <Col md={3} className="mb-2">
-                    <div className="py-3 px-3 text-center h-100 d-flex flex-column assets_border_div">
+                    <div 
+                        className={"py-3 px-3 text-center h-100 d-flex flex-column " + (protocol === 'PLEXUS' ? 'assets_border_div' : 'asset_div')}
+                        onClick={() => handleClickProtocol('PLEXUS')}
+                    >
                         <div className="mb-2 mt-auto">
                             <img src={Rat} alt="" width="120px" />
                         </div>
                         <div className="d-flex justify-content-center">
                             <h5 className="mb-0 mr-2 text-white">PLEXUS</h5>
-                            <Badge pill variant="primary" className="pt-1">
+                            <Badge pill variant="primary" className="pt-2">
                                 17
                             </Badge>
                         </div>
                     </div>
                 </Col>
                 <Col md={3} className="mb-2">
-                    <div className="py-3 px-3 text-center h-100 d-flex flex-column asset_div">
+                    <div 
+                        className={"py-3 px-3 text-center h-100 d-flex flex-column " + (protocol === 'SUSHISWAP' ? 'assets_border_div' : 'asset_div')}
+                        onClick={() => handleClickProtocol('SUSHISWAP')}
+                    >
                         <div className="mb-2 mt-auto">
                             <img src={Sushi} alt="" width="120px" />
                         </div>
@@ -147,7 +160,10 @@ const YieldAggregator = () => {
                     </div>
                 </Col>
                 <Col md={3} className="mb-2">
-                    <div className="py-3 px-3 text-center h-100 d-flex flex-column asset_div">
+                    <div 
+                        className={"py-3 px-3 text-center h-100 d-flex flex-column " + (protocol === '1INCH' ? 'assets_border_div' : 'asset_div')}
+                        onClick={() => handleClickProtocol('1INCH')}
+                    >
                         <div className="mb-2 mt-auto">
                             <img src={Inch} alt="" width="120px" />
                         </div>
@@ -160,7 +176,10 @@ const YieldAggregator = () => {
                     </div>
                 </Col>
                 <Col md={3} className="mb-2">
-                    <div className="py-3 px-3 text-center h-100 d-flex flex-column asset_div">
+                    <div 
+                        className={"py-3 px-3 text-center h-100 d-flex flex-column " + (protocol === 'AAVE' ? 'assets_border_div' : 'asset_div')}
+                        onClick={() => handleClickProtocol('AAVE')}
+                    >
                         <div className="mb-2 mt-auto">
                             <img src={Aave} alt="" max-width="230px" />
                         </div>
@@ -174,7 +193,7 @@ const YieldAggregator = () => {
                 </Col>    
                 <Col md={12} className="mt-md-4  my-3">
                     <div className="d-flex align-items-center">
-                        <h5 className="text-white mr-2 mb-0">PLEXUS YIELD OPPORTUNITIES</h5>
+                        <h5 className="text-white mr-2 mb-0">{protocol} YIELD OPPORTUNITIES</h5>
                         <Badge pill variant="primary" className="pt-1">
                             <h5 className="mb-1 px-2">25</h5>
                         </Badge>
