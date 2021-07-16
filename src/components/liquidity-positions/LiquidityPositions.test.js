@@ -56,17 +56,11 @@ describe("LiquidityPositions component tests", () => {
 
   it("should render Assets text", () => {
     expect(getByTestId("assetsText").innerHTML).toBe("ASSETS");
-  });
-
-  it("should render Assets text", () => {
     expect(getByTestId("protocolText").innerHTML).toBe("PROTOCOL");
-  });
-
-  it("should render Assets text", () => {
     expect(getByTestId("depositText").innerHTML).toBe("YOUR DEPOSITS");
   });
 
-  it("should render chart Image", () => {
+  it("should render inch Image", () => {
     const image = getByTestId("inchImg");
     expect(image.src).toContain(Inch);
   });
@@ -75,7 +69,7 @@ describe("LiquidityPositions component tests", () => {
     expect(image.src).toContain(Chart);
   });
 
-  it("should render chart Image", () => {
+  it("should render uniswap Image", () => {
     const image = getByTestId("uniSwapImg");
     expect(image.src).toContain(Uniswap);
   });

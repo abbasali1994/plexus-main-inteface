@@ -115,7 +115,7 @@ const DashboardUI = () => {
                         <Row className="text-white">
                             {assetsData.map((e) => 
                             <>
-                                <Col md={6} className="mb-2 mb-md-4" onClick={() => handleClickAsset(e.name)}>
+                                <Col data-testid={"button-" + e.name} md={6} className="mb-2 mb-md-4" onClick={() => handleClickAsset(e.name)}>
                                 <div className="asset_div p-3 d-flex justify-content-between align-items-center">
                                     <div className="d-flex align-items-center">
                                         <img src={e.icon} alt="" className="mr-2" />
