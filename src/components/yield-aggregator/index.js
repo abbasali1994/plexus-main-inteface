@@ -192,32 +192,32 @@ const YieldAggregator = () => {
                         </thead>
                         <tbody>
                             {tableData.map(e => (
-                            <>
-                                <tr className={"text-gray-4 point-cursor" + (selected === e.id ? " tr-active" : "")} onClick={() => handleClickAsset(e.id)}>
-                                    <td className={"table_col_first d-flex align-items-center" + (selected === e.id ? " bg-transparent" : "")}>
-                                        <div className="d-flex mr-3">
-                                            <img src={e.assetsIcon1} alt="" className="mr-2" />
-                                            {e.assetsIcon2 &&<img src={ETH} alt="" /> }
-                                        </div>
-                                        <div>
-                                            <h6 className="mb-0">{e.assets1}</h6>
-                                            {!e.assets2 && <br/>}<span>{e.assets2}</span>
-                                        </div>
-                                    </td>
-                                    <td className={"table_col" + (selected === e.id ? " bg-transparent tr-active" : "")}>{e.deposit}</td>
-                                    <td className={"table_col" + (selected === e.id ? " bg-transparent" : "")}>{e.roi}</td>
-                                    <td className={"table_col_last" + (selected === e.id ? " bg-transparent" : "")}>
-                                        <div className="d-flex mr-3">
-                                            {e.rewards.map(i => 
-                                                <img src={i} alt="" className="mr-2" />
-                                            )}
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="p-2"></td>
-                                </tr>
-                            </>
+                                <>
+                                    <tr data-testid={e.id} className={"text-gray-4 point-cursor" + (selected === e.id ? " tr-active" : "")} onClick={() => handleClickAsset(e.id)}>
+                                        <td className={"table_col_first d-flex align-items-center" + (selected === e.id ? " bg-transparent" : "")}>
+                                            <div className="d-flex mr-3">
+                                                <img src={e.assetsIcon1} alt="" className="mr-2" />
+                                                {e.assetsIcon2 && <img src={ETH} alt="" />}
+                                            </div>
+                                            <div>
+                                                <h6 className="mb-0">{e.assets1}</h6>
+                                                {!e.assets2 && <br />}<span>{e.assets2}</span>
+                                            </div>
+                                        </td>
+                                        <td className={"table_col" + (selected === e.id ? " bg-transparent tr-active" : "")}>{e.deposit}</td>
+                                        <td className={"table_col" + (selected === e.id ? " bg-transparent" : "")}>{e.roi}</td>
+                                        <td className={"table_col_last" + (selected === e.id ? " bg-transparent" : "")}>
+                                            <div className="d-flex mr-3">
+                                                {e.rewards.map(i =>
+                                                    <img src={i} alt="" className="mr-2" />
+                                                )}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="p-2"></td>
+                                    </tr>
+                                </>
                             ))}
                         </tbody>
                     </Table>

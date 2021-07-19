@@ -70,7 +70,7 @@ const Sidebar = () => {
                 <ZapSidebar />
             )}
             {sidebar === 'user-stake-sushiswap' && (
-                <UserStaking/>
+                <UserStaking />
             )}
             {sidebar === 'user-stake-uniswap' && (
                 <UserStaking />
@@ -80,7 +80,7 @@ const Sidebar = () => {
             )}
             {sidebar === 'reward-asset' && (
                 <RewardAssetSidebar />
-            )}            
+            )}
             {sidebar === 'wallet-asset' && (
                 <WalletAssetSidebar />
             )}
@@ -178,24 +178,24 @@ const YieldSidebar = () => {
                 <Row className="mt-3">
                     <Col lg={6} className="pr-0">
                         <div className="yield-info-box">
-                            <div className="yield-info-title-text">Total Deposited</div>   
-                            <div className="yield-info-value-text">$18,324,543.21</div>
+                            <div data-testid="yield-sidebar-total-deposited-text" className="yield-info-title-text">Total Deposited</div>
+                            <div data-testid="yield-sidebar-total-deposited-value" className="yield-info-value-text">$ 18,324,543.21</div>
                         </div>
                     </Col>
                     <Col lg={6}>
                         <div className="yield-info-box">
-                            <div className = "yield-info-title-text">ROI</div>   
-                            <div className = "yield-info-value-text">45.6% (1Y)</div>
+                            <div data-testid="yield-sidebar-roi-text" className="yield-info-title-text">ROI</div>
+                            <div data-testid="yield-sidebar-roi-value" className="yield-info-value-text">45.6% (1Y)</div>
                         </div>
                     </Col>
                 </Row>
                 <Row className="mt-4">
-                    <Col lg={6} className="pr-0"><div className="yield-personal-info-title-text">Your Deposites:</div></Col>
-                    <Col lg={6} className="pr-2"><div className="yield-personal-info-value-text">0.00 SLP</div></Col>
+                    <Col lg={6} className="pr-0"><div data-testid="yield-sidebar-your-deposit-text" className="yield-personal-info-title-text">Your Deposites:</div></Col>
+                    <Col lg={6} className="pr-2"><div data-testid="yield-sidebar-your-deposit-value" className="yield-personal-info-value-text">0.00 SLP</div></Col>
                 </Row>
                 <Row>
                     <Col lg={6} className="pr-0"><div className="yield-personal-info-title-text">Rewards Earned:</div></Col>
-                    <Col lg={6} className="pr-2 pl-0"><div className="yield-personal-info-value-text p-0"><img src={Rat} alt="" className="mb-1 mr-1"/><span className="mr-3">0.00</span><img src={Sushi} alt="" className="mb-1 mr-1"/><span>0.00</span></div></Col>
+                    <Col lg={6} className="pr-2 pl-0"><div className="yield-personal-info-value-text p-0"><img src={Rat} alt="" className="mb-1 mr-1" /><span className="mr-3">0.00</span><img src={Sushi} alt="" className="mb-1 mr-1" /><span>0.00</span></div></Col>
                 </Row>
                 <Row className="mt-3">
                     <Col className="yield-info-box-seperator"></Col>
@@ -215,18 +215,18 @@ const YieldSidebar = () => {
                     <Col>
                         <div className="yield-action-value-box">
                             <div className="value-text">0.00 </div>
-                            <div className="max-button-text">MAX<img src={ArrowUpIcon} alt="" className="mb-1 ml-1"/></div>
-                        </div>  
+                            <div className="max-button-text">MAX<img src={ArrowUpIcon} alt="" className="mb-1 ml-1" /></div>
+                        </div>
                     </Col>
                 </Row>
                 <Row className="mt-4">
-                    <Col><div className="available-text">Available: 15.6754 SLP</div></Col>
+                    <Col><div data-testid="yield-sidebar-available-slp-text" className="available-text">Available: 15.6754 SLP</div></Col>
                 </Row>
                 <Row className="mt-4">
-                    <Col><div className="approve-button">APPROVE PLX/ETH SLP</div></Col>
+                    <Col><div data-testid="yield-sidebar-approve-text" className="approve-button">APPROVE PLX/ETH SLP</div></Col>
                 </Row>
                 <Row className="mt-4">
-                    <Col><div className="comment">Need PLX/ETH SLP tokens to join this farm?<br/> <span className="zap-link" onClick={() => handleClickZap()}>Zap in liquidity</span> with any ERC-20 token in<br/> your wallet.</div></Col>
+                    <Col><div className="comment">Need PLX/ETH SLP tokens to join this farm?<br /> <span className="zap-link" onClick={() => handleClickZap()}>Zap in liquidity</span> with any ERC-20 token in<br /> your wallet.</div></Col>
                 </Row>
             </Container>
         </Container>
@@ -329,11 +329,11 @@ const LendBorrowSidebar = () => {
         <Container className="info-container lend-borrow-sidebar">
             <Container className="description-row mt-1">
                 <Col className="ml-2 mr-4 p-4">
-                    <div className="subtitle-text-white">LENDING AND<br/>BORROWING ARE<br/><span className="subtitle-text-gradient">COMMING SOON</span></div>
+                    <div className="subtitle-text-white">LENDING AND<br />BORROWING ARE<br /><span className="subtitle-text-gradient">COMMING SOON</span></div>
                     <div className="description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
                 </Col>
             </Container>
-           
+
         </Container>
     )
 }
@@ -343,11 +343,11 @@ const CrossChainToolsSidebar = () => {
         <Container className="info-container lend-borrow-sidebar">
             <Container className="description-row mt-1">
                 <Col className="ml-2 mr-4 p-4">
-                    <div className="subtitle-text-white">CROSS-CHAIN<br/>TOOLS ARE<br/><span className="subtitle-text-gradient">COMMING SOON</span></div>
+                    <div className="subtitle-text-white">CROSS-CHAIN<br />TOOLS ARE<br /><span className="subtitle-text-gradient">COMMING SOON</span></div>
                     <div className="description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
                 </Col>
             </Container>
-           
+
         </Container>
     )
 
@@ -444,19 +444,19 @@ const ZapSidebar = () => {
                                     <Col>
                                         <div className="yield-action-value-box align-items-center">
                                             <input
-                                                type="text" 
-                                                id="zap-amount" 
-                                                className="value-input-text" 
-                                                placeholder="0.00" 
+                                                type="text"
+                                                id="zap-amount"
+                                                className="value-input-text"
+                                                placeholder="0.00"
                                                 value={zapAmount}
                                                 onChange={(e) => setZapAmount(e.target.value)}
                                             />
                                             {!zapAmount && (
                                                 <div className="max-button-text" onClick={() => handleClickMax()}>
-                                                    MAX<img src={ArrowUpIcon} alt="" className="mb-1 ml-1"/>
+                                                    MAX<img src={ArrowUpIcon} alt="" className="mb-1 ml-1" />
                                                 </div>
                                             )}
-                                        </div>  
+                                        </div>
                                     </Col>
                                 </Row>
                                 <Row className="mt-3">
