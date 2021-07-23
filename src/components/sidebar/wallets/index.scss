@@ -1,7 +1,7 @@
 @import "App.scss";
 
 .wallet-asset {
-  background-color: $plexus-dark-blue;
+  background-color: var(--color-sidebar-bg);
   margin-top: 0;
   padding: 1.5em;
   padding-left: 0;
@@ -20,7 +20,7 @@
   }
 
   .title-text {
-    color: $plexus-white;
+    color: var(--color-sidebar-title-text);
     font-weight: 500;
     font-family: $plexus-font-family;
     font-size: 1.2em;
@@ -29,7 +29,7 @@
   }
 
   .sub-container {
-    background-color: $plexus-light-dark;
+    background-color: var(--color-sidebar-info-box-bg);
     border-radius: 5px;
     align-items: center;
   }
@@ -44,14 +44,14 @@
     font-weight: 400;
     font-size: 1.0em;
     font-family: $plexus-font-family;
-    color: $plexus-white;
+    color: var(--color-sidebar-title-text);
   }
 
   .sub-value-text {
     font-weight: 400;
     font-size: 1.3em;
     font-family: $plexus-currency-font;
-    color: $plexus-white;
+    color: var(--color-sidebar-title-text);
   }
 
   .description-text {
@@ -59,7 +59,7 @@
     font-size: 0.95em;
     // line-height: 36px;
     font-family: $plexus-font-family;
-    color: $plexus-light-white;
+    color: var(--color-sidebar-description);
     letter-spacing: 0.5px;
   }
 
@@ -69,13 +69,13 @@
     line-height: 32px !important;
     font-size: 0.8em;
     font-family: "Azo Sans Regular";
-    color: #E0E0E0 !important;
+    color: var(--color-button-text) !important;
     padding-left: 0.5em !important;
     padding-right: 0.5em !important;
     padding-top: 0.5em !important;
     padding-bottom: 0.5em !important;
     border-radius: 10px !important;
-    background-color: #236EDC !important;
+    background-color: var(--color-button-bg) !important;
     text-align: center !important;
     width: 100%;
     letter-spacing: 1px;

@@ -81,7 +81,7 @@ const DashboardUI = () => {
             <Row className="pb-md-4 pb-3">
                 <Col md={4} className="mb-2">
                     <div className="py-3 px-3 assets_border_div">
-                        <div className="d-flex align-items-center"><img data-testid="ethImg" src={ETH} alt="" className="mr-3" /> <span data-testid="ethText" className="text-white font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
+                        <div className="d-flex align-items-center"><img data-testid="ethImg" src={ETH} alt="" className="mr-3" /> <span data-testid="ethText" className=" font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
                     </div>
                 </Col>
                 <Col md={4} className="mb-2">
@@ -89,8 +89,8 @@ const DashboardUI = () => {
                         <div className="d-flex align-items-center">
                             <img data-testid="bscImg" src={Binance} alt="" className="mr-3" />
                             <div className = "asset_text"> 
-                                <h6 data-testid="bscText" className="text-gray-3 font-weight-bold pe-5 mb-0">BSC</h6>
-                                <h6 data-testid="bscComingSoonText" className="mb-0 text-gray-4">COMING SOON</h6>
+                                <h6 data-testid="bscText" className="net-name font-weight-bold pe-5 mb-0">BSC</h6>
+                                <h6 data-testid="bscComingSoonText" className="description mb-0 ">COMING SOON</h6>
                             </div>
                         </div>
                     </div>
@@ -100,8 +100,8 @@ const DashboardUI = () => {
                         <div className="d-flex align-items-center">
                             <img  data-testid="solanaImg"  src={Soloana} alt="" className="mr-3" />
                             <div> 
-                                <h6 data-testid="solanaText" className="text-gray-3 font-weight-bold pe-5 mb-0">SOLANA</h6>
-                                <h6 data-testid="solanaComingSoonText" className="mb-0 text-gray-4">COMING SOON</h6>
+                                <h6 data-testid="solanaText" className="net-name  font-weight-bold pe-5 mb-0">SOLANA</h6>
+                                <h6 data-testid="solanaComingSoonText" className="description mb-0 ">COMING SOON</h6>
                             </div>
                         </div>
                     </div>

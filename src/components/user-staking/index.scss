@@ -1,7 +1,7 @@
 @import "App.scss";
 
 .user-staking-uniswap {
-  background-color: $plexus-dark-blue;
+  background-color: var(--color-sidebar-bg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -21,7 +21,7 @@
 }
 
 .user-staking-1inch {
-  background-color: $plexus-dark-blue;
+  background-color: var(--color-sidebar-bg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -41,7 +41,7 @@
 }
 
 .user-staking-sushiswap {
-  background-color: $plexus-dark-blue;
+  background-color: var(--color-sidebar-bg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -71,7 +71,7 @@
 }
 
 .staking-title-text {
-  color: $plexus-light-blue;
+  color: var(--color-sidebar-title-text);
   font-weight: 600;
   font-family: $plexus-font-family;
   font-size: 1.4em;
@@ -83,12 +83,12 @@
   font-size: 1.0;
   // line-height: 36px;
   font-family: $plexus-font-family;
-  color: $plexus-light-white;
+  color: var(--color-sidebar-description);
   letter-spacing: 1px;
 }
 
 .value-text1 {
-  color: #f2f2f2;
+  color:  var(--color-sidebar-value1);
   font-family: $plexus-currency-font;
   font-weight: 400;
   font-size: 0.9em;
@@ -96,7 +96,7 @@
 }
 
 .value-text2 {
-  color: $plexus-light-white;
+  color: var(--color-sidebar-value2);
   font-family: $plexus-currency-font;
   font-weight: 400;
   font-size: 0.8em;
@@ -108,11 +108,11 @@
   // padding-left: 1em;
   width: 100%;
   border-radius: 5px;
-  background-color: $plexus-light-dark;
+  background-color: var(--color-sidebar-info-box-bg);
 }
 
 .user-staking-info-title-text {
-  color: $plexus-white;
+  color: var(--color-sidebar-subtitle-text);
   font-family: $plexus-font-family;
   font-weight: 400;
   font-size: 0.9em;
@@ -121,7 +121,7 @@
 }
 
 .action-title-text {
-  color: $plexus-white;
+  color: var(--color-sidebar-subtitle-text);
   font-weight: 500;
   font-family: $plexus-font-family;
   font-size: 1.1em;
@@ -135,13 +135,13 @@
   line-height: 32px !important;
   font-size: 0.8em;
   font-family: "Azo Sans Regular";
-  color: #E0E0E0 !important;
+  color: var(--color-button-text) !important;
   padding-left: 0.5em !important;
   padding-right: 0.5em !important;
   padding-top: 0.5em !important;
   padding-bottom: 0.5em !important;
   border-radius: 10px !important;
-  background-color: #236EDC !important;
+  background-color: var(--color-button-bg) !important;
   text-align: center !important;
   width: 100%;
   letter-spacing: 1px;
@@ -159,7 +159,7 @@
   font-weight: 500;
   font-size: 0.95em;
   // line-height: 20px;
-  color: $plexus-light-white;
+  color: var(--color-sidebar-subtitle-text);
 }
 
 .question-text {
@@ -167,7 +167,7 @@
   font-weight: 500;
   font-size: 0.95em;
   // line-height: 20px;
-  color: $plexus-light-blue;
+  color: #62B0E5;
 }
 
 .question-description {
@@ -175,5 +175,5 @@
   font-weight: 500;
   font-size: 0.75em;
   // line-height: 20px;
-  color: $plexus-light-white;
+  color: var(--color-sidebar-subtitle-text);
 }

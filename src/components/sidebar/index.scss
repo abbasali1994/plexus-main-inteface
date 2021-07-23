@@ -1,7 +1,7 @@
 @import "App.scss";
 
 .title-container {
-  background-color: $plexus-light-dark;
+  background-color: var(--color-sidebar-walletinfo-bg);
   margin-top: 87px;
   padding: 0.6em;
   border-top-left-radius: 10px;
@@ -12,7 +12,7 @@
 }
 
 .address-text {
-  color: $plexus-white;
+  color:#E0E0E0;
   font-family: 'Nova Mono Regular';
   font-weight: 400;
   font-size: 0.9em;
@@ -21,7 +21,7 @@
 }
 
 .net-worth-label {
-  color: $plexus-white;
+  color: var(--color-text1);
   font-family: $plexus-font-family;
   font-weight: 400;
   font-size: 1.2em;
@@ -30,9 +30,10 @@
 }
 
 .info-container {
-  background-color: $plexus-dark-blue;
+ 
   margin-top: 0;
   padding: 1.5em;
+  background-color: var(--color-sidebar-bg) !important;
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 4em;
@@ -50,7 +51,7 @@
   margin-left: 1.5em;
   width: calc(100% - 45px);
   border-radius: 10px;
-  background-color: $plexus-light-dark;
+  background-color: var(--color-sidebar-info-box-bg);
 }
 
 .balance-text {
@@ -59,11 +60,10 @@
   font-size: 26px;
   line-height: 36px;
   letter-spacing: 1px;
-  color: $plexus-light-blue;
 }
 
 .subtitle-text {
-  color: $plexus-light-blue;
+  color: #62B0E5;
   font-weight: 600;
   font-family: $plexus-font-family;
   font-size: 1.2em;
@@ -72,7 +72,7 @@
 }
 
 .subtitle-text-white {
-  color: $plexus-white;
+  color: var(--color-sidebar-description);
   font-weight: 600;
   font-family: $plexus-font-family;
   font-size: 1.2em;
@@ -81,7 +81,7 @@
 }
 
 .description-text {
-  color: $plexus-light-white;
+  color: var(--color-sidebar-description);
   font-weight: 500;
   font-family: $plexus-font-family;
   font-size: 0.85em;
@@ -100,7 +100,7 @@
 }
 
 .caret-down {
-  color: $plexus-light-blue;
+  color: var(--color-sidebar-carret-down);
   margin-left: 5px;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .info-container-yield {
-  background-color: $plexus-dark-blue;
+  background-color: var(--color-sidebar-bg);
   background-image: url('../../assets/Subtract.png');
   margin-top: 0;
   padding: 1.5em;
@@ -150,7 +150,7 @@
 }
 
 .subtitle-text-yield {
-  color: $plexus-light-blue;
+  color: #62B0E5;
   font-weight: 600;
   font-family: $plexus-font-family;
   font-size: 1.2em;
@@ -163,11 +163,11 @@
   // padding-left: 1em;
   width: 100%;
   border-radius: 5px;
-  background-color: $plexus-light-dark;
+  background-color: var(--color-sidebar-info-box-bg);
 }
 
 .yield-info-title-text {
-  color: $plexus-white;
+  color: var(--color-sidebar-subtitle-text);
   font-family: $plexus-font-family;
   font-weight: 400;
   font-size: 0.9em;
@@ -176,7 +176,7 @@
 }
 
 .yield-info-value-text {
-  color: $plexus-white;
+  color: var(--color-sidebar-value2);
   font-family: $plexus-currency-font;
   font-weight: 400;
   font-size: 0.9em;
@@ -185,7 +185,7 @@
 }
 
 .yield-personal-info-title-text {
-  color: $plexus-white;
+  color: var(--color-text1);
   font-family: $plexus-font-family;
   // font-weight: 600;
   font-size: 0.9em;
@@ -194,7 +194,7 @@
 }
 
 .yield-personal-info-value-text {
-  color: $plexus-light-gray;
+  color: var( --color-sidebar-yield-value-text);
   font-family: $plexus-currency-font;
   font-weight: 400;
   font-size: 0.9em;
@@ -204,14 +204,14 @@
 }
 
 .yield-info-box-seperator {
-  border: solid 1px $plexus-light-dark;
+  border: solid 1px var(--color-sidebar-separator);
 }
 
 .yield-action {
 
   .yield-action-button-box {
     border-radius: 5px;
-    background-color: $plexus-dark;
+    background-color: var(--color-sidebar-action-button-box-bg);
     padding:2px;
     display: inline-flex;
     width: 100%;
@@ -220,7 +220,7 @@
   .yield-action-button-text-box {
     
     border-radius: 5px;
-    background: $plexus-dark;
+    background: var(--color-sidebar-action-button-box-bg);
     // padding-left: 0.8em;
     // padding-right: 0.8em;
     padding-top: 0.8em;
@@ -228,7 +228,7 @@
     font-family: $plexus-font-family;
     // font-weight: 600;
     font-size: 0.83em;
-    color: #F2F2F2;
+    color: var( --color-sidebar-action-button-text);
     width: 33%;
     text-align: center;
     display: flex;
@@ -239,12 +239,13 @@
 
   .yield-action-button-text-box.active {
     background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
+    color: var( --color-sidebar-action-button-active-text);
   }
 
 }
 
 .available-text {
-  color: $plexus-light-white;
+  color: var(--color-sidebar-description);
   font-family: $plexus-font-family;
   font-style: normal;
   // font-weight: 600;
@@ -258,13 +259,13 @@
   font-size: 0.9em;
   line-height: 36px;
   font-family: $plexus-font-family;
-  color: $plexus-white;
+  color: var(--color-button-text);
   // padding-left: 1.5em;
   // padding-right: 1.5em;
   padding-top: 0.5em;
   padding-bottom:0.5em;
   border-radius: 10px;
-  background-color: #236EDC;
+  background-color: var(--color-button-bg);
   text-align: center;
   letter-spacing: 1px;
 }
@@ -278,12 +279,12 @@
   align-items: center;
   text-align: center;
   letter-spacing: -0.02em;
-  color: $plexus-light-white;
+  color: var(--color-sidebar-description);
 }
 
 .yield-action-value-box {
   border-radius: 10px;
-  background: $plexus-dark;
+  background: var(--color-sidebar-input-box-bg);
   padding:1em;
   display: inline-flex;
   width: 100%;
@@ -301,7 +302,7 @@
     font-size: 0.9em;
     line-height: 36px;
     font-style: normal;
-    color: $plexus-white;
+    color: var(--color-text1);
     background-color: transparent;
     border: none;
     width: 78%;
@@ -317,7 +318,7 @@
     font-weight: normal;
     font-style: normal;
     font-family: 'CODEINK Regular';
-    color: $plexus-light-white;
+    color: var(--color-sidebar-max-button);
     float: right;
     cursor: pointer;
   }
@@ -330,6 +331,7 @@
     line-height: 34px;
     align-items: center;
     font-family: $plexus-font-family;
+    color: var(--color-text1);
     letter-spacing: 2px;
   }
 
@@ -345,17 +347,17 @@
     font-size: 16px;
     line-height: 24px;
     font-family: $plexus-font-family;
-    color: #F2F2F2;
+    color: var(--color-text1);
   }
 }
 
 .back-to-farm {
   cursor: pointer;
-  color: $plexus-white;
+  color: var(--color-text1);
 }
 
 .zap-title-white {
-  color: $plexus-white;
+  color: var(--color-text1);
   font-weight: 600;
   font-family: $plexus-font-family;
   font-size: 1.4em;
@@ -365,7 +367,7 @@
 }
 
 .zap-comment {
-  color: $plexus-white;
+  color: var(--color-text1);
   font-weight: 400;
   font-family: $plexus-font-family;
   font-size: 0.8em;
@@ -373,7 +375,7 @@
 }
 
 .zap-asset-title {
-  color: $plexus-light-gray;
+  color: var(--color-sidebar-zap-asset-title);
   font-weight: 600;
   font-family: $plexus-font-family;
   font-size: 0.8em;
@@ -381,7 +383,7 @@
 }
 
 .zap-asset-white {
-  color: $plexus-white;
+  color: var(--color-text1);
   font-weight: 500;
   font-family: $plexus-font-family;
   font-size: 1em;
@@ -392,7 +394,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  border-color: $plexus-gray;
+  border-color: var(--color-sidebar-zap-table-container);
 }
 
 .zap-asset-icon {
@@ -417,7 +419,7 @@
 }
 
 .zap-info-container {
-  background-color: $plexus-light-dark;
+  background-color: var(--color-sidebar-info-box-bg);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   padding-left: 0 !important;
@@ -428,7 +430,7 @@
 }
 
 .zap-top-container {
-  background-color: $plexus-dark-blue;
+  background-color: var(--color-sidebar-bg);
   margin-top: 0;
   padding: 1.5em;
   padding-left: 0;
@@ -440,7 +442,7 @@
 
 .zap-bottom-container {
   position: relative;
-  background-color: $plexus-light-dark;
+  background-color: var(--color-sidebar-zap-bottom-container);
   margin-top: 0;
   padding: 1.5em;
   padding-left: 0;
@@ -452,8 +454,8 @@
   // background-size: cover;
 
   .btn.disabled, .btn:disabled {
-    background-color: $plexus-dark-blue !important;
-    border-color: $plexus-dark-blue !important;
+    background-color: var(--color-sidebar-zap-bottom-btn-disabled) !important;
+    border-color: var(--color-sidebar-zap-bottom-btn-disabled) !important;
   }
 }
 
@@ -471,7 +473,7 @@ opacity: 0.3;
   line-height: 36px;
   font-weight: 500;
   font-style: normal;
-  color: $plexus-white;
+  color: var(--color-text1);
   background-color: transparent;
   border: none;
   width: 80%;
@@ -482,13 +484,13 @@ opacity: 0.3;
   font-weight: 500 !important;
   line-height: 36px !important;
   font-family: "Azo Sans Regular";
-  color: #E0E0E0 !important;
+  color: var(--color-button-text) !important;
   padding-left: 1.5em !important;
   padding-right: 1.5em !important;
   padding-top: 0.5em !important;
   padding-bottom: 0.5em !important;
   border-radius: 10px !important;
-  background-color: #236EDC !important;
+  background-color: var(--color-button-bg) !important;
   text-align: center !important;
   width: 100%;
   letter-spacing: 2px;

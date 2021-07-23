@@ -16,7 +16,7 @@ const UserYieldFarming = () => {
         <>
             <Col md={12} className="mb-md-3">
                 <div className="d-flex">
-                    <h5 id="yourYieldText" className="text-white mr-2">YOUR YIELD FARMING</h5>
+                    <h5 id="yourYieldText" className="text-white-1 mr-2">YOUR YIELD FARMING</h5>
                     <h5 id="dollarText" className="font-weight-normal gredent_text">$20,114.82</h5>
                 </div>
             </Col>

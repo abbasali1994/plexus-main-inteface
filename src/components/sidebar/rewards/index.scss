@@ -1,7 +1,7 @@
 @import "App.scss";
 
 .reward-asset {
-  background-color: $plexus-dark-blue;
+  background-color: var(--color-sidebar-bg);
   background-image: url('../../../assets/1inch_grey.svg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -30,7 +30,7 @@
   }
 
   .title-text {
-    color: $plexus-light-blue;
+    color: var(--color-sidebar-title-text);
     font-weight: 600;
     font-family: $plexus-font-family;
     font-size: 1.4em;
@@ -43,14 +43,14 @@
     font-size: 1.0em;
     // line-height: 36px;
     font-family: $plexus-font-family;
-    color: $plexus-light-white;
+    color: var(--color-sidebar-description);
   }
 
   .reward-earned-text {
     font-family: $plexus-font-family;
     font-weight: 500;
     font-size: 0.85em;
-    color: $plexus-white;
+    color: var(--color-text1);
   }
 
   .reward-asset-info-box {
@@ -60,14 +60,14 @@
     padding-right: 0.5em;
     width: 100%;
     border-radius: 10px;
-    background-color: $plexus-dark;
+    background-color: var(--color-sidebar-info-box-bg);
   }
 
   .reward-earned-value {
     font-family: $plexus-currency-font;
     font-weight: 500;
     font-size: 1.0em;
-    color: $plexus-white;
+    color: var(--color-reward-earned-value);
     line-height: 36px;
     letter-spacing: 0.05em;
   }
@@ -78,13 +78,13 @@
     line-height: 32px !important;
     font-size: 0.9em;
     font-family: "Azo Sans Regular";
-    color: #E0E0E0 !important;
+    color: var(--color-button-text) !important;
     padding-left: 1.5em !important;
     padding-right: 1.5em !important;
     padding-top: 0.5em !important;
     padding-bottom: 0.5em !important;
     border-radius: 10px !important;
-    background-color: #236EDC !important;
+    background-color: var(--color-button-bg) !important;
     text-align: center !important;
     width: 100%;
     letter-spacing: 2px;

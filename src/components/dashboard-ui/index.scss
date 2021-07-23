@@ -1,10 +1,17 @@
 @import "App.scss";
 
 .asset_div {
-    background-color: #0E1726 !important;
+    background-color: var(--color-div-bg) !important;
     border-radius: 10px;
     font-family: $plexus-font-family;
     cursor: pointer;
+    color: var(--color-asset-div-text1);
+    .net-name {
+      color: var(--color-asset-div-text2);
+    }
+    .description {
+      color: var(--color-asset-div-text3);
+    }
 }
 
 .asset_text {
@@ -12,7 +19,9 @@
 }
 
 .assets_border_div {
-    border: 1px solid #4ea4d3 ;
+    background-color: var(--color-selected-div-bg) !important;
+    border: 1px solid var(--color-selected-div-border) ;
     border-radius: 10px;
     cursor: pointer;
+    color: var(--color-asset-div-text1);
 }

@@ -64,17 +64,17 @@ const LiquidityPositions = (props) => {
                     <FontAwesomeIcon className="arrow-left" icon={faArrowLeft} />
                     <h6 data-testid="backText" className="text-muted mb-3">BACK TO DASHBOARD</h6>
                 </Row>
-                <Row className="text-white">
+                <Row className="text-white-1">
                     <Col md={6} className="mb-2 mb-md-4 mt-3">
                         <div className="d-flex align-items-center">
-                            <h5 data-testid="liquidityText" className="text-white mr-4 mb-0">LIQUIDITY POSITIONS</h5>
+                            <h5 data-testid="liquidityText" className="text-whit-1 mr-4 mb-0">LIQUIDITY POSITIONS</h5>
                             <h5 data-testid="dollarText" className="font-weight-normal gredent_text mb-0">$3,892.34</h5>
                         </div>
                     </Col>
                     <Col md={6} className="mb-2 mb-md-4 mt-3">
                         <div className="d-flex justify-content-end align-items-center">
                             <h5 data-testid="percentText" className="font-weight-normal gredent_text mb-0">23%</h5>
-                            <h5 data-testid="portfolioText" className="text-white ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
+                            <h5 data-testid="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
                             <img data-testid="chartImg" src={Chart} alt="" />
                         </div>
                     </Col>                    
@@ -130,13 +130,13 @@ const LiquidityPositions = (props) => {
                 <Col md={12} className="mb-md-3">
                     <div className="d-flex">
                         {currentPosition === 'all' && (
-                            <h5 data-testid="liqPosText" className="text-white mr-2">
+                            <h5 data-testid="liqPosText" className="text-white-1 mr-2">
                                 YOUR LIQUIDITY POSITIONS
                                 <Badge pill variant="primary" className="ml-4 px-3">{liquidityData.length}</Badge>
                             </h5>
                         )}
                         {currentPosition !== 'all' && (
-                            <h5 data-testid="liqPosText" className="text-white mr-2">
+                            <h5 data-testid="liqPosText" className="text-white-1 mr-2">
                                 YOUR {currentPosition} LIQUIDITY
                                 <Badge pill variant="primary" className="ml-4 px-3">{liquidityData.filter((e) => e.protocol === currentPosition).length}</Badge>
                             </h5>

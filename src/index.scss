@@ -1,3 +1,5 @@
+@import "App.scss";
+@import "colors.scss";
 @font-face {
   font-family: 'Nova Mono Regular';
   src: url('assets/fonts/NovaMono-Regular.ttf')  format('truetype');
@@ -41,4 +43,96 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.dark {
+  --color-body-background: #{$plexus-dark};
+  --color-selected-div-bg: #{$plexus-dark};
+  --color-selected-div-border:#{$plexus-light-blue2};
+  --color-div-bg: #{$plexus-light-dark};
+  --color-left-arrow: #{$plexus-light-blue};
+  --color-text-gray: #{$plexus-light-gray};
+  --color-text-light-gray: #{$plexus-light-white};
+
+  --color-nav-border: #{$plexus-light-blue};
+  --color-nav-selected: #{$plexus-light-blue};
+  --color-nav-disabled: #{$plexus-gray};
+
+  --color-sidebar-bg: #{$plexus-dark-blue};
+  --color-sidebar-title-text: #{$plexus-light-blue};
+  --color-reward-earned-value: #{$plexus-white4};
+  --color-button-text: #{$plexus-white};
+  --color-button-bg: #{$plexus-blue};
+  --color-sidebar-description: #{$plexus-light-white};
+  --color-sidebar-value1: #{$plexus-white4};
+  --color-sidebar-value2: #{$plexus-light-white};
+  --color-sidebar-info-box-bg: #{$plexus-light-dark};
+  --color-sidebar-subtitle-text: #{$plexus-light-white};
+  --color-sidebar-walletinfo-bg: #{$plexus-light-dark};
+  --color-sidebar-carret-down: #{$plexus-light-blue};
+  --color-sidebar-yield-value-text: #{$plexus-light-gray};
+  --color-sidebar-separator: #{$plexus-light-dark};
+  --color-sidebar-action-button-box-bg: #{$plexus-dark};
+  --color-sidebar-action-button-text: #{$plexus-light-gray};
+  --color-sidebar-action-button-active-text: #{$plexus-white4};
+  --color-sidebar-input-box-bg: #{$plexus-dark};
+  --color-sidebar-max-button: #{$plexus-light-white};
+  --color-sidebar-zap-asset-title: #{$plexus-light-gray};
+  --color-sidebar-zap-table-container: #{$plexus-gray};
+  --color-sidebar-zap-bottom-container: #{$plexus-light-dark};
+  --color-sidebar-zap-bottom-btn-disabled: #{$plexus-dark-blue};
+
+  --color-asset-div-text1: #{$plexus-white};
+  --color-asset-div-text2: #{$plexus-light-gray};
+  --color-asset-div-text3: #{$plexus-light-white};
+
+  --color-navbar-disabled-color: #{$plexus-gray};
+
+  --color-text1: #{$plexus-white};
+}
+
+.light {
+  --color-body-background: #{$plexus-white2};
+  --color-selected-div-bg:#{$plexus-white3};
+  --color-selected-div-border:#{$plexus-light-blue2};
+  --color-div-bg: #{$plexus-light-gray2};
+  --color-left-arrow: #{$plexus-light-blue};
+  --color-text-gray: #{$plexus-gray3};
+  --color-text-light-gray: #{$plexus-gray4};
+
+  --color-nav-border: #{$plexus-light-blue};
+  --color-nav-selected: #{$plexus-light-blue};
+  --color-nav-disabled: #{$plexus-gray3};
+
+  --color-sidebar-bg: #{$plexus-white3};
+  --color-sidebar-title-text: #{$plexus-light-blue};
+  --color-reward-earned-value: #{$plexus-gray4};
+  --color-button-text: #{$plexus-white};
+  --color-button-bg: #{$plexus-blue};
+  --color-sidebar-description: #{$plexus-gray4};
+  --color-sidebar-value1: #{$plexus-blue};
+  --color-sidebar-value2: #{$plexus-gray4};
+  --color-sidebar-info-box-bg: #{$plexus-white2};
+  --color-sidebar-subtitle-text: #{$plexus-gray4};
+  --color-sidebar-walletinfo-bg: #{$plexus-blue};
+  --color-sidebar-carret-down: #{$plexus-light-blue};
+  --color-sidebar-yield-value-text: #{$plexus-light-gray};
+  --color-sidebar-separator: #{$plexus-light-dark};
+  --color-sidebar-action-button-box-bg: #{$plexus-white2};
+  --color-sidebar-action-button-text: #{$plexus-gray4};
+  --color-sidebar-action-button-active-text: #{$plexus-white4};
+  --color-sidebar-input-box-bg: #{$plexus-white2};
+  --color-sidebar-max-button: #{$plexus-gray4};
+  --color-sidebar-zap-asset-title: #{$plexus-light-gray};
+  --color-sidebar-zap-table-container: #{$plexus-gray};
+  --color-sidebar-zap-bottom-container: #{$plexus-light-gray2};
+  --color-sidebar-zap-bottom-btn-disabled: #{$plexus-dark-blue};
+
+  --color-asset-div-text1: #{$plexus-gray2};
+  --color-asset-div-text2: #{$plexus-gray4};
+  --color-asset-div-text3: #{$plexus-light-blue};
+  --color-text1: #{$plexus-gray2};
+
+  --color-navbar-disabled-color: #{$plexus-gray3};
+
 }

@@ -1,23 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 
-$plexus-white: #E0E0E0;
-$plexus-light-white: #BDBDBD;
-$plexus-dark: #050818;
-$plexus-light-dark: #0E1726;
-$plexus-dark-blue: #191E3A;
-$plexus-light-blue: #62B0E5;
-$plexus-gray: #4F4F4F;
-$plexus-font-family: 'Azo Sans Regular';
-$white: white;
-$bg-dark-color: #050818;
-$plexus-currency-font: 'Nova Mono Regular';
-$plexus-light-gray: #828282;
 
-.App {
-  background-color: $plexus-dark;
-  min-height: 100vh;
-  min-width: 100vw;
-}
+
+/* Font */
+$plexus-font-family: 'Azo Sans Regular';
+$plexus-currency-font: 'Nova Mono Regular';
 
 .gredent_text {
   background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
@@ -26,10 +13,19 @@ $plexus-light-gray: #828282;
   font-family: $plexus-currency-font;
 }
 
+.App {
+  background-color: var(--color-body-background) !important;
+  min-height: 100vh;
+  min-width: 100vw;
+}
 .text-gray-3 {
-  color: #828282;
+  color: var(--color-text-gray);
 }
 
 .text-gray-4 {
-  color: #BDBDBD;
+  color: var(--color-text-light-gray);
+}
+
+.text-white-1 {
+  color: var(--color-text1);
 }

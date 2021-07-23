@@ -1,18 +1,18 @@
 @import "App.scss";
 
 .table_col_first {
-  background-color: #0E1726 !important;
+  background-color: var(--color-div-bg) !important;
   border-radius: 10px 0 0 10px;
   font-family: $plexus-font-family;
 }
 
 .table_col_last {
-  background-color: #0E1726 !important;
+  background-color: var(--color-div-bg) !important;
   border-radius: 0 10px 10px 0;
   font-family: $plexus-font-family;
 }
 
 .table_col {
-  background-color: #0E1726 !important;
+  background-color: var(--color-div-bg) !important;
   font-family: $plexus-font-family;
 }

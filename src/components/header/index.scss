@@ -18,13 +18,13 @@
 
   .navbar-nav {
     border: 1px solid;
-    border-color: $plexus-light-blue;
+    border-color: var(--color-nav-border);
     border-top: none;
     border-right: none;
     border-left: none;
 
     .nav-link {
-      color: $plexus-white !important;
+      color: var(--color-text1) !important;
       margin-right: 30px;
       font-weight: 600;
       font-size: 16px;
@@ -34,7 +34,7 @@
 
       &:hover,
       &:focus {
-        color: $plexus-light-blue !important;
+        color: var(--color-nav-selected) !important;
       }
 
       &.disabled {
@@ -44,7 +44,7 @@
 
     .show > .nav-link,
     .nav-link.active {
-      color: $plexus-light-blue !important;      
+      color: var(--color-nav-selected) !important;      
       border: 4px solid;
       border-top: none;
       border-right: none;
@@ -52,22 +52,22 @@
     }
 
     .nav-link.disabled {
-      color: $plexus-gray !important;
+      color: var(--color-nav-disabled) !important;
     }
     .navbar-grey {
-      color: $navbar-dark-disabled-color !important;
+      color: var(--color-navbar-disabled-color) !important;
     }
     .navbar-grey:hover {
-      color: $navbar-dark-disabled-color !important;
+      color: var(--color-navbar-disabled-color) !important;
     }
   }
 
   .navbar-text {
-    color: $plexus-white !important;
+    color: var(--color-text1) !important;
     a,
     a:hover,
     a:focus {
-      color: $plexus-light-blue !important;
+      color: var(--color-nav-selected) !important;
     }
   }
 }

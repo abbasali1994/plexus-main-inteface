@@ -90,7 +90,7 @@ const YieldAggregator = () => {
             <Row className="pb-md-4 pb-3">
                 <Col md={4} className="mb-2">
                     <div className="py-3 px-3 assets_border_div">
-                        <div className="d-flex align-items-center"><img data-testid="ethImg" src={ETH} alt="" className="mr-3" /> <span data-testid="ethText" className="text-white font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
+                        <div className="d-flex align-items-center"><img data-testid="ethImg" src={ETH} alt="" className="mr-3" /> <span data-testid="ethText" className="font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
                     </div>
                 </Col>
                 <Col md={4} className="mb-2">
@@ -98,8 +98,8 @@ const YieldAggregator = () => {
                         <div className="d-flex align-items-center">
                             <img data-testid="bscImg" src={Binance} alt="" className="mr-3" />
                             <div className = "asset_text"> 
-                                <h6 data-testid="bscText" className="text-gray-3 font-weight-bold pe-5 mb-0">BSC</h6>
-                                <h6 data-testid="bscComingSoonText" className="mb-0 text-gray-4">COMING SOON</h6>
+                                <h6 data-testid="bscText" className="net-name font-weight-bold pe-5 mb-0">BSC</h6>
+                                <h6 data-testid="bscComingSoonText" className="description mb-0 ">COMING SOON</h6>
                             </div>
                         </div>
                     </div>
@@ -109,8 +109,8 @@ const YieldAggregator = () => {
                         <div className="d-flex align-items-center">
                             <img data-testid="solanaImg" src={Soloana} alt="" className="mr-3" />
                             <div> 
-                                <h6 data-testid="solanaText" className="text-gray-3 font-weight-bold pe-5 mb-0">SOLANA</h6>
-                                <h6 data-testid="solanaComingSoonText" className="mb-0 text-gray-4">COMING SOON</h6>
+                                <h6 data-testid="solanaText" className="net-name font-weight-bold pe-5 mb-0">SOLANA</h6>
+                                <h6 data-testid="solanaComingSoonText" className="description mb-0 ">COMING SOON</h6>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ const YieldAggregator = () => {
             </Row>
             <Row>
                 <Col md={12} className="mb-3 mb-md-4">
-                    <h5 className="text-white">PROTOCOLS</h5>
+                    <h5 className="text-white-1">PROTOCOLS</h5>
                 </Col>
                 <Col md={3} className="mb-2">
                     <div className="py-3 px-3 text-center h-100 d-flex flex-column assets_border_div">
@@ -126,7 +126,7 @@ const YieldAggregator = () => {
                             <img src={Rat} alt="" width="120px" />
                         </div>
                         <div className="d-flex justify-content-center">
-                            <h5 className="mb-0 mr-2 text-white">PLEXUS</h5>
+                            <h5 className="mb-0 mr-2 text-white-1">PLEXUS</h5>
                             <Badge pill variant="primary" className="pt-1">
                                 17
                             </Badge>
@@ -139,7 +139,7 @@ const YieldAggregator = () => {
                             <img src={Sushi} alt="" width="120px" />
                         </div>
                         <div className="d-flex justify-content-center">
-                            <h5 className="mb-0 mr-2 text-white">SUSHISWAP</h5>
+                            <h5 className="mb-0 mr-2 text-white-1">SUSHISWAP</h5>
                             <Badge pill variant="primary" className=" pt-2">
                                 25
                             </Badge>
@@ -152,7 +152,7 @@ const YieldAggregator = () => {
                             <img src={Inch} alt="" width="120px" />
                         </div>
                         <div className="d-flex justify-content-center">
-                            <h5 className="mb-0 mr-2 text-white">1INCH</h5>
+                            <h5 className="mb-0 mr-2 text-white-1">1INCH</h5>
                             <Badge pill variant="primary" className="pt-2">
                                 25
                             </Badge>
@@ -165,7 +165,7 @@ const YieldAggregator = () => {
                             <img src={Aave} alt="" max-width="230px" />
                         </div>
                         <div className="d-flex justify-content-center mt-auto">
-                            <h5 className="mb-0 mr-2 text-white">AAVE</h5>
+                            <h5 className="mb-0 mr-2 text-white-1">AAVE</h5>
                             <Badge pill variant="primary" className="pt-2">
                                 25
                             </Badge>
@@ -174,7 +174,7 @@ const YieldAggregator = () => {
                 </Col>    
                 <Col md={12} className="mt-md-4  my-3">
                     <div className="d-flex align-items-center">
-                        <h5 className="text-white mr-2 mb-0">PLEXUS YIELD OPPORTUNITIES</h5>
+                        <h5 className="text-white-1 mr-2 mb-0">PLEXUS YIELD OPPORTUNITIES</h5>
                         <Badge pill variant="primary" className="pt-1">
                             <h5 className="mb-1 px-2">25</h5>
                         </Badge>
