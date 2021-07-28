@@ -11,7 +11,6 @@ import WalletIcon from '../../assets/wallet.svg';
 import Liquidity from '../../assets/liquidity.svg';
 import Lock from '../../assets/lock.svg';
 import Rewards from '../../assets/rewards.svg';
-import Chart from '../../assets/chart.svg';
 import Binance from '../../assets/binance.svg';
 import Soloana from '../../assets/soloana.svg';
 
@@ -20,31 +19,32 @@ import UserYieldFarming from '../user-yield-farming';
 import RewardsComponent from '../rewards';
 import Wallet from '../wallet';
 import StakingComponent from '../staking';
+import Pie from '../pie-chart';
 
 const DashboardUI = () => {
     const assetsData = [{
             name: 'WALLET',
             icon: WalletIcon,
             amount: '$8,782.34',
-            percentage: '23%'
+            percentage: 23
         },
         {
             name: 'LIQUIDITY',
             icon: Liquidity,
             amount: '$3,892.34',
-            percentage: '23%'
+            percentage: 45
         },
         {
             name: 'STAKING',
             icon: Lock,
             amount: '$17,398.56',
-            percentage: '23%'
+            percentage: 60.8
         },
         {
             name: 'REWARDS',
             icon: Rewards,
             amount: '$2,716.43',
-            percentage: '23%'
+            percentage: 35.4
         }
     ];
 
@@ -123,8 +123,8 @@ const DashboardUI = () => {
                                     </div>
                                     <div className="d-flex align-items-center">
                                         <span className="mr-3 gredent_text">{e.amount}</span>
-                                        <span className="mr-2">{e.percentage}</span>
-                                        <img src={Chart} alt="" />
+                                        <span className="mr-2 mt-1">{e.percentage + "%"}</span>
+                                        <Pie percentage={e.percentage} size={32} />
                                     </div>
                                 </div>
                             </Col>
