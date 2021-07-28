@@ -1,0 +1,94 @@
+@import "App.scss";
+.arrow-left {
+  color: var(--color-left-arrow);
+  margin-left: 15px;
+  margin-top: 3px;
+  margin-right: 10px;
+}
+
+.go-back{
+  cursor: pointer;
+}
+
+.asset_div {
+    background-color: var(--color-div-bg) !important;
+    border-radius: 10px;
+    font-family: $plexus-font-family;
+    cursor: pointer;
+}
+.asset_div.active {
+  background-color: transparent !important;
+  border: 1px solid var(--color-selected-div-border) !important;
+  border-radius: 10px;
+
+}
+.table_col_first {
+    background-color: var(--color-div-bg) !important;
+    border-radius: 10px 0 0 10px;
+    font-family: $plexus-font-family;
+}
+
+.table_col_last {
+    background-color: var(--color-div-bg) !important;
+    border-radius: 0 10px 10px 0;
+    font-family: $plexus-font-family;
+}
+
+.table_col {
+    background-color: var(--color-div-bg) !important;
+    font-family: $plexus-font-family;
+}
+
+.currency-font {
+    font-family: $plexus-currency-font;
+}
+
+.remix-button {
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: 32px !important;
+    font-size: 0.8em;
+    font-family: "Azo Sans Regular";
+    color: var(--color-button-text) !important;
+    padding-left: 0.3em !important;
+    padding-right: 0.3em !important;
+    padding-top: 0em !important;
+    padding-bottom: 0em !important;
+    border-radius: 10px !important;
+    background-color: var(--color-button-bg) !important;
+    text-align: center !important;
+    width: 100%;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button-container {
+    .btn.disabled, .btn:disabled {
+        background-color: var(--color-sidebar-zap-bottom-btn-disabled) !important;
+        border-color: var(--color-sidebar-zap-bottom-btn-disabled) !important;
+      }
+}
+
+.generate-button {
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: 32px !important;
+    font-size: 0.8em;
+    font-family: "Azo Sans Regular";
+    color: var(--color-button-text) !important;
+    padding-left: 0.8em !important;
+    padding-right: 0.8em !important;
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+    border-radius: 10px !important;
+    background-color: var(--color-generate-btn) !important;
+    border-color: var(--color-generate-btn) !important;
+    text-align: center !important;
+    width: 100%;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

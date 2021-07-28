@@ -89,6 +89,8 @@ code {
   --color-navbar-disabled-color: #{$plexus-gray};
 
   --color-text1: #{$plexus-white};
+
+  --color-generate-btn: #{$plexus-blue};
 }
 
 .light {
@@ -135,4 +137,5 @@ code {
 
   --color-navbar-disabled-color: #{$plexus-gray3};
 
+  --color-generate-btn: #{$plexus-light-blue};
 }

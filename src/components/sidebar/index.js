@@ -84,6 +84,9 @@ const Sidebar = () => {
             {sidebar === 'wallet-asset' && (
                 <WalletAssetSidebar />
             )}
+            {sidebar === 'lp-main' && (
+                <LPMainSidebar />
+            )}
             <Container className="table-grid">
                 {rows.map(row => (
                     <Row key={"row" + row}>
@@ -503,6 +506,37 @@ const ZapSidebar = () => {
                     <Button className="confirm-button px-3 mt-4" disabled={!zapAmount}>CONFIRM ZAP</Button>
                 </Container>
             )}
+        </Container>
+    )
+}
+
+const LPMainSidebar = () => {
+    return (
+        <Container className="info-container">
+            <Container className="description-row mt-1">
+                <Col className="ml-2 mr-4 p-4">
+                    <div className="subtitle-text-white">LP TOOLS</div>
+                    <div className="description-text">Create, unwrap, and change the composition of SUSHI & Uniswap LP.</div>
+                </Col>
+            </Container>
+            <Container className="description-row mt-3">
+                <Row>
+                    <Col lg="2" className="description-part"></Col>
+                    <Col className="ml-4 mr-2 p-0">
+                        <div className="subtitle-text">PROTOCOLS</div>
+                        <div className="description-text">Select the protocol you'd like to interact with (currently, either SUSHI or Uniswap).</div>
+                    </Col>
+                </Row>
+            </Container>
+            <Container className="description-yield mt-8-em mb-5">
+                <Row>
+                    <Col lg="2" className="description-part"></Col>
+                    <Col className="ml-4 mr-2 p-0">
+                        <div className="subtitle-text">YOUR LP POSITIONS</div>
+                        <div className="description-text">Select the LP position you'd like to unwrap or remix, or generate a new one.</div>
+                    </Col>
+                </Row>
+            </Container>
         </Container>
     )
 }
