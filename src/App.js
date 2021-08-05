@@ -42,7 +42,7 @@ function App() {
   mq.addEventListener("change", (e) => handleChange(e.matches));
 
   return (
-    <Container fluid className={`App ${theme}`}>
+    <Container fluid className={`App ${theme} p-0`}>
       <ThemeToggle  handleChange={handleChange} theme={theme}/>
       { routesResult }
     </Container>

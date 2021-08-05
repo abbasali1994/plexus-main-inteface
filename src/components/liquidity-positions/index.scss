@@ -38,3 +38,12 @@
     background-color: var(--color-div-bg) !important;
     font-family: $plexus-font-family;
 }
+
+@media screen and (max-width: 1024px) {
+  .asset_div {
+    background-color: var(--color-selected-div-bg) !important;
+    border-radius: 10px;
+    font-family: $plexus-font-family;
+    cursor: pointer;
+  }
+}
