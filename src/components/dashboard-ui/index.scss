@@ -25,3 +25,21 @@
     cursor: pointer;
     color: var(--color-asset-div-text1);
 }
+
+@media screen and (max-width: 1024px) {
+  .asset_div {
+    background-color: var(--color-selected-div-bg) !important;
+    border-radius: 10px;
+    font-family: $plexus-font-family;
+    cursor: pointer;
+    color: var(--color-asset-div-text1);
+    .net-name {
+      color: var(--color-asset-div-text2);
+    }
+    .description {
+      color: var(--color-asset-div-text3);
+      font-size: 8px;
+      margin-top: 6px;
+    }
+  }
+}

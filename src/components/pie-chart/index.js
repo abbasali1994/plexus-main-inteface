@@ -13,7 +13,6 @@ const Pie = ({ percentage, size }) => {
   }, [size]);
 
   const theme = useSelector(currentTheme);
-  console.log(theme);
   
   const data = [
     { title: 'First', value: percentage, color: (theme === "light" ? '#4ea4d3' : '#236EDC') },

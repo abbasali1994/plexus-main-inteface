@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {Container, Row, Col} from 'react-bootstrap';
 
+import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
 
 import './index.scss';
@@ -51,6 +52,14 @@ const DashboardUI = () => {
     const [ overview, setOverview ] = useState('All');
     const dispatch = useDispatch();
 
+    const [width, setWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        function handleResize() {
+            setWidth(window.innerWidth);
+        }
+        window.addEventListener("resize", handleResize);
+    });
+
     const handleClickAsset = (name) => {
         setOverview(name);
         switch (name) {
@@ -77,14 +86,17 @@ const DashboardUI = () => {
     }
 
     return (
-        <Container fluid className="py-md-5 pr-md-5  ml-4">
+        <Container fluid className={"py-md-5 pr-md-5" + (width > constants.width.mobile ? " pl-4" : " mt-4") }>
             <Row className="pb-md-4 pb-3">
-                <Col md={4} className="mb-2">
+                <Col md={4} xs={4} className="mb-2">
                     <div className="py-3 px-3 assets_border_div">
-                        <div className="d-flex align-items-center"><img data-testid="ethImg" src={ETH} alt="" className="mr-3" /> <span data-testid="ethText" className=" font-weight-bold pe-5 asset_text">ETHEREUM</span></div>
+                        <div className={"d-flex align-items-center" + (width > constants.width.mobile ? " flex-row" : " flex-column w-100") }>
+                            <img data-testid="ethImg" src={ETH} alt="" className={width > constants.width.mobile ? "mr-3" : ""} /> 
+                            <span data-testid="ethText" className={"font-weight-bold pe-5 asset_text" + (width > constants.width.mobile ? "" : " mt-2")}>ETHEREUM</span>
+                        </div>
                     </div>
                 </Col>
-                <Col md={4} className="mb-2">
+                <Col md={4} xs={4} className="mb-2">
                     <div className="py-3 px-3 asset_div">
                         <div className="d-flex align-items-center">
                             <img data-testid="bscImg" src={Binance} alt="" className="mr-3" />
@@ -95,7 +107,7 @@ const DashboardUI = () => {
                         </div>
                     </div>
                 </Col>
-                <Col md={4} className="mb-2">
+                <Col md={4} xs={4} className="mb-2">
                     <div className="py-3 px-3 asset_div">
                         <div className="d-flex align-items-center">
                             <img  data-testid="solanaImg"  src={Soloana} alt="" className="mr-3" />

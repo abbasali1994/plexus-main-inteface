@@ -5,6 +5,7 @@
 /* Font */
 $plexus-font-family: 'Azo Sans Regular';
 $plexus-currency-font: 'Nova Mono Regular';
+$plexus-mobile-font: 'CODEINK Regular';
 
 .gredent_text {
   background: linear-gradient(270deg, #7AC2E8 0%, #236EDC 100%);
@@ -28,4 +29,12 @@ $plexus-currency-font: 'Nova Mono Regular';
 
 .text-white-1 {
   color: var(--color-text1);
+}
+
+@media screen and (max-width: 1024px) {
+  .App {
+    background-color: var(--color-body-background-light) !important;
+    min-height: 100vh;
+    min-width: 100vw;
+  }
 }

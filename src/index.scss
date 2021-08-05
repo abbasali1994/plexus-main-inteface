@@ -21,6 +21,10 @@
   src: url('assets/fonts/CODEINK-Regular.ttf')  format('truetype');
 }
 
+@font-face {
+  font-family: 'CODEINK-Italic';
+  src: url('assets/fonts/CODEINK-Italic.ttf')  format('truetype');
+}
 
 body {
   margin: 0;
@@ -47,6 +51,7 @@ code {
 
 .dark {
   --color-body-background: #{$plexus-dark};
+  --color-body-background-light: #{$plexus-light-dark};
   --color-selected-div-bg: #{$plexus-dark};
   --color-selected-div-border:#{$plexus-light-blue2};
   --color-div-bg: #{$plexus-light-dark};
@@ -55,6 +60,7 @@ code {
   --color-text-light-gray: #{$plexus-light-white};
 
   --color-nav-border: #{$plexus-light-blue};
+  --color-nav-label: #{$plexus-light-blue};
   --color-nav-selected: #{$plexus-light-blue};
   --color-nav-disabled: #{$plexus-gray};
 
@@ -91,10 +97,13 @@ code {
   --color-text1: #{$plexus-white};
 
   --color-generate-btn: #{$plexus-blue};
+
+  --color-wallet-modal-bg: #{$plexus-dark-blue};
 }
 
 .light {
   --color-body-background: #{$plexus-white2};
+  --color-body-background-light: #{$plexus-white3};
   --color-selected-div-bg:#{$plexus-white3};
   --color-selected-div-border:#{$plexus-light-blue2};
   --color-div-bg: #{$plexus-light-gray2};
@@ -103,6 +112,7 @@ code {
   --color-text-light-gray: #{$plexus-gray4};
 
   --color-nav-border: #{$plexus-light-blue};
+  --color-nav-label: #{$plexus-light-blue};
   --color-nav-selected: #{$plexus-light-blue};
   --color-nav-disabled: #{$plexus-gray3};
 
@@ -138,4 +148,6 @@ code {
   --color-navbar-disabled-color: #{$plexus-gray3};
 
   --color-generate-btn: #{$plexus-light-blue};
+
+  --color-wallet-modal-bg: #{$plexus-gray4};
 }

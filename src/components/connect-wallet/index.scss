@@ -1,0 +1,47 @@
+@import "App.scss";
+
+@media screen and (max-width: 1024px) {
+  .connect-wallet-modal {
+    .modal-dialog {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .modal-content {
+      background-color: transparent;
+    }
+    .modal-header {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom: none;
+      background-color: var(--color-body-background-light) !important;
+    }
+    .modal-title {
+      color: var(--color-nav-label);
+      font-family: $plexus-currency-font;
+    }
+    .modal-body {
+      background-color: var(--color-wallet-modal-bg) !important;
+    }
+  }
+}
+
+.wallet-button {
+  font-style: normal;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  // line-height: 36px !important;
+  font-family: $plexus-font-family;
+  color: var(--color-button-text) !important;
+  padding-left: 1.5em !important;
+  padding-right: 1.5em !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+  border-radius: 10px !important;
+  background-color: var(--color-button-bg) !important;
+  text-align: center !important;
+  width: 100%;
+  letter-spacing: 2px;
+}
