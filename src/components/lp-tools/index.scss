@@ -20,7 +20,6 @@
   background-color: transparent !important;
   border: 1px solid var(--color-selected-div-border) !important;
   border-radius: 10px;
-
 }
 .table_col_first {
     background-color: var(--color-div-bg) !important;
@@ -95,7 +94,7 @@
 
 @media screen and (max-width: 1024px) {
     .asset_div {
-      background-color: var(--color-selected-div-bg) !important;
+      background-color: var(--color-selected-div-bg-mobile) !important;
       border-radius: 10px;
       font-family: $plexus-font-family;
       cursor: pointer;

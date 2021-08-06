@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.scss';
 import { useDispatch } from 'react-redux';
-import {Container, Row, Col, Table, Badge} from 'react-bootstrap';
+import { Container, Row, Col, Table, Badge } from 'react-bootstrap';
 
 import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
