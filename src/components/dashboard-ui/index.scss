@@ -28,7 +28,7 @@
 
 @media screen and (max-width: 1024px) {
   .asset_div {
-    background-color: var(--color-selected-div-bg) !important;
+    background-color: var(--color-selected-div-bg-mobile) !important;
     border-radius: 10px;
     font-family: $plexus-font-family;
     cursor: pointer;
@@ -41,5 +41,12 @@
       font-size: 8px;
       margin-top: 6px;
     }
+  }
+  .assets_border_div {
+    background-color: var(--color-selected-div-bg-mobile) !important;
+    border: 1px solid var(--color-selected-div-border) ;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--color-asset-div-text1);
   }
 }

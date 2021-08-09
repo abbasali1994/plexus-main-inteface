@@ -53,8 +53,10 @@ code {
   --color-body-background: #{$plexus-dark};
   --color-body-background-light: #{$plexus-light-dark};
   --color-selected-div-bg: #{$plexus-dark};
+  --color-selected-div-bg-mobile: #{$plexus-dark};
   --color-selected-div-border:#{$plexus-light-blue2};
   --color-div-bg: #{$plexus-light-dark};
+  --color-div-bg-mobile: #{$plexus-light-dark};
   --color-left-arrow: #{$plexus-light-blue};
   --color-text-gray: #{$plexus-light-gray};
   --color-text-light-gray: #{$plexus-light-white};
@@ -105,8 +107,10 @@ code {
   --color-body-background: #{$plexus-white2};
   --color-body-background-light: #{$plexus-white3};
   --color-selected-div-bg:#{$plexus-white3};
+  --color-selected-div-bg-mobile:#{$white};
   --color-selected-div-border:#{$plexus-light-blue2};
   --color-div-bg: #{$plexus-light-gray2};
+  --color-div-bg-mobile: #{$plexus-light-gray2};
   --color-left-arrow: #{$plexus-light-blue};
   --color-text-gray: #{$plexus-gray3};
   --color-text-light-gray: #{$plexus-gray4};
