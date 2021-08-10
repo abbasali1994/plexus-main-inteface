@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Table } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
+import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
 
 import './index.scss';
@@ -57,6 +58,14 @@ const Wallet = (props) => {
         }
     ];
 
+    const [width, setWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        function handleResize() {
+            setWidth(window.innerWidth);
+        }
+        window.addEventListener("resize", handleResize);
+    });
+
     const handleClickAsset = (id) => {
         dispatch(changeSidebar('wallet-asset'));
         setSelected(id);
@@ -71,13 +80,13 @@ const Wallet = (props) => {
                 </Row>
                 <Row className="text-white-1">
                     <Col md={6} className="mb-2 mb-md-4 mt-4">
-                        <div className="d-flex align-items-center">
+                        <div className={"d-flex align-items-center" + (width > constants.width.mobile ? "" : " justify-content-between")}>
                             <h5 id="walletText" className="text-white-1 mr-4 mb-0">WALLET</h5>
                             <h5 id="dollarText" className="font-weight-normal gredent_text mb-0">$8,782.34</h5>
                         </div>
                     </Col>
-                    <Col md={6} className="mb-2 mb-md-4 mt-4">
-                        <div className="d-flex justify-content-end align-items-center">
+                    <Col md={6} className={"mb-2 mb-md-4" + (width > constants.width.mobile ? " mt-4" : " mb-1")}>
+                        <div className={"d-flex align-items-center" + (width > constants.width.mobile ? " justify-content-end" : "")}>
                             <h5 id="percentText" className="font-weight-normal gredent_text mb-0">23%</h5>
                             <h5 id="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
                             <img id="chartImg" src={Chart} alt="" />
@@ -85,53 +94,83 @@ const Wallet = (props) => {
                     </Col>                    
                 </Row>
             </Col>
-            <Col md={12}>
-                <Table responsive="md" borderless>
-                    <thead>
-                        <tr className="text-gray-3">
-                            <th id="assetsText">ASSETS</th>
-                            <th></th>
-                            <th id="amountText">AMOUNT</th>
-                            <th id="valueText">VALUE</th>
-                            <th id="percentWalletText">% OF WALLET</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {walletData.map(e => (
-                        <>
-                            <tr className={"text-gray-4 w-20 point-cursor" + (selected === e.id ? " tr-active" : "")} onClick={() => handleClickAsset(e.id)}>
-                                <td className={"table_col_first d-flex align-items-center" + (selected === e.id ? " bg-transparent" : "")}>
-                                    <div className="d-flex mr-3">
-                                        <img src={e.assetIcon} alt="" className="mr-2 asset-icon" />
-                                    </div>
-                                    <div>
-                                        <h6 className="mb-0 font-weight-bold">{e.asset}</h6>
-                                    </div>
-                                </td>
-                                <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
-                                    <div className="d-flex align-items-center h-30 color-light">{e.protocol}</div>
-                                </td>
-                                <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
-                                    <div className="d-flex align-items-center h-30">{e.amount}</div>
-                                </td>
-                                <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
-                                    <div className="d-flex align-items-center h-30">{e.value}</div>
-                                </td>
-                                <td className={"table_col_last w-fixed-120 pr-4" + (selected === e.id ? " bg-transparent" : "")}>
-                                    <div className="d-flex align-items-center h-30 justify-content-between">
-                                        <span className="mr-3">{e.percentage}</span>
-                                        <img src={Chart} alt="" />
-                                    </div>
-                                </td>
+            {
+                width > constants.width.mobile ? (
+                <Col md={12}>
+                    <Table responsive="md" borderless>
+                        <thead>
+                            <tr className="text-gray-3">
+                                <th id="assetsText">ASSETS</th>
+                                <th></th>
+                                <th id="amountText">AMOUNT</th>
+                                <th id="valueText">VALUE</th>
+                                <th id="percentWalletText">% OF WALLET</th>
                             </tr>
-                            <tr>
-                                <td className="p-2"></td>
-                            </tr>
-                        </>
-                        ))}                    
-                    </tbody>
-                </Table>
-            </Col>
+                        </thead>
+                        <tbody>
+                            {walletData.map(e => (
+                            <>
+                                <tr className={"text-gray-4 w-20 point-cursor" + (selected === e.id ? " tr-active" : "")} onClick={() => handleClickAsset(e.id)}>
+                                    <td className={"table_col_first d-flex align-items-center" + (selected === e.id ? " bg-transparent" : "")}>
+                                        <div className="d-flex mr-3">
+                                            <img src={e.assetIcon} alt="" className="mr-2 asset-icon" />
+                                        </div>
+                                        <div>
+                                            <h6 className="mb-0 font-weight-bold">{e.asset}</h6>
+                                        </div>
+                                    </td>
+                                    <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
+                                        <div className="d-flex align-items-center h-30 color-light">{e.protocol}</div>
+                                    </td>
+                                    <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
+                                        <div className="d-flex align-items-center h-30">{e.amount}</div>
+                                    </td>
+                                    <td className={"table_col w-20" + (selected === e.id ? " bg-transparent" : "")}>
+                                        <div className="d-flex align-items-center h-30">{e.value}</div>
+                                    </td>
+                                    <td className={"table_col_last w-fixed-120 pr-4" + (selected === e.id ? " bg-transparent" : "")}>
+                                        <div className="d-flex align-items-center h-30 justify-content-between">
+                                            <span className="mr-3">{e.percentage}</span>
+                                            <img src={Chart} alt="" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="p-2"></td>
+                                </tr>
+                            </>
+                            ))}                    
+                        </tbody>
+                    </Table>
+                </Col>
+                ) : (
+                <Col md={12}>
+                    {walletData.map(e => (
+                        <div className="yield-card text-gray-4">
+                            <div className="d-flex align-items-center">
+                                <img src={e.assetIcon} alt="" className="mr-1" width="36px" />
+                                <h6 className="ml-3 w-20 mb-0">{e.asset}</h6>
+                                <h6 className="ml-3 mb-0 protocol-label-color">{e.protocol}</h6>
+                            </div>
+                            <div className="d-flex justify-content-between mt-4">
+                                <div>
+                                    <div className="yield-card-field">AMOUNT</div>
+                                    <div className="font-weight-bold">{e.amount}</div>
+                                </div>
+                                <div>
+                                    <div className="yield-card-field">VALUE</div>
+                                    <div className="font-weight-bold">{e.value}</div>
+                                </div>
+                                <div>
+                                    <div className="yield-card-field">% of WALLET</div>
+                                    <div className="font-weight-bold">{e.percentage}</div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </Col>
+                )
+            }
         </Row>
     )
 };
