@@ -45,4 +45,8 @@
     font-family: $plexus-font-family;
     cursor: pointer;
   }
+  .liquidity_protocol_container {
+    flex-wrap: nowrap !important;
+    overflow: scroll !important;
+  }
 }

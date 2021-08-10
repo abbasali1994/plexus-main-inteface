@@ -6,7 +6,9 @@
        "asset1Icon":"/assets/sushi.svg",
        "asset2Icon":"/assets/eth.svg",
        "protocol":"SUSHISWAP",
-       "deposit":"$2,384.58"
+       "deposit":"$2,384.58",
+       "assets1Amount": "34.56 PLX",
+       "assets2Amount": "0.05 ETH"
     },
     {
        "id": 2,
@@ -15,7 +17,9 @@
        "asset1Icon":"/assets/rat.svg",
        "asset2Icon":"/assets/eth.svg",
        "protocol":"1INCH",
-       "deposit":"$934.56"
+       "deposit":"$934.56",
+       "assets1Amount": "34.56 PLX",
+       "assets2Amount": "0.05 ETH"
     },
     {
        "id": 3,
@@ -24,7 +28,9 @@
        "asset1Icon":"/assets/uniswap.svg",
        "asset2Icon":"/assets/eth.svg",
        "protocol":"UNISWAP",
-       "deposit":"$356.32"
+       "deposit":"$356.32",
+       "assets1Amount": "34.56 PLX",
+       "assets2Amount": "0.05 ETH"
     },
     {
        "id": 4,
@@ -33,7 +39,9 @@
        "asset1Icon":"/assets/rat.svg",
        "asset2Icon":"/assets/eth.svg",
        "protocol":"UNISWAP",
-       "deposit":"$314.56"
+       "deposit":"$314.56",
+       "assets1Amount": "34.56 PLX",
+       "assets2Amount": "0.05 ETH"
     }
  ]
  

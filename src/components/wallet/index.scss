@@ -55,6 +55,10 @@
   width: 130px;
 }
 
+.protocol-label-color {
+  color: var(--color-nav-label);
+}
+
 @media screen and (max-width: 1024px) {
   .asset_div {
     background-color: var(--color-selected-div-bg-mobile) !important;
