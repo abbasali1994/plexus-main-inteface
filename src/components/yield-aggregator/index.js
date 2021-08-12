@@ -5,6 +5,7 @@ import { Container, Row, Col, Table, Badge } from 'react-bootstrap';
 
 import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
+import YieldPopup from './yield-popup';
 
 import ETH from '../../assets/eth.svg';
 import Rat from '../../assets/rat.svg';
@@ -17,6 +18,7 @@ import Soloana from '../../assets/soloana.svg';
 const YieldAggregator = () => { 
     const dispatch = useDispatch();
     const [selected, setSelected] = useState(0);
+    const [popupShow, setPopupShow] = useState(false);
 
     const tableData = [
         {
@@ -239,7 +241,7 @@ const YieldAggregator = () => {
                     ) : (
                         <Col md={12}>
                             {tableData.map(e => (
-                                <div className="yield-card text-gray-4">
+                                <div className="yield-card text-gray-4" onClick={() => setPopupShow(true)}>
                                     <div className="d-flex">
                                         <img src={e.assetsIcon1} alt="" className="mr-1" />
                                         <img src={e.assetsIcon2} alt="" className="mr-3" />
@@ -272,6 +274,7 @@ const YieldAggregator = () => {
                     )
                 }
             </Row>
+            <YieldPopup show={popupShow} setShow={setPopupShow} />
         </Container>
     )
 };
