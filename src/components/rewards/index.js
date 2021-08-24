@@ -6,6 +6,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
+import RewardsPopup from './rewards-popup';
 
 import './index.scss';
 
@@ -18,6 +19,7 @@ import Sushi from '../../assets/sushi_medium.svg';
 const RewardsComponent = (props) => {
     const dispatch = useDispatch();
     const [selected, setSelected] = useState(0);
+    const [popupShow, setPopupShow] = useState(false);
 
     const rewardsData = [
         {
@@ -158,7 +160,7 @@ const RewardsComponent = (props) => {
                 ) : (
                 <Col md={12}>
                     {rewardsData.map(e => (
-                        <div className="yield-card text-gray-4">
+                        <div className="yield-card text-gray-4" onClick={() => setPopupShow(true)}>
                             <div className="d-flex">
                                 <img src={e.asset1Icon} alt="" className="mr-1" />
                                 <img src={e.asset2Icon} alt="" className="mr-3" />
@@ -189,6 +191,7 @@ const RewardsComponent = (props) => {
                 </Col>
                 )
             }
+            <RewardsPopup show={popupShow} setShow={setPopupShow} />
         </Row>
     )
 };
