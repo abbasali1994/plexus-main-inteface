@@ -1,0 +1,35 @@
+@import "App.scss";
+
+@media screen and (max-width: 1024px) {
+  .liquidity-popup-modal {
+    .modal-dialog {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .modal-content {
+      background-color: transparent;
+    }
+    .modal-header {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom: none;
+      background-color: var(--color-body-background-light) !important;
+    }
+    .modal-title {
+      color: var(--color-nav-label);
+      font-family: $plexus-currency-font;
+    }
+    .modal-body {
+      background-color: var(--color-sidebar-bg) !important;
+      background-image: url('../../../assets/Subtract.png');
+      margin-top: 0;
+      padding: 1.0em;
+      padding-left: 1.0em;
+      padding-right: 1.0em;
+      background-size: cover;
+    }
+  }
+}

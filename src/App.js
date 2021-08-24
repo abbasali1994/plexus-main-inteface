@@ -14,7 +14,7 @@ import ThemeToggle from "./components/theme-toggle";
 import { toggleTheme } from './redux/themeSlice';
 
 const mq = window.matchMedia("(prefers-color-scheme: dark)");
-if (mq.matches) {
+if (!mq.matches) {
   document.body.classList.remove("light");
   document.body.classList.add("dark");
 } else {
@@ -26,7 +26,7 @@ function App() {
   const dispatch = useDispatch();
 
   const routesResult = useRoutes(routes);
-  const [theme, setTheme] = useState(mq.matches ? "dark" : "light");
+  const [theme, setTheme] = useState(!mq.matches ? "dark" : "light");
   const handleChange = (value) => {
     value ? setTheme("dark") : setTheme("light");
     if (value) {

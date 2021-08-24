@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Table, Badge} from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
-import { useDispatch } from 'react-redux';
+import LiquidityPopup from './liquidity-popup';
 import './index.scss';
 
 import Chart from '../../assets/chart.svg';
@@ -20,6 +21,7 @@ const LiquidityPositions = (props) => {
     const [selected, setSelected] = useState('');
     const liquidityData = liquidityDataJson;
     const [selectedLiquidityData, setSelectedLiquidityData] = useState(liquidityData);
+    const [popupShow, setPopupShow] = useState(false);
     const dispatch = useDispatch();
 
     const [width, setWidth] = useState(window.innerWidth);
@@ -194,7 +196,7 @@ const LiquidityPositions = (props) => {
                     ) : (
                     <Col md={12}>
                         {selectedLiquidityData.map(e => (
-                            <div className="yield-card text-gray-4">
+                            <div className="yield-card text-gray-4" onClick={() => setPopupShow(true)}>
                                 <div className="d-flex">
                                     <img src={e.asset1Icon} alt="" className="mr-1" />
                                     <img src={e.asset2Icon} alt="" className="mr-3" />
@@ -235,8 +237,8 @@ const LiquidityPositions = (props) => {
                     </Col>
                     )
                 }
-                
             </Row>
+            <LiquidityPopup show={popupShow} setShow={setPopupShow} />
         </Row>
     )
 };
