@@ -2,7 +2,7 @@ import './App.scss';
 
 
 // Bootstrap Container
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container } from 'react-bootstrap';
 
 // the routes
@@ -13,8 +13,9 @@ import routes from './router'
 import ThemeToggle from "./components/theme-toggle";
 import { toggleTheme } from './redux/themeSlice';
 
+// Adds theme based on system settings on first render
 const mq = window.matchMedia("(prefers-color-scheme: dark)");
-if (!mq.matches) {
+if (mq.matches) {
   document.body.classList.remove("light");
   document.body.classList.add("dark");
 } else {
@@ -26,7 +27,12 @@ function App() {
   const dispatch = useDispatch();
 
   const routesResult = useRoutes(routes);
-  const [theme, setTheme] = useState(!mq.matches ? "dark" : "light");
+  const [theme, setTheme] = useState(mq.matches ? "dark" : "light");
+  
+  useEffect(() => {
+    dispatch(toggleTheme(mq.matches ? "dark" : "light"));
+  }, [dispatch]);
+
   const handleChange = (value) => {
     value ? setTheme("dark") : setTheme("light");
     if (value) {
