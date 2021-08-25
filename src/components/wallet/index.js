@@ -6,6 +6,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
+import WalletPopup from './wallet-popup';
 
 import './index.scss';
 
@@ -18,6 +19,7 @@ import Uniswap from '../../assets/uniswap.svg';
 const Wallet = (props) => {
     const dispatch = useDispatch();
     const [selected, setSelected] = useState(0);
+    const [popupShow, setPopupShow] = useState(false);
 
     const walletData = [
         {
@@ -146,7 +148,7 @@ const Wallet = (props) => {
                 ) : (
                 <Col md={12}>
                     {walletData.map(e => (
-                        <div className="yield-card text-gray-4">
+                        <div className="yield-card text-gray-4" onClick={() => setPopupShow(true)}>
                             <div className="d-flex align-items-center">
                                 <img src={e.assetIcon} alt="" className="mr-1" width="36px" />
                                 <h6 className="ml-3 w-20 mb-0">{e.asset}</h6>
@@ -171,6 +173,7 @@ const Wallet = (props) => {
                 </Col>
                 )
             }
+            <WalletPopup show={popupShow} setShow={setPopupShow} />
         </Row>
     )
 };
