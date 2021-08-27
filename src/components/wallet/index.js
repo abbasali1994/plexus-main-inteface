@@ -7,12 +7,12 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
 import WalletPopup from './wallet-popup';
+import Pie from '../pie-chart';
 
 import './index.scss';
 
 import ETH from '../../assets/eth.svg';
 import Rat from '../../assets/rat.svg';
-import Chart from '../../assets/chart.svg';
 import Sushi from '../../assets/sushi.svg';
 import Uniswap from '../../assets/uniswap.svg';
 
@@ -29,7 +29,7 @@ const Wallet = (props) => {
             protocol: 'PLX',
             amount: '3,281.45',
             value: '$2,384.58',
-            percentage: '47%'
+            percentage: 47
         },
         {
             id: 2,
@@ -38,7 +38,7 @@ const Wallet = (props) => {
             protocol: 'SUSHI',
             amount: '873.21',
             value: '$1,923.45',
-            percentage: '33%'
+            percentage: 33
         },
         {
             id: 3,
@@ -47,7 +47,7 @@ const Wallet = (props) => {
             protocol: 'ETH',
             amount: '0.275',
             value: '$983.21',
-            percentage: '16%'
+            percentage: 16
         },
         {
             id: 4,
@@ -56,7 +56,7 @@ const Wallet = (props) => {
             protocol: 'UNI',
             amount: '21.234',
             value: '$58.76',
-            percentage: '4%'
+            percentage: 4
         }
     ];
 
@@ -87,13 +87,23 @@ const Wallet = (props) => {
                             <h5 id="dollarText" className="font-weight-normal gredent_text mb-0">$8,782.34</h5>
                         </div>
                     </Col>
-                    <Col md={6} className={"mb-2 mb-md-4" + (width > constants.width.mobile ? " mt-4" : " mb-1")}>
-                        <div className={"d-flex align-items-center" + (width > constants.width.mobile ? " justify-content-end" : "")}>
-                            <h5 id="percentText" className="font-weight-normal gredent_text mb-0">23%</h5>
-                            <h5 id="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
-                            <img id="chartImg" src={Chart} alt="" />
-                        </div>
-                    </Col>                    
+                    {width > constants.width.mobile ? (
+                        <Col md={6} className="mb-2 mb-md-4 mt-4">
+                            <div className="d-flex align-items-center justify-content-end">
+                                <h5 id="percentText" className="font-weight-normal gredent_text mb-0">23%</h5>
+                                <h5 id="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
+                                <Pie percentage={23} size={24} />
+                            </div>
+                        </Col>
+                    ) : (
+                        <Col md={6} className="mb-2 mb-md-4 mb-1">
+                            <div className="d-flex align-items-center">
+                                <Pie percentage={23} size={24} />
+                                <h5 id="percentText" className="font-weight-normal gredent_text mb-0 ml-2">23%</h5>
+                                <h5 id="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
+                            </div>
+                        </Col>
+                    )}
                 </Row>
             </Col>
             {
@@ -132,8 +142,8 @@ const Wallet = (props) => {
                                     </td>
                                     <td className={"table_col_last w-fixed-120 pr-4" + (selected === e.id ? " bg-transparent" : "")}>
                                         <div className="d-flex align-items-center h-30 justify-content-between">
-                                            <span className="mr-3">{e.percentage}</span>
-                                            <img src={Chart} alt="" />
+                                            <span className="mr-3">{e.percentage}%</span>
+                                            <Pie percentage={e.percentage} size={24} />
                                         </div>
                                     </td>
                                 </tr>
