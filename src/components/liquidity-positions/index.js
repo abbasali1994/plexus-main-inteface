@@ -7,9 +7,9 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { constants } from "../../utils";
 import { changeSidebar } from '../../redux/sidebarSlice';
 import LiquidityPopup from './liquidity-popup';
+import Pie from '../pie-chart';
 import './index.scss';
 
-import Chart from '../../assets/chart.svg';
 import Sushi from '../../assets/sushi.svg';
 import Inch from '../../assets/1inch.svg';
 import Uniswap from '../../assets/uniswap.svg';
@@ -22,6 +22,7 @@ const LiquidityPositions = (props) => {
     const liquidityData = liquidityDataJson;
     const [selectedLiquidityData, setSelectedLiquidityData] = useState(liquidityData);
     const [popupShow, setPopupShow] = useState(false);
+    const [mobilePopType, setMobilePopType] = useState('');
     const dispatch = useDispatch();
 
     const [width, setWidth] = useState(window.innerWidth);
@@ -68,6 +69,11 @@ const LiquidityPositions = (props) => {
         }
     }
 
+    const handleClickAssetMobile = (asset) => {
+        setMobilePopType(asset.protocol);
+        setPopupShow(true);
+    }
+
     return (
         <Row>
             <Col md={12} className="mb-3 mb-md-5">
@@ -82,13 +88,23 @@ const LiquidityPositions = (props) => {
                             <h5 data-testid="dollarText" className="font-weight-normal gredent_text mb-0">$3,892.34</h5>
                         </div>
                     </Col>
-                    <Col md={6} className={"mb-2 mb-md-4" + (width > constants.width.mobile ? " mt-3" : " mb-4")}>
-                        <div className={"d-flex align-items-center" + (width > constants.width.mobile ? " justify-content-end" : "")}>
-                            <h5 data-testid="percentText" className="font-weight-normal gredent_text mb-0">23%</h5>
-                            <h5 data-testid="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
-                            <img data-testid="chartImg" src={Chart} alt="" />
-                        </div>
-                    </Col>                    
+                    {width > constants.width.mobile ? (
+                        <Col md={6} className="mb-2 mb-md-4 mt-4">
+                            <div className="d-flex align-items-center justify-content-end">
+                                <h5 id="percentText" className="font-weight-normal gredent_text mb-0">23%</h5>
+                                <h5 id="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
+                                <Pie percentage={23} size={24} />
+                            </div>
+                        </Col>
+                    ) : (
+                        <Col md={6} className="mb-2 mb-md-4 mb-4">
+                            <div className="d-flex align-items-center">
+                                <Pie percentage={23} size={24} />
+                                <h5 id="percentText" className="font-weight-normal gredent_text mb-0 ml-2">23%</h5>
+                                <h5 id="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">OF YOUR  PORTFOLIO</h5>
+                            </div>
+                        </Col>
+                    )}
                 </Row>
                 <Row className={"text-white-1" + (width > constants.width.mobile ? "" : " liquidity_protocol_container")}>
                     <Col md={4} className="mb-2 mb-md-4">
@@ -139,7 +155,7 @@ const LiquidityPositions = (props) => {
                     </Col>
                 </Row>
             </Col>
-            <Row className="w-100 ml-1">  
+            <Row className={"w-100 " + (width > constants.width.mobile ? "ml-1" : "ml-0")}>  
                 <Col md={12} className="mb-md-3">
                     <div className="d-flex">
                         {currentPosition === 'all' ? (
@@ -196,10 +212,14 @@ const LiquidityPositions = (props) => {
                     ) : (
                     <Col md={12}>
                         {selectedLiquidityData.map(e => (
-                            <div className="yield-card text-gray-4" onClick={() => setPopupShow(true)}>
+                            <div className="yield-card text-gray-4" onClick={() => handleClickAssetMobile(e)}>
                                 <div className="d-flex">
                                     <img src={e.asset1Icon} alt="" className="mr-1" />
                                     <img src={e.asset2Icon} alt="" className="mr-3" />
+                                    <div className="ml-2">
+                                        <h6 className="mb-0">{e.assets1}</h6>
+                                        {!e.assets2 && <br />}<span>{e.assets2}</span>
+                                    </div>
                                 </div>
                                 {currentPosition === 'all' ? (
                                 <div className="d-flex justify-content-between mt-4">
@@ -238,7 +258,7 @@ const LiquidityPositions = (props) => {
                     )
                 }
             </Row>
-            <LiquidityPopup show={popupShow} setShow={setPopupShow} />
+            <LiquidityPopup show={popupShow} setShow={setPopupShow} type={mobilePopType} />
         </Row>
     )
 };
