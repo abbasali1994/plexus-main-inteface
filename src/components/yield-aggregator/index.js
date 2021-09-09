@@ -12,8 +12,7 @@ import Rat from '../../assets/rat.svg';
 import Sushi from '../../assets/sushi.svg';
 import Inch from '../../assets/1inch_big.svg';
 // import Aave from '../../assets/aave.svg';
-import Binance from '../../assets/binance.svg';
-import Soloana from '../../assets/soloana.svg';
+import NetworkProtocol from '../network-protocol';
 
 const YieldAggregator = () => { 
     const dispatch = useDispatch();
@@ -98,38 +97,7 @@ const YieldAggregator = () => {
 
     return (
         <Container fluid className={"py-md-5 pr-md-5" + (width > constants.width.mobile ? " pl-4" : " mt-4") }>
-            <Row className="pb-md-4 pb-3">
-                <Col md={4} xs={4} className="mb-2">
-                    <div className={"py-3 px-3 assets_border_div" + (width > constants.width.mobile ? "" : " pb-4")}>
-                        <div className={"d-flex align-items-center" + (width > constants.width.mobile ? " flex-row" : " flex-column w-100") }>
-                            <img data-testid="ethImg" src={ETH} alt="" className={width > constants.width.mobile ? "mr-3" : ""} /> 
-                            <span data-testid="ethText" className={"font-weight-bold pe-5 asset_text" + (width > constants.width.mobile ? "" : " mt-2")}>ETHEREUM</span>
-                        </div>
-                    </div>
-                </Col>
-                <Col md={4} xs={4} className="mb-2">
-                    <div className="py-3 px-3 asset_div">
-                        <div className={"d-flex align-items-center" + (width > constants.width.mobile ? " flex-row" : " flex-column w-100") }>
-                            <img data-testid="bscImg" src={Binance} alt="" className={width > constants.width.mobile ? "mr-3" : ""} />
-                            <div className={"d-flex asset_text" + (width > constants.width.mobile ? " flex-column" : " flex-column align-items-center mt-2")}> 
-                                <h6 data-testid="bscText" className="net-name font-weight-bold pe-5 mb-0">BSC</h6>
-                                <h6 data-testid="bscComingSoonText" className="description mb-0 ">COMING SOON</h6>
-                            </div>
-                        </div>
-                    </div>
-                </Col>
-                <Col md={4} xs={4} className="mb-2">
-                    <div className="py-3 px-3 asset_div">
-                        <div className={"d-flex align-items-center" + (width > constants.width.mobile ? " flex-row" : " flex-column w-100") }>
-                            <img data-testid="solanaImg" src={Soloana} alt="" className={width > constants.width.mobile ? "mr-3" : ""} />
-                            <div className={"d-flex asset_text" + (width > constants.width.mobile ? " flex-column" : " flex-column align-items-center mt-2")}> 
-                                <h6 data-testid="solanaText" className="net-name font-weight-bold pe-5 mb-0">SOLANA</h6>
-                                <h6 data-testid="solanaComingSoonText" className="description mb-0 ">COMING SOON</h6>
-                            </div>
-                        </div>
-                    </div>
-                </Col>
-            </Row>
+            <NetworkProtocol />
             <Row>
                 <Col md={12} className="mb-3 mb-md-4">
                     <h5 className="text-white-1">PROTOCOLS</h5>
