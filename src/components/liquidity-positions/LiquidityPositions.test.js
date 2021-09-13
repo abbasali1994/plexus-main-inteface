@@ -3,12 +3,12 @@ import { render, cleanup } from "@testing-library/react";
 import LiquidityPositions from "./index";
 import store from "../../store";
 import { Provider } from "react-redux";
-import ETH from '../../assets/eth.svg';
-import Rat from '../../assets/rat.svg';
-import Chart from '../../assets/chart.svg';
-import Sushi from '../../assets/sushi.svg';
-import Inch from '../../assets/1inch.svg';
-import Uniswap from '../../assets/uniswap.svg';
+import ETH from "../../assets/eth.svg";
+import Rat from "../../assets/rat.svg";
+import Chart from "../../assets/chart.svg";
+import Sushi from "../../assets/sushi.svg";
+import Inch from "../../assets/1inch.svg";
+import Uniswap from "../../assets/uniswap.svg";
 import liquidityData from "./LiquidityData.json";
 
 describe("LiquidityPositions component tests", () => {

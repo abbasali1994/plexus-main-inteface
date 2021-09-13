@@ -7,42 +7,40 @@ import Binance from "../../assets/binance.svg";
 import Soloana from "../../assets/soloana.svg";
 import ETH from "../../assets/eth.svg";
 
-
 describe("Dashboard component tests", () => {
-    let getByTestId;
-    beforeEach(() => {
-      const component = render(
-        <Provider store={store}>
-          <YieldAggregator />
-        </Provider>
-      );
-      getByTestId = component.getByTestId;
-    });
-  
+  let getByTestId;
+  beforeEach(() => {
+    const component = render(
+      <Provider store={store}>
+        <YieldAggregator />
+      </Provider>
+    );
+    getByTestId = component.getByTestId;
+  });
 
-it("should render BSC text", () => {
+  it("should render BSC text", () => {
     expect(getByTestId("bscText").innerHTML).toBe("BSC");
   });
 
-it("should render Bsc Coming Soon text", () => {
+  it("should render Bsc Coming Soon text", () => {
     expect(getByTestId("bscComingSoonText").innerHTML).toBe("COMING SOON");
-});
+  });
 
   it("should render Binance Image", () => {
     const image = getByTestId("bscImg");
     expect(image.src).toContain(Binance);
   });
 
-it("should render ETHEREUM text", () => {
+  it("should render ETHEREUM text", () => {
     expect(getByTestId("ethText").innerHTML).toBe("ETHEREUM");
-});
+  });
 
-it("should render ETHEREUM Image", () => {
+  it("should render ETHEREUM Image", () => {
     const image = getByTestId("ethImg");
     expect(image.src).toContain(ETH);
-});
+  });
 
-it("should render Solana text", () => {
+  it("should render Solana text", () => {
     expect(getByTestId("solanaText").innerHTML).toBe("SOLANA");
   });
 
@@ -54,5 +52,4 @@ it("should render Solana text", () => {
     const image = getByTestId("solanaImg");
     expect(image.src).toContain(Soloana);
   });
-
 });

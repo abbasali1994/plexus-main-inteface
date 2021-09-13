@@ -1,7 +1,7 @@
-import './index.scss';
+import "./index.scss";
 
-const Faq = () => { 
-    return <div></div>
+const Faq = () => {
+  return <div></div>;
 };
 
 export default Faq;

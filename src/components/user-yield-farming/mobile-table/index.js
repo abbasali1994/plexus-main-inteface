@@ -7,8 +7,8 @@ import TableDataJson from "../data.json";
 const MobileTable = () => {
   const tableData = TableDataJson;
 
-  return tableData.map((e) => (
-    <div className="yield-card text-gray-4">
+  return tableData.map((e, index) => (
+    <div className="yield-card text-gray-4" key={index}>
       <div className="d-flex">
         <img src={Rat} alt="" className="mr-1" />
         <img src={ETH} alt="" className="mr-3" />

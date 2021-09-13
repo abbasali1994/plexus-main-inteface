@@ -1,47 +1,46 @@
 [
-    {
-       "id": 1,
-       "assets1":"SUSHI/ETH",
-       "assets2":"SushiSwap LP",
-       "asset1Icon":"/assets/sushi.svg",
-       "asset2Icon":"/assets/eth.svg",
-       "protocol":"SUSHISWAP",
-       "deposit":"$2,384.58",
-       "assets1Amount": "34.56 PLX",
-       "assets2Amount": "0.05 ETH"
-    },
-    {
-       "id": 2,
-       "assets1":"PLX/ETH",
-       "assets2":"1Inch LP",
-       "asset1Icon":"/assets/rat.svg",
-       "asset2Icon":"/assets/eth.svg",
-       "protocol":"1INCH",
-       "deposit":"$934.56",
-       "assets1Amount": "34.56 PLX",
-       "assets2Amount": "0.05 ETH"
-    },
-    {
-       "id": 3,
-       "assets1":"UNI/ETH",
-       "assets2":"UniSwap LP",
-       "asset1Icon":"/assets/uniswap.svg",
-       "asset2Icon":"/assets/eth.svg",
-       "protocol":"UNISWAP",
-       "deposit":"$356.32",
-       "assets1Amount": "34.56 PLX",
-       "assets2Amount": "0.05 ETH"
-    },
-    {
-       "id": 4,
-       "assets1":"PLX/ETH",
-       "assets2":"Uniswap LP",
-       "asset1Icon":"/assets/rat.svg",
-       "asset2Icon":"/assets/eth.svg",
-       "protocol":"UNISWAP",
-       "deposit":"$314.56",
-       "assets1Amount": "34.56 PLX",
-       "assets2Amount": "0.05 ETH"
-    }
- ]
- 
+  {
+    "id": 1,
+    "assets1": "SUSHI/ETH",
+    "assets2": "SushiSwap LP",
+    "asset1Icon": "/assets/sushi.svg",
+    "asset2Icon": "/assets/eth.svg",
+    "protocol": "SUSHISWAP",
+    "deposit": "$2,384.58",
+    "assets1Amount": "34.56 PLX",
+    "assets2Amount": "0.05 ETH"
+  },
+  {
+    "id": 2,
+    "assets1": "PLX/ETH",
+    "assets2": "1Inch LP",
+    "asset1Icon": "/assets/rat.svg",
+    "asset2Icon": "/assets/eth.svg",
+    "protocol": "1INCH",
+    "deposit": "$934.56",
+    "assets1Amount": "34.56 PLX",
+    "assets2Amount": "0.05 ETH"
+  },
+  {
+    "id": 3,
+    "assets1": "UNI/ETH",
+    "assets2": "UniSwap LP",
+    "asset1Icon": "/assets/uniswap.svg",
+    "asset2Icon": "/assets/eth.svg",
+    "protocol": "UNISWAP",
+    "deposit": "$356.32",
+    "assets1Amount": "34.56 PLX",
+    "assets2Amount": "0.05 ETH"
+  },
+  {
+    "id": 4,
+    "assets1": "PLX/ETH",
+    "assets2": "Uniswap LP",
+    "asset1Icon": "/assets/rat.svg",
+    "asset2Icon": "/assets/eth.svg",
+    "protocol": "UNISWAP",
+    "deposit": "$314.56",
+    "assets1Amount": "34.56 PLX",
+    "assets2Amount": "0.05 ETH"
+  }
+]

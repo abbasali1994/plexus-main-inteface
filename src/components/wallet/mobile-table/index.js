@@ -2,8 +2,12 @@ import React from "react";
 import walletData from "../data";
 
 const MobileTable = ({ setPopupShow }) => {
-  return walletData.map((e) => (
-    <div className="yield-card text-gray-4" onClick={() => setPopupShow(true)}>
+  return walletData.map((e, index) => (
+    <div
+      key={index}
+      className="yield-card text-gray-4"
+      onClick={() => setPopupShow(true)}
+    >
       <div className="d-flex align-items-center">
         <img src={e.assetIcon} alt="" className="mr-1" width="36px" />
         <h6 className="ml-3 w-20 mb-0">{e.asset}</h6>

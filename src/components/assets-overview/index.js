@@ -7,7 +7,7 @@ import Rewards from "../../assets/rewards.svg";
 import UserYieldFarming from "../user-yield-farming";
 import Pie from "../pie-chart";
 
-//dummy data for now
+// dummy data for now
 const assetsData = [
   {
     name: "WALLET",
@@ -41,8 +41,9 @@ const AssetsOverview = ({ handleClickAsset }) => {
       <Col md={12} className="mb-3 mb-md-5">
         <h6 className="text-muted mb-3">ASSETS OVERVIEW</h6>
         <Row className="text-white">
-          {assetsData.map((e) => (
+          {assetsData.map((e, index) => (
             <Col
+              key={index}
               data-testid={"button-" + e.name}
               md={6}
               className="mb-2 mb-md-4"

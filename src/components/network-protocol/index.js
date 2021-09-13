@@ -10,9 +10,14 @@ import NetworkCard from "./network-card";
 const NetworkProtocol = () => {
   return (
     <Row className="pb-md-4 pb-3">
-      <NetworkCard name={"ethereum"} symbol={"eth"} icon={ETH} active={true}/>
-      <NetworkCard name={"bsc"} symbol={"bsc"} icon={Binance} active={false}/>
-      <NetworkCard name={"solana"} symbol={"solana"} icon={Soloana} active={false}/>
+      <NetworkCard name={"ethereum"} symbol={"eth"} icon={ETH} active={true} />
+      <NetworkCard name={"bsc"} symbol={"bsc"} icon={Binance} active={false} />
+      <NetworkCard
+        name={"solana"}
+        symbol={"solana"}
+        icon={Soloana}
+        active={false}
+      />
     </Row>
   );
 };
