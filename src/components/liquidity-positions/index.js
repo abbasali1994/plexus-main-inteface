@@ -7,7 +7,6 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { constants } from "../../utils";
 import { changeSidebar } from "../../redux/sidebarSlice";
 import LiquidityPopup from "./liquidity-popup";
-import Pie from "../pie-chart";
 import "./index.scss";
 
 import Sushi from "../../assets/sushi.svg";
@@ -15,6 +14,7 @@ import Inch from "../../assets/1inch.svg";
 import Uniswap from "../../assets/uniswap.svg";
 import Exit from "../../assets/Exit.svg";
 import liquidityDataJson from "./LiquidityData.json";
+import PortfolioPercentage from "../portfolio-percentage";
 
 const LiquidityPositions = (props) => {
   const [currentPosition, setCurrentPosition] = useState("all");
@@ -107,37 +107,7 @@ const LiquidityPositions = (props) => {
               </h5>
             </div>
           </Col>
-          {width > constants.width.mobile ? (
-            <Col md={6} className="mb-2 mb-md-4 mt-4">
-              <div className="d-flex align-items-center justify-content-end">
-                <h5
-                  id="percentText"
-                  className="font-weight-normal gredent_text mb-0"
-                >
-                  23%
-                </h5>
-                <h5 id="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">
-                  OF YOUR PORTFOLIO
-                </h5>
-                <Pie percentage={23} size={24} />
-              </div>
-            </Col>
-          ) : (
-            <Col md={6} className="mb-2 mb-md-4 mb-4">
-              <div className="d-flex align-items-center">
-                <Pie percentage={23} size={24} />
-                <h5
-                  id="percentText"
-                  className="font-weight-normal gredent_text mb-0 ml-2"
-                >
-                  23%
-                </h5>
-                <h5 id="portfolioText" className="text-white-1 ml-2 mr-2 mb-0">
-                  OF YOUR PORTFOLIO
-                </h5>
-              </div>
-            </Col>
-          )}
+          <PortfolioPercentage percentage={23} />
         </Row>
         <Row
           className={
