@@ -4,7 +4,6 @@ import { Container, Image } from "react-bootstrap";
 import Close from "../../../assets/close_menu.svg";
 import { menuItems } from "../menuItems";
 
-
 const MobileMenuWrapper = ({ setMobileMenu, pathName, setConnectWallet }) => {
   return (
     <div className="mobile-menu-wrapper">

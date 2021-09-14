@@ -1,7 +1,7 @@
 import "./index.scss";
 import ToggleButton from "react-toggle-button";
-import day from "../../assets/icons/brightness.png"
-import night from "../../assets/icons/moon.png"
+import day from "../../assets/icons/brightness.png";
+import night from "../../assets/icons/moon.png";
 const ThemeToggle = ({ theme, handleChange }) => {
   return (
     <div className="theme-toggle">
@@ -26,8 +26,19 @@ const ThemeToggle = ({ theme, handleChange }) => {
         }}
         style={{ position: "fixed" }}
         thumbAnimateRange={[-10, 36]}
-        thumbIcon={theme !== "dark"?<img src={day} width="20" height="20" alt="day"/>:<img src={night} width="20" height="20" alt="night"/>}
-        thumbStyle={{width:"30px",height:"30px",alignItems:"inherit",justifyContent:"center"}}
+        thumbIcon={
+          theme !== "dark" ? (
+            <img src={day} width="20" height="20" alt="day" />
+          ) : (
+            <img src={night} width="20" height="20" alt="night" />
+          )
+        }
+        thumbStyle={{
+          width: "30px",
+          height: "30px",
+          alignItems: "inherit",
+          justifyContent: "center",
+        }}
         value={theme !== "dark"}
         onToggle={(value) => handleChange(value)}
       />

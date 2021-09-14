@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { useState, useEffect } from "react";
-import { navigate } from "hookrouter";
-import { usePath } from "hookrouter";
+import { navigate, usePath } from "hookrouter";
 import { Container, Image, Navbar, Nav } from "react-bootstrap";
 
 import { constants } from "../../utils";
@@ -23,6 +22,7 @@ const DesktopHeader = () => {
         <Nav>
           {menuItems.map((menuItem, index) => (
             <Nav.Link
+              key={index}
               onClick={() => navigate(menuItem.path)}
               className={classNames({
                 "navbar-start": index === 0,

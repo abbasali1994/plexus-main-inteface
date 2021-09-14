@@ -1,8 +1,7 @@
-
 import React from "react";
 import { shallow, mount } from "enzyme";
 import UserYieldFarming from "./index";
-import Chart from '../../assets/chart.svg';
+import Chart from "../../assets/chart.svg";
 import TableDataJson from "./data.json";
 
 const tableData = TableDataJson;
@@ -25,7 +24,6 @@ describe("UserYieldFarming component tests", () => {
   //   expect(wrapper.find("h5#dollarText").text()).toBe("$20,114.82");
   // });
 
-
   it("should have Assets inside table", () => {
     expect(wrapper.find("th#assetsText").text()).toBe("ASSETS");
   });
@@ -41,7 +39,6 @@ describe("UserYieldFarming component tests", () => {
   it("should have EARNINGS inside table", () => {
     expect(wrapper.find("th#earningText").text()).toBe("EARNINGS");
   });
-  
 
   it("should have Rewards inside table", () => {
     expect(wrapper.find("th#rewardsText").text()).toBe("REWARDS");

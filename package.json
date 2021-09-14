@@ -17,6 +17,7 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "hookrouter": "^1.2.5",
     "node-sass": "^6.0.0",
+    "prettier": "^2.4.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
@@ -47,17 +48,36 @@
     "precombine:reports": "npm run copy:reports && mkdir .nyc_output || true",
     "combine:reports": "npx nyc merge reports && mv coverage.json .nyc_output/out.json",
     "precoverage": "npm run combine:reports",
-    "coverage": "npx nyc report --reporter lcov --reporter text --report-dir coverage"
+    "coverage": "npx nyc report --reporter lcov --reporter text --report-dir coverage",
+    "lint": "eslint ./",
+    "lint-fix": "eslint ./ --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "nyc": {
     "report-dir": "coverage-e2e"
   },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && pretty-quick --staged"
+    }
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "eslint-config-prettier"
+    ],
+    "plugins": [
+      "eslint-plugin-prettier"
     ]
   },
+  "eslintIgnore": [
+    "*.spec.ts",
+    "*.test.js"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -76,6 +96,17 @@
     "@cypress/react": "^5.9.1",
     "@cypress/webpack-dev-server": "^1.4.0",
     "babel-plugin-istanbul": "^6.0.0",
-    "cypress": "^7.7.0"
+    "cypress": "^7.7.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.25.1",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "pretty-quick": "^3.1.1"
   }
 }

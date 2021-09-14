@@ -1,17 +1,16 @@
-import './App.scss';
-
+import "./App.scss";
 
 // Bootstrap Container
 import { useState, useEffect } from "react";
-import { Container } from 'react-bootstrap';
+import { Container } from "react-bootstrap";
 
 // the routes
-import { useRoutes } from 'hookrouter';
-import { useDispatch } from 'react-redux';
+import { useRoutes } from "hookrouter";
+import { useDispatch } from "react-redux";
 
-import routes from './router'
+import routes from "./router";
 import ThemeToggle from "./components/theme-toggle";
-import { toggleTheme } from './redux/themeSlice';
+import { toggleTheme } from "./redux/themeSlice";
 
 // Adds theme based on system settings on first render
 const mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -28,7 +27,7 @@ function App() {
 
   const routesResult = useRoutes(routes);
   const [theme, setTheme] = useState(mq.matches ? "dark" : "light");
-  
+
   useEffect(() => {
     dispatch(toggleTheme(mq.matches ? "dark" : "light"));
   }, [dispatch]);
@@ -38,21 +37,20 @@ function App() {
     if (value) {
       document.body.classList.remove("light");
       document.body.classList.add("dark");
-      dispatch(toggleTheme('dark'));
+      dispatch(toggleTheme("dark"));
     } else {
       document.body.classList.remove("dark");
       document.body.classList.add("light");
-      dispatch(toggleTheme('light'));
+      dispatch(toggleTheme("light"));
     }
   };
   mq.addEventListener("change", (e) => handleChange(e.matches));
 
   return (
     <Container fluid className={`App ${theme} p-0`}>
-      <ThemeToggle  handleChange={handleChange} theme={theme}/>
-      { routesResult }
+      <ThemeToggle handleChange={handleChange} theme={theme} />
+      {routesResult}
     </Container>
-  
   );
 }
 export default App;
