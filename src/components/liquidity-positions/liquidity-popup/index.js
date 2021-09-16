@@ -1,7 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { Modal, Image, Col, Row, Container, Button } from "react-bootstrap";
 
 import { currentTheme } from "../../../redux/themeSlice";
@@ -11,7 +9,7 @@ import Rat from "../../../assets/rat_small.svg";
 import Sushi from "../../../assets/sushi_small.svg";
 import ETH from "../../../assets/eth.svg";
 import Union from "../../../assets/Union.svg";
-
+import UserAddress from "../../user-address";
 import "./index.scss";
 
 const LiquidityPopup = (props) => {
@@ -26,10 +24,7 @@ const LiquidityPopup = (props) => {
     >
       <Modal.Header>
         <Modal.Title className="d-flex justify-content-between w-100">
-          <Col className="p-0">
-            <span className="address-popup-text ml-3">0X1E....D396</span>
-            <FontAwesomeIcon className="caret-down pt-1" icon={faCaretDown} />
-          </Col>
+          <UserAddress type={"popup"} />
           <Image
             src={theme === "light" ? ExitDark : ExitLight}
             className="exit"

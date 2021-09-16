@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { currentSidebar, changeSidebar } from "../../redux/sidebarSlice";
 
@@ -18,6 +18,7 @@ import SushiIllustrate from "../../assets/sushi_illustration.svg";
 import YieldAssetContent from "../yield-asset-content";
 import RewardAssetSidebar from "./rewards";
 import WalletAssetSidebar from "./wallets";
+import UserAddress from "../user-address";
 import "./index.scss";
 
 const Sidebar = () => {
@@ -32,10 +33,7 @@ const Sidebar = () => {
           <Col lg="2">
             <Image src={LogoIcon}></Image>
           </Col>
-          <Col className="p-0">
-            <span className="address-text">0X1E....D396</span>
-            <FontAwesomeIcon className="caret-down" icon={faCaretDown} />
-          </Col>
+          <UserAddress type={"sidebar"} />
         </Row>
       </Container>
       {sidebar === "dashboard-all" && <MainSidebar />}

@@ -1,9 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { Modal, Image, Col } from "react-bootstrap";
-
+import { Modal, Image } from "react-bootstrap";
+import UserAddress from "../../user-address";
 import { currentTheme } from "../../../redux/themeSlice";
 import ExitLight from "../../../assets/Exit.svg";
 import ExitDark from "../../../assets/exit_blue.svg";
@@ -22,10 +20,7 @@ const YieldPopup = (props) => {
     >
       <Modal.Header>
         <Modal.Title className="d-flex justify-content-between w-100">
-          <Col className="p-0">
-            <span className="address-popup-text ml-3">0X1E....D396</span>
-            <FontAwesomeIcon className="caret-down pt-1" icon={faCaretDown} />
-          </Col>
+          <UserAddress type={"popup"} />
           <Image
             src={theme === "light" ? ExitDark : ExitLight}
             className="exit"
