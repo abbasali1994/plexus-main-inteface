@@ -4,13 +4,13 @@ import { navigate, usePath } from "hookrouter";
 import { Container, Image, Navbar, Nav } from "react-bootstrap";
 
 import { constants } from "../../utils";
-import ConnectWallet from "../connect-wallet";
 import MobileMenuWrapper from "./mobile-menu-wrapper";
 
 import Logo from "../../assets/Logo.png";
 import Menu from "../../assets/menu.svg";
-import "./index.scss";
 import { menuItems } from "./menuItems";
+import { connectToWallet } from "../../utils/wallet";
+import "./index.scss";
 
 const DesktopHeader = () => {
   const pathName = usePath();
@@ -64,7 +64,7 @@ const Header = () => {
   const pathName = usePath();
   const [width, setWidth] = useState(window.innerWidth);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [connectWallet, setConnectWallet] = useState(false);
+
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
@@ -77,7 +77,7 @@ const Header = () => {
       {mobileMenu && (
         <MobileMenuWrapper
           setMobileMenu={setMobileMenu}
-          setConnectWallet={setConnectWallet}
+          setConnectWallet={connectToWallet}
           pathName={pathName}
         />
       )}
@@ -86,7 +86,6 @@ const Header = () => {
       ) : (
         <MobileHeader mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
       )}
-      <ConnectWallet show={connectWallet} setShow={setConnectWallet} />
     </>
   );
 };

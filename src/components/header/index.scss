@@ -20,7 +20,6 @@
 }
 
 .navbar-dark {
-
   .navbar-nav {
     border: 1px solid;
     border-color: var(--color-nav-border);
@@ -49,7 +48,7 @@
 
     .show > .nav-link,
     .nav-link.active {
-      color: var(--color-nav-selected) !important;      
+      color: var(--color-nav-selected) !important;
       border: 4px solid;
       border-top: none;
       border-right: none;
@@ -108,8 +107,6 @@
 .mobile-menu-wrapper {
   background-color: var(--color-body-background-light);
   font-family: $plexus-mobile-font;
-  display: flex;
-  flex-direction: column;
   position: fixed;
   top: 0;
   right: 0;

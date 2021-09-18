@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const walletSlice = createSlice({
   name: "wallet",
   initialState: {
-    address: "0x1825BEa9F9271b04171c51F46d10B1DFcEa0BD8C",
+    address: null,
     ens: null,
     tokens: {},
     lpPositions: {},
@@ -13,6 +13,9 @@ export const walletSlice = createSlice({
   reducers: {
     setAddress: (state, action) => {
       state.address = action.payload;
+    },
+    setEnsName: (state, action) => {
+      state.ens = action.payload;
     },
     setTokens: (state, action) => {
       state.tokens = action.payload;
@@ -30,7 +33,7 @@ export const walletSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setAddress } = walletSlice.actions;
+export const { setAddress, setEnsName } = walletSlice.actions;
 
 export const userAddress = (state) => state.wallet.address;
 
