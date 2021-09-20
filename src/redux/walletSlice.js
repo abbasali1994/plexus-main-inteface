@@ -33,7 +33,7 @@ export const walletSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setAddress, setEnsName } = walletSlice.actions;
+export const { setAddress, setEnsName, setTokens } = walletSlice.actions;
 
 export const userAddress = (state) => state.wallet.address;
 

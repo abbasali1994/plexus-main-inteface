@@ -8,6 +8,8 @@ import Fortmatic from "fortmatic";
 import store from "../store";
 import { setAddress, setEnsName } from "../redux/walletSlice";
 
+import { setBalances } from "./balances";
+
 let provider = null;
 const INFURA_ID = "ff43e90c13d042d6b641cab07b787fc8";
 const CHAIN_ID = 1;
@@ -75,6 +77,8 @@ export const connectToWallet = async () => {
     }
     setWalletListener(web3Connection);
     setNetworkListener(web3Connection);
+
+    setBalances(userAddress);
   } catch (e) {
     web3Modal.clearCachedProvider();
   }
