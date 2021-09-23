@@ -1,29 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Container } from "react-bootstrap";
-import { constants } from "../../utils";
 import { changeSidebar } from "../../redux/sidebarSlice";
-
 import LiquidityPositions from "../liquidity-positions";
 import RewardsComponent from "../rewards";
 import Wallet from "../wallet";
 import StakingComponent from "../staking";
 import AssetsOverview from "../assets-overview";
-
-import "./index.scss";
 import NetworkProtocol from "../network-protocol";
+import "./index.scss";
 
 const DashboardUI = () => {
   const [overview, setOverview] = useState("All");
   const dispatch = useDispatch();
-
-  const [width, setWidth] = useState(window.innerWidth);
-  useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-  });
 
   const handleClickAsset = (name) => {
     setOverview(name);
@@ -51,12 +39,7 @@ const DashboardUI = () => {
   };
 
   return (
-    <Container
-      fluid
-      className={
-        "py-md-5 pr-md-5" + (width > constants.width.mobile ? " pl-4" : " mt-4")
-      }
-    >
+    <>
       <NetworkProtocol />
       {overview === "All" && (
         <AssetsOverview handleClickAsset={handleClickAsset} />
@@ -67,7 +50,7 @@ const DashboardUI = () => {
       {overview === "REWARDS" && <RewardsComponent goBack={backToDashboard} />}
       {overview === "WALLET" && <Wallet goBack={backToDashboard} />}
       {overview === "STAKING" && <StakingComponent goBack={backToDashboard} />}
-    </Container>
+    </>
   );
 };
 

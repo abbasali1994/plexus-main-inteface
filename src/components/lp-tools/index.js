@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./index.scss";
-import { Container, Row, Col, Table, Badge, Button } from "react-bootstrap";
-import { constants } from "../../utils";
+import { Row, Col, Table, Badge, Button } from "react-bootstrap";
 
 import ETH from "../../assets/eth.svg";
 import Rat from "../../assets/rat.svg";
@@ -12,13 +11,6 @@ import NetworkProtocol from "../network-protocol";
 
 const LpTools = () => {
   const [selected, setSelected] = useState(1);
-  const [width, setWidth] = useState(window.innerWidth);
-  useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-  });
 
   const tableData = [
     {
@@ -52,12 +44,7 @@ const LpTools = () => {
   };
 
   return (
-    <Container
-      fluid
-      className={
-        "py-md-5 pr-md-5" + (width > constants.width.mobile ? " pl-4" : " mt-4")
-      }
-    >
+    <>
       <NetworkProtocol />
       <Row>
         <Col md={12} className="mb-3 mb-md-4">
@@ -196,7 +183,7 @@ const LpTools = () => {
           </Button>
         </Col>
       </Row>
-    </Container>
+    </>
   );
 };
 

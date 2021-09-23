@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Badge } from "react-bootstrap";
+import { Row, Col, Badge } from "react-bootstrap";
+
 import { constants } from "../../utils";
 import YieldPopup from "./yield-popup";
 import NetworkProtocol from "../network-protocol";
@@ -21,13 +22,7 @@ const YieldAggregator = () => {
   });
 
   return (
-    <Container
-      fluid
-      className={classNames("py-md-5 pr-md-5", {
-        "mt-4": width <= constants.width.mobile,
-        "pl-4": width > constants.width.mobile,
-      })}
-    >
+    <>
       <NetworkProtocol />
       <Row>
         <Protocols />
@@ -54,7 +49,7 @@ const YieldAggregator = () => {
         </Col>
       </Row>
       <YieldPopup show={popupShow} setShow={setPopupShow} />
-    </Container>
+    </>
   );
 };
 
