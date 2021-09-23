@@ -11,7 +11,6 @@ import { useDispatch } from "react-redux";
 import routes from "./router";
 import ThemeToggle from "./components/theme-toggle";
 import { toggleTheme } from "./redux/themeSlice";
-
 import "./utils/init";
 // Adds theme based on system settings on first render
 const mq = window.matchMedia("(prefers-color-scheme: dark)");
