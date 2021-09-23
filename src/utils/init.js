@@ -2,22 +2,21 @@ import { web3Modal, connectToWallet } from "./wallet";
 import { getTokenIds, getTokens } from "../redux/tokensSlice";
 import { getGasPrices, getTokenUSDPrices } from "../redux/pricesSlice";
 import store from "../store";
-import { tokenSymbols } from "./tokens";
+
+const selectCoinGeckoIds = () => store.getState().tokens.coinGeckoIds;
+const selectTokens = () => store.getState().tokens.tokens;
+const selectPrices = () => store.getState().prices.pricesUSD;
 
 (async () => {
   store.dispatch(getGasPrices());
-  store.dispatch(getTokenIds()).then(({ payload }) => {
-    let tokenIDs = "";
-    const filteredTokens = payload.filter((currentValue) =>
-      tokenSymbols.includes(currentValue.symbol)
-    );
-    tokenIDs = filteredTokens.map((currentValue) => currentValue.id);
-    store.dispatch(getTokens(tokenIDs.toString()));
-    store.dispatch(getTokenUSDPrices(tokenIDs.toString()));
-  });
+  if (!selectCoinGeckoIds().length) await store.dispatch(getTokenIds());
+  if (!Object.keys(selectTokens()).length)
+    await store.dispatch(getTokens(selectCoinGeckoIds().toString()));
+  if (!Object.keys(selectPrices()).length)
+    await store.dispatch(getTokenUSDPrices(selectCoinGeckoIds().toString()));
 
   try {
-    if (web3Modal.cachedProvider) await connectToWallet();
+    if (web3Modal.cachedProvider) connectToWallet();
   } catch (e) {
     web3Modal.clearCachedProvider();
   }

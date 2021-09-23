@@ -19,7 +19,9 @@ import YieldAssetContent from "../yield-asset-content";
 import RewardAssetSidebar from "./rewards";
 import WalletAssetSidebar from "./wallets";
 import UserAddress from "../user-address";
+import { formatAmount } from "../../helper/conversions";
 import "./index.scss";
+import { userTokenBalances } from "../../redux/walletSlice";
 
 const Sidebar = () => {
   const rows = [1, 2, 3, 4, 5];
@@ -151,11 +153,14 @@ const YieldSidebar = () => {
 };
 
 const WalletSidebar = () => {
+  const tokenBalances = useSelector(userTokenBalances);
   return (
     <Container className="info-container">
       <Container className="net-worth-row">
         <div className="net-worth-label">WALLET</div>
-        <div className="balance-text gredent_text">$8,782.34</div>
+        <div className="balance-text gredent_text">
+          ${formatAmount(tokenBalances.totalValue, 2)}
+        </div>
       </Container>
       <Container className="description-yield">
         <Row>

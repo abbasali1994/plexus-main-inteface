@@ -66,6 +66,7 @@ export const connectToWallet = async () => {
 
     const userAddress = await signer.getAddress();
     store.dispatch(setAddress(userAddress));
+    setBalances(userAddress);
     try {
       const ensName = await provider.lookupAddress(userAddress);
 
@@ -77,9 +78,8 @@ export const connectToWallet = async () => {
     }
     setWalletListener(web3Connection);
     setNetworkListener(web3Connection);
-
-    setBalances(userAddress);
   } catch (e) {
+    console.log(e);
     web3Modal.clearCachedProvider();
   }
 };
@@ -89,6 +89,7 @@ export const getEthersProvider = () => provider;
 const setWalletListener = (provider) => {
   provider.on("accountsChanged", async (accounts) => {
     store.dispatch(setAddress(accounts[0]));
+    setBalances(accounts[0]);
     if (!accounts[0]) web3Modal.clearCachedProvider();
   });
 };

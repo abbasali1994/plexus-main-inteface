@@ -10,7 +10,6 @@ export const getTokenIds = createAsyncThunk("prices/getTokenIds", async () => {
 export const getTokens = createAsyncThunk(
   "prices/getTokens",
   async (tokens) => {
-    console.log(tokens);
     return fetch(
       `https://api.coingecko.com/api/v3/coins/markets?ids=${tokens}&vs_currency=usd`
     ).then((res) => res.json());
@@ -21,27 +20,28 @@ const tokensSlice = createSlice({
   name: "tokens",
   initialState: {
     coinGeckoIds: [],
-    coinGeckoApiStatus: null,
+    coinGeckoIdsStatus: null,
+    coinGeckoTokensStatus: null,
     tokens: {},
   },
   reducers: {},
   extraReducers: {
     [getTokenIds.pending]: (state, _action) => {
-      state.coinGeckoApiStatus = "loading";
+      state.coinGeckoIdsStatus = "loading";
     },
     [getTokenIds.fulfilled]: (state, { payload }) => {
       const tokens = payload.filter((item) =>
         tokenSymbols.includes(item.symbol)
       );
       state.coinGeckoIds = tokens.map((token) => token.id);
-      state.coinGeckoApiStatus = "success";
+      state.coinGeckoIdsStatus = "success";
     },
     [getTokenIds.rejected]: (state, _action) => {
-      state.coinGeckoApiStatus = "failed";
+      state.coinGeckoIdsStatus = "failed";
     },
 
     [getTokens.pending]: (state, _action) => {
-      state.coinGeckoApiStatus = "loading";
+      state.coinGeckoTokensStatus = "loading";
     },
     [getTokens.fulfilled]: (state, { payload }) => {
       const json = payload.reduce(function (json, value) {
@@ -52,10 +52,10 @@ const tokensSlice = createSlice({
         return json;
       }, {});
       state.tokens = json;
-      state.coinGeckoApiStatus = "success";
+      state.coinGeckoTokensStatus = "success";
     },
     [getTokens.rejected]: (state, _action) => {
-      state.coinGeckoApiStatus = "failed";
+      state.coinGeckoTokensStatus = "failed";
     },
   },
 });

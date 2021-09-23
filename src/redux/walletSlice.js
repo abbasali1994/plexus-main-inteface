@@ -5,7 +5,7 @@ export const walletSlice = createSlice({
   initialState: {
     address: null,
     ens: null,
-    tokens: {},
+    tokens: { totalValue: 0 },
     lpPositions: {},
     stakings: {},
     rewards: {},
@@ -36,5 +36,6 @@ export const walletSlice = createSlice({
 export const { setAddress, setEnsName, setTokens } = walletSlice.actions;
 
 export const userAddress = (state) => state.wallet.address;
+export const userTokenBalances = (state) => state.wallet.tokens;
 
 export default walletSlice.reducer;

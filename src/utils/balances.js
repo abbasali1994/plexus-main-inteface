@@ -4,7 +4,7 @@ import { fetchBalances } from "../helper/ethereumRPC";
 
 export const setBalances = async (userAddress) => {
   try {
-    const storeBalance = {};
+    const storeBalance = { totalValue: 0 };
     const {
       wallet: { tokens },
     } = store.getState();
@@ -13,8 +13,11 @@ export const setBalances = async (userAddress) => {
       if (balances[id].amount <= 0 && !tokens[id]) return 0;
       if (tokens[id] && balances[id].amount === tokens[id].amount) return 0;
       storeBalance[id] = balances[id];
+      storeBalance.totalValue += balances[id].usd;
       return 0;
     });
     store.dispatch(setTokens(storeBalance));
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 };

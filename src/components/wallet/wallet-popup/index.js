@@ -5,14 +5,24 @@ import UserAddress from "../../user-address";
 import { currentTheme } from "../../../redux/themeSlice";
 import ExitLight from "../../../assets/Exit.svg";
 import ExitDark from "../../../assets/exit_blue.svg";
-import Rat from "../../../assets/rat_small.svg";
+
 import Union from "../../../assets/Union.svg";
 
 import "./index.scss";
+import { currentSelectedWalletAsset } from "../../../redux/sidebarSlice";
+import { tokenList } from "../../../redux/tokensSlice";
+import { formatAmount } from "../../../helper/conversions";
+import { userTokenBalances } from "../../../redux/walletSlice";
 
 const WalletPopup = (props) => {
   const theme = useSelector(currentTheme);
+  const tokenBalances = useSelector(userTokenBalances);
+  const id = useSelector(currentSelectedWalletAsset);
+  const tokens = useSelector(tokenList);
 
+  const tokenAmount = tokenBalances[id]?.amount || 0;
+  const tokenValue = tokenBalances[id]?.usd || 0;
+  if (!id) return "";
   return (
     <Modal
       show={props.show}
@@ -35,20 +45,30 @@ const WalletPopup = (props) => {
         <Container className="px-0 wallet-popup">
           <Row>
             <Col lg={12} className="d-flex">
-              <img src={Rat} alt="" className="wallet-asset-img mb-1 mr-1" />
+              <img
+                src={tokens[id].image}
+                alt=""
+                className="wallet-asset-img mb-1 mr-1"
+              />
               <div className="ml-2">
-                <div className="title-text">PLEXUS (PLX)</div>
-                <div className="value-text gredent_text">$1.14</div>
+                <div className="title-text">
+                  {`${id} (${tokens[id].symbol})`.toUpperCase()}
+                </div>
+                <div className="value-text gredent_text">
+                  ${formatAmount(tokenValue / tokenAmount, 2)}
+                </div>
               </div>
             </Col>
           </Row>
           <Row className="sub-container justify-content-between d-flex p-3 mx-1 mt-3">
-            <div className="sub-label-text">Your PLX</div>
-            <div className="sub-value-text">3,281.45</div>
+            <div className="sub-label-text">
+              Your {tokens[id].symbol.toUpperCase()}
+            </div>
+            <div className="sub-value-text">{formatAmount(tokenAmount, 2)}</div>
           </Row>
           <Row className="sub-container justify-content-between d-flex p-3 mt-3 mx-1">
             <div className="sub-label-text">Value</div>
-            <div className="sub-value-text">$2,872.32</div>
+            <div className="sub-value-text">${formatAmount(tokenValue, 2)}</div>
           </Row>
           <Row className="mt-3 mx-1">
             <div className="title-text">ACTIONS</div>
@@ -73,8 +93,8 @@ const WalletPopup = (props) => {
           </Row>
           <Row className="mx-1 mt-3">
             <div className="description-text">
-              Stake your Plexus tokens to earn additional PLX as rewards in the
-              Yield Aggregator.
+              Stake your Tokens to earn additional PLX as rewards in the Yield
+              Aggregator.
             </div>
           </Row>
         </Container>

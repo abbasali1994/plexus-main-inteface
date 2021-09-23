@@ -6,13 +6,14 @@ import Lock from "../../assets/lock.svg";
 import Rewards from "../../assets/rewards.svg";
 import UserYieldFarming from "../user-yield-farming";
 import Pie from "../pie-chart";
+import { useSelector } from "react-redux";
+import { formatAmount } from "../../helper/conversions";
+import { userTokenBalances } from "../../redux/walletSlice";
 
-// dummy data for now
 const assetsData = [
   {
     name: "WALLET",
     icon: WalletIcon,
-    amount: "$8,782.34",
     percentage: 23,
   },
   {
@@ -36,6 +37,9 @@ const assetsData = [
 ];
 
 const AssetsOverview = ({ handleClickAsset }) => {
+  const tokenBalances = useSelector(userTokenBalances);
+  assetsData[0].amount = `$${formatAmount(tokenBalances.totalValue, 2)}`;
+
   return (
     <Row>
       <Col md={12} className="mb-3 mb-md-5">
