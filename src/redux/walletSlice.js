@@ -6,9 +6,10 @@ export const walletSlice = createSlice({
     address: null,
     ens: null,
     tokens: { totalValue: 0 },
-    lpPositions: {},
+    liquidity: { totalValue: 0, lptokens: [] },
     stakings: {},
     rewards: {},
+    errors: {},
   },
   reducers: {
     setAddress: (state, action) => {
@@ -17,11 +18,14 @@ export const walletSlice = createSlice({
     setEnsName: (state, action) => {
       state.ens = action.payload;
     },
+    setErrors: (state, action) => {
+      state.errors = action.payload;
+    },
     setTokens: (state, action) => {
       state.tokens = action.payload;
     },
-    setLpPositions: (state, action) => {
-      state.lpPositions = action.payload;
+    setLiquidity: (state, action) => {
+      state.liquidity = action.payload;
     },
     setStakings: (state, action) => {
       state.stakings = action.payload;
@@ -33,9 +37,11 @@ export const walletSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setAddress, setEnsName, setTokens } = walletSlice.actions;
+export const { setAddress, setEnsName, setErrors, setTokens, setLiquidity } =
+  walletSlice.actions;
 
 export const userAddress = (state) => state.wallet.address;
 export const userTokenBalances = (state) => state.wallet.tokens;
+export const userLiquidityBalances = (state) => state.wallet.liquidity;
 
 export default walletSlice.reducer;

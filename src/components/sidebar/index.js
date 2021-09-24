@@ -21,7 +21,10 @@ import WalletAssetSidebar from "./wallets";
 import UserAddress from "../user-address";
 import { formatAmount } from "../../helper/conversions";
 import "./index.scss";
-import { userTokenBalances } from "../../redux/walletSlice";
+import {
+  userLiquidityBalances,
+  userTokenBalances,
+} from "../../redux/walletSlice";
 
 const Sidebar = () => {
   const rows = [1, 2, 3, 4, 5];
@@ -48,9 +51,7 @@ const Sidebar = () => {
       {sidebar === "lend-borrow" && <LendBorrowSidebar />}
       {sidebar === "cross-chain-tools" && <CrossChainToolsSidebar />}
       {sidebar === "zap-liquidity" && <ZapSidebar />}
-      {sidebar === "user-stake-sushiswap" && <UserStaking />}
-      {sidebar === "user-stake-uniswap" && <UserStaking />}
-      {sidebar === "user-stake-1inch" && <UserStaking />}
+      {sidebar.includes("user-stake") && <UserStaking sidebar={sidebar} />}
       {sidebar === "reward-asset" && <RewardAssetSidebar />}
       {sidebar === "wallet-asset" && <WalletAssetSidebar />}
       {sidebar === "lp-main" && <LPMainSidebar />}
@@ -110,11 +111,14 @@ const MainSidebar = () => {
 };
 
 const LiquiditySidebar = () => {
+  const liquidityBalances = useSelector(userLiquidityBalances);
   return (
     <Container className="info-container">
       <Container className="net-worth-row">
         <div className="net-worth-label">LIQUIDITY POSITIONS</div>
-        <div className="balance-text gredent_text">$3,892.34</div>
+        <div className="balance-text gredent_text">
+          ${formatAmount(liquidityBalances.totalValue, 2)}
+        </div>
       </Container>
       <Container className="description-row">
         <Row>

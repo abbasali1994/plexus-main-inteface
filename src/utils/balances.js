@@ -1,6 +1,7 @@
 import store from "../store";
-import { setTokens } from "../redux/walletSlice";
+import { setErrors, setLiquidity, setTokens } from "../redux/walletSlice";
 import { fetchBalances } from "../helper/ethereumRPC";
+import { fetchLpTokens } from "../gql";
 
 export const setBalances = async (userAddress) => {
   try {
@@ -19,5 +20,19 @@ export const setBalances = async (userAddress) => {
     store.dispatch(setTokens(storeBalance));
   } catch (e) {
     console.log(e);
+  }
+};
+
+export const setLpTokenBalances = async (userAddress) => {
+  const { lpTokens, errors } = await fetchLpTokens(userAddress);
+  if (!errors.uniswap && !errors.sushiswap) {
+    let totalValue = 0;
+    lpTokens.map(({ price, amount }) => {
+      totalValue += amount * price;
+      return 0;
+    });
+    store.dispatch(setLiquidity({ totalValue, lpTokens }));
+  } else {
+    store.dispatch(setErrors(errors));
   }
 };

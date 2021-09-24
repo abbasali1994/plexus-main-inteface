@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Table, Badge } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Row, Col, Badge } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { constants } from "../../utils";
-import { changeSidebar } from "../../redux/sidebarSlice";
+import {
+  changeSelectedLiquidityAsset,
+  changeSidebar,
+} from "../../redux/sidebarSlice";
 import LiquidityPopup from "./liquidity-popup";
 import "./index.scss";
 
@@ -13,20 +16,29 @@ import Sushi from "../../assets/sushi.svg";
 import Inch from "../../assets/1inch.svg";
 import Uniswap from "../../assets/uniswap.svg";
 import Exit from "../../assets/Exit.svg";
-import liquidityDataJson from "./LiquidityData.json";
+
 import PortfolioPercentage from "../portfolio-percentage";
+import { userLiquidityBalances } from "../../redux/walletSlice";
+import { formatAmount } from "../../helper/conversions";
+import DesktopTable from "./desktop-table";
+import MobileTable from "./mobile-table";
+
+const protocols = [
+  { name: "sushiswap", image: Sushi },
+  { name: "1inch", image: Inch },
+  { name: "uniswap", image: Uniswap },
+];
 
 const LiquidityPositions = (props) => {
+  const { totalValue, lpTokens } = useSelector(userLiquidityBalances);
+
   const [currentPosition, setCurrentPosition] = useState("all");
-  const [selected, setSelected] = useState("");
-  const liquidityData = liquidityDataJson;
-  const [selectedLiquidityData, setSelectedLiquidityData] =
-    useState(liquidityData);
+  const [selectedLiquidityData, setSelectedLiquidityData] = useState(lpTokens);
   const [popupShow, setPopupShow] = useState(false);
   const [mobilePopType, setMobilePopType] = useState("");
+  const [width, setWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
 
-  const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
@@ -34,42 +46,20 @@ const LiquidityPositions = (props) => {
     window.addEventListener("resize", handleResize);
   });
 
-  const handleClickLiquidity = (position) => {
-    setCurrentPosition(position);
-    setSelected("");
-    dispatch(changeSidebar("dashboard-liquidity"));
-    if (position === "all") {
-      setSelectedLiquidityData(liquidityData);
-    } else {
-      const selectedLiquidityData = liquidityData.filter(
-        (e) => e.protocol === position
+  useEffect(() => {
+    if (currentPosition === "all") setSelectedLiquidityData(lpTokens);
+    else {
+      const selectedLiquidityData = lpTokens.filter(
+        (e) => e.protocol === currentPosition
       );
       setSelectedLiquidityData(selectedLiquidityData);
     }
-  };
+  }, [lpTokens, currentPosition]);
 
-  const handleClickClose = () => {
-    setCurrentPosition("all");
-    setSelectedLiquidityData(liquidityData);
-    setSelected("");
+  const handleClickLiquidity = (position) => {
+    setCurrentPosition(position);
+    dispatch(changeSelectedLiquidityAsset(""));
     dispatch(changeSidebar("dashboard-liquidity"));
-  };
-
-  const handleClickAsset = (asset) => {
-    setSelected(asset.id);
-    switch (asset.protocol) {
-      case "SUSHISWAP":
-        dispatch(changeSidebar("user-stake-sushiswap"));
-        break;
-      case "1INCH":
-        dispatch(changeSidebar("user-stake-1inch"));
-        break;
-      case "UNISWAP":
-        dispatch(changeSidebar("user-stake-uniswap"));
-        break;
-      default:
-        break;
-    }
   };
 
   const handleClickAssetMobile = (asset) => {
@@ -103,7 +93,7 @@ const LiquidityPositions = (props) => {
                 data-testid="dollarText"
                 className="font-weight-normal gredent_text mb-0"
               >
-                $3,892.34
+                ${formatAmount(totalValue, 2)}
               </h5>
             </div>
           </Col>
@@ -117,111 +107,46 @@ const LiquidityPositions = (props) => {
               : " liquidity_protocol_container")
           }
         >
-          <Col md={4} className="mb-2 mb-md-4">
-            <div
-              className={
-                "asset_div p-3 d-flex justify-content-between align-items-center " +
-                (currentPosition === "SUSHISWAP" ? "active" : "")
-              }
-            >
+          {protocols.map(({ name, image }) => (
+            <Col key={name} md={4} className="mb-2 mb-md-4">
               <div
-                className="d-flex align-items-center w-100"
-                onClick={() => handleClickLiquidity("SUSHISWAP")}
+                className={
+                  "asset_div p-3 d-flex justify-content-between align-items-center " +
+                  (currentPosition === name.toUpperCase() ? "active" : "")
+                }
               >
-                <img
-                  data-testid="sushiwapImg"
-                  src={Sushi}
-                  alt=""
-                  className="mr-3"
-                  width="39px"
-                />
-                <h5 data-testid="sushiwapText" className="mr-3 mt-2 mb-0">
-                  SUSHISWAP
-                </h5>
-                <Badge pill variant="primary" className="pl-2 pr-2 pt-1 mt-1">
-                  1
-                </Badge>
+                <div
+                  className="d-flex align-items-center w-100"
+                  onClick={() => handleClickLiquidity(name.toUpperCase())}
+                >
+                  <img
+                    data-testid={`${name}Img`}
+                    src={image}
+                    alt=""
+                    className="mr-3"
+                    width="39px"
+                  />
+                  <h5 data-testid={`${name}Text`} className="mr-3 mt-2 mb-0">
+                    {name.toUpperCase()}
+                  </h5>
+                  <Badge pill variant="primary" className="pl-2 pr-2 pt-1 mt-1">
+                    {
+                      lpTokens.filter((e) => e.protocol === name.toUpperCase())
+                        .length
+                    }
+                  </Badge>
+                </div>
+                {currentPosition === name.toUpperCase() && (
+                  <img
+                    src={Exit}
+                    alt=""
+                    className="ml-5"
+                    onClick={() => handleClickLiquidity("all")}
+                  />
+                )}
               </div>
-              {currentPosition === "SUSHISWAP" && (
-                <img
-                  src={Exit}
-                  alt=""
-                  className="ml-5"
-                  onClick={handleClickClose}
-                />
-              )}
-            </div>
-          </Col>
-          <Col md={4} className="mb-2 mb-md-4">
-            <div
-              className={
-                "asset_div p-3 d-flex justify-content-between align-items-center " +
-                (currentPosition === "1INCH" ? "active" : "")
-              }
-            >
-              <div
-                className="d-flex align-items-center w-100"
-                onClick={() => handleClickLiquidity("1INCH")}
-              >
-                <img
-                  data-testid="inchImg"
-                  src={Inch}
-                  alt=""
-                  className="mr-3"
-                  width="42px"
-                />
-                <h5 data-testid="inchText" className="mr-3 mt-2 mb-0">
-                  1INCH
-                </h5>
-                <Badge pill variant="primary" className="pl-2 pr-2 pt-1 mt-1">
-                  1
-                </Badge>
-              </div>
-              {currentPosition === "1INCH" && (
-                <img
-                  src={Exit}
-                  alt=""
-                  className="ml-5"
-                  onClick={handleClickClose}
-                />
-              )}
-            </div>
-          </Col>
-          <Col md={4} className="mb-2 mb-md-4">
-            <div
-              className={
-                "asset_div p-3 d-flex justify-content-between align-items-center " +
-                (currentPosition === "UNISWAP" ? "active" : "")
-              }
-            >
-              <div
-                className="d-flex align-items-center w-100"
-                onClick={() => handleClickLiquidity("UNISWAP")}
-              >
-                <img
-                  data-testid="uniSwapImg"
-                  src={Uniswap}
-                  alt=""
-                  className="mr-3"
-                  width="42px"
-                />
-                <h5 data-testid="uniSwapText" className="mr-3 mt-2 mb-0">
-                  UNISWAP
-                </h5>
-                <Badge pill variant="primary" className="pl-2 pr-2 pt-1 mt-1">
-                  2
-                </Badge>
-              </div>
-              {currentPosition === "UNISWAP" && (
-                <img
-                  src={Exit}
-                  alt=""
-                  className="ml-5"
-                  onClick={handleClickClose}
-                />
-              )}
-            </div>
-          </Col>
+            </Col>
+          ))}
         </Row>
       </Col>
       <Row
@@ -235,7 +160,7 @@ const LiquidityPositions = (props) => {
               <h5 data-testid="liqPosText" className="text-white-1 mr-2">
                 YOUR LIQUIDITY POSITIONS
                 <Badge pill variant="primary" className="ml-4 px-3">
-                  {liquidityData.length}
+                  {lpTokens.length}
                 </Badge>
               </h5>
             ) : (
@@ -243,7 +168,7 @@ const LiquidityPositions = (props) => {
                 YOUR {currentPosition} LIQUIDITY
                 <Badge pill variant="primary" className="ml-4 px-3">
                   {
-                    liquidityData.filter((e) => e.protocol === currentPosition)
+                    lpTokens.filter((e) => e.protocol === currentPosition)
                       .length
                   }
                 </Badge>
@@ -251,118 +176,17 @@ const LiquidityPositions = (props) => {
             )}
           </div>
         </Col>
-        {width > constants.width.mobile ? (
-          <Col md={12}>
-            <Table responsive="md" borderless>
-              <thead>
-                <tr className="text-gray-3">
-                  <th data-testid="assetsText">ASSETS</th>
-                  <th data-testid="protocolText">PROTOCOL</th>
-                  <th data-testid="depositText">YOUR DEPOSITS</th>
-                </tr>
-              </thead>
-              <tbody data-testid="tbody">
-                {selectedLiquidityData.map((e) => (
-                  <>
-                    <tr
-                      className={
-                        "text-gray-4 w-25 point-cursor" +
-                        (selected === e.id ? " tr-active" : "")
-                      }
-                      onClick={() => handleClickAsset(e)}
-                    >
-                      <td
-                        className={
-                          "table_col_first d-flex align-items-center" +
-                          (selected === e.id ? " bg-transparent" : "")
-                        }
-                      >
-                        <div className="d-flex mr-3">
-                          <img src={e.asset1Icon} alt="" className="mr-2" />
-                          <img src={e.asset2Icon} alt="" />
-                        </div>
-                        <div>
-                          <h6 className="mb-0">{e.assets1}</h6>
-                          <span>{e.assets2}</span>
-                        </div>
-                      </td>
-                      <td
-                        className={
-                          "table_col w-50" +
-                          (selected === e.id ? " bg-transparent" : "")
-                        }
-                      >
-                        <div>{e.protocol}</div>
-                      </td>
-                      <td
-                        className={
-                          "table_col_last w-25" +
-                          (selected === e.id ? " bg-transparent" : "")
-                        }
-                      >
-                        {e.deposit}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="p-2"></td>
-                    </tr>
-                  </>
-                ))}
-              </tbody>
-            </Table>
-          </Col>
-        ) : (
-          <Col md={12}>
-            {selectedLiquidityData.map((e, index) => (
-              <div
-                key={index}
-                className="yield-card text-gray-4"
-                onClick={() => handleClickAssetMobile(e)}
-              >
-                <div className="d-flex">
-                  <img src={e.asset1Icon} alt="" className="mr-1" />
-                  <img src={e.asset2Icon} alt="" className="mr-3" />
-                  <div className="ml-2">
-                    <h6 className="mb-0">{e.assets1}</h6>
-                    {!e.assets2 && <br />}
-                    <span>{e.assets2}</span>
-                  </div>
-                </div>
-                {currentPosition === "all" ? (
-                  <div className="d-flex justify-content-between mt-4">
-                    <div>
-                      <div className="font-weight-bold">{e.assets1}</div>
-                      <div className="font-weight-bold">{e.assets2}</div>
-                    </div>
-                    <div>
-                      <div className="yield-card-field mt-1">PROTOCOL</div>
-                      <div className="font-weight-bold">{e.protocol}</div>
-                    </div>
-                    <div>
-                      <div className="yield-card-field mt-1">YOUR DEPOSITS</div>
-                      <div className="font-weight-bold">{e.deposit}</div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="d-flex justify-content-between mt-4">
-                    <div>
-                      <div className="yield-card-field">YOUR DEPOSITS</div>
-                      <div className="font-weight-bold">{e.deposit}</div>
-                    </div>
-                    <div>
-                      <div className="yield-card-field">ASSET 1</div>
-                      <div className="font-weight-bold">{e.assets1Amount}</div>
-                    </div>
-                    <div>
-                      <div className="yield-card-field">ASSET 2</div>
-                      <div className="font-weight-bold">{e.assets2Amount}</div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </Col>
-        )}
+        <Col md={12}>
+          {width > constants.width.mobile ? (
+            <DesktopTable selectedLiquidityData={selectedLiquidityData} />
+          ) : (
+            <MobileTable
+              currentPosition={currentPosition}
+              handleClickAssetMobile={handleClickAssetMobile}
+              selectedLiquidityData={selectedLiquidityData}
+            />
+          )}
+        </Col>
       </Row>
       <LiquidityPopup
         show={popupShow}
