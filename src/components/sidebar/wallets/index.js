@@ -5,8 +5,20 @@ import "./index.scss";
 
 import Rat from "../../../assets/rat_small.svg";
 import Union from "../../../assets/Union.svg";
+import { useSelector } from "react-redux";
+import { currentSelectedWalletAsset } from "../../../redux/sidebarSlice";
+import { formatAmount } from "../../../helper/conversions";
+import { tokenList } from "../../../redux/tokensSlice";
+import { userTokenBalances } from "../../../redux/walletSlice";
 
 const WalletAssetSidebar = () => {
+  const tokenBalances = useSelector(userTokenBalances);
+  const id = useSelector(currentSelectedWalletAsset);
+  const tokens = useSelector(tokenList);
+
+  const tokenAmount = tokenBalances[id]?.amount || 0;
+  const tokenValue = tokenBalances[id]?.usd || 0;
+  if (!id) return "";
   return (
     <Container className="wallet-asset">
       <Container className="px-3">
@@ -14,18 +26,24 @@ const WalletAssetSidebar = () => {
           <Col lg={12} className="d-flex">
             <img src={Rat} alt="" className="wallet-asset-img mb-1 mr-1" />
             <div className="ml-2">
-              <div className="title-text">PLEXUS (PLX)</div>
-              <div className="value-text gredent_text">$1.14</div>
+              <div className="title-text">
+                {`${id} (${tokens[id].symbol})`.toUpperCase()}
+              </div>
+              <div className="value-text gredent_text">
+                ${formatAmount(tokenValue / tokenAmount, 2)}
+              </div>
             </div>
           </Col>
         </Row>
         <Row className="sub-container justify-content-between d-flex p-3 mx-1 mt-4">
-          <div className="sub-label-text">Your PLX</div>
-          <div className="sub-value-text">3,281.45</div>
+          <div className="sub-label-text">
+            Your {tokens[id].symbol.toUpperCase()}
+          </div>
+          <div className="sub-value-text">{formatAmount(tokenAmount, 2)}</div>
         </Row>
         <Row className="sub-container justify-content-between d-flex p-3 mt-3 mx-1">
           <div className="sub-label-text">Value</div>
-          <div className="sub-value-text">$2,872.32</div>
+          <div className="sub-value-text">${formatAmount(tokenValue, 2)}</div>
         </Row>
         <Row className="mt-5 mx-1">
           <div className="title-text">ACTIONS</div>
@@ -50,8 +68,8 @@ const WalletAssetSidebar = () => {
         </Row>
         <Row className="mx-1 mt-3">
           <div className="description-text">
-            Stake your Plexus tokens to earn additional PLX as rewards in the
-            Yield Aggregator.
+            Stake your Tokens to earn additional PLX as rewards in the Yield
+            Aggregator.
           </div>
         </Row>
       </Container>

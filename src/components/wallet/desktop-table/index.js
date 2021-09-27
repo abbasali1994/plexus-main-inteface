@@ -1,16 +1,19 @@
 import classNames from "classnames";
-import React from "react";
 import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { changeSidebar } from "../../../redux/sidebarSlice";
-import walletData from "../data";
+
+import { capitalCase, formatAmount } from "../../../helper/conversions";
+import {
+  changeSelectedWalletAsset,
+  changeSidebar,
+} from "../../../redux/sidebarSlice";
 import Pie from "../../pie-chart";
 
-const DesktopTable = ({ selected, setSelected }) => {
+const DesktopTable = ({ selected, balances, totalValue }) => {
   const dispatch = useDispatch();
   const handleClickAsset = (id) => {
     dispatch(changeSidebar("wallet-asset"));
-    setSelected(id);
+    dispatch(changeSelectedWalletAsset(id));
   };
 
   return (
@@ -25,7 +28,7 @@ const DesktopTable = ({ selected, setSelected }) => {
         </tr>
       </thead>
       <tbody>
-        {walletData.map((e) => {
+        {balances.map((e) => {
           const colClass = classNames("table_col w-20", {
             "bg-transparent": selected === e.id,
           });
@@ -44,25 +47,27 @@ const DesktopTable = ({ selected, setSelected }) => {
                   )}
                 >
                   <div className="d-flex mr-3">
-                    <img src={e.assetIcon} alt="" className="mr-2 asset-icon" />
+                    <img src={e.image} alt="" className="mr-2 asset-icon" />
                   </div>
                   <div>
-                    <h6 className="mb-0 font-weight-bold">{e.asset}</h6>
+                    <h6 className="mb-0 font-weight-bold">
+                      {capitalCase(e.id)}
+                    </h6>
                   </div>
                 </td>
                 <td className={colClass}>
                   <div className="d-flex align-items-center h-30 color-light">
-                    {e.protocol}
+                    {e.name}
                   </div>
                 </td>
                 <td className={colClass}>
                   <div className="d-flex align-items-center h-30">
-                    {e.amount}
+                    {formatAmount(e.amount, 2)}
                   </div>
                 </td>
                 <td className={colClass}>
                   <div className="d-flex align-items-center h-30">
-                    {e.value}
+                    ${formatAmount(e.usd, 2)}
                   </div>
                 </td>
                 <td
@@ -72,8 +77,10 @@ const DesktopTable = ({ selected, setSelected }) => {
                   }
                 >
                   <div className="d-flex align-items-center h-30 justify-content-between">
-                    <span className="mr-3">{e.percentage}%</span>
-                    <Pie percentage={e.percentage} size={24} />
+                    <span className="mr-3">
+                      {formatAmount((e.usd / totalValue) * 100, 2)}%
+                    </span>
+                    <Pie percentage={(e.usd / totalValue) * 100} size={24} />
                   </div>
                 </td>
               </tr>

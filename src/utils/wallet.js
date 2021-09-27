@@ -8,6 +8,8 @@ import Fortmatic from "fortmatic";
 import store from "../store";
 import { setAddress, setEnsName } from "../redux/walletSlice";
 
+import { setBalances, setLpTokenBalances } from "./balances";
+
 let provider = null;
 const INFURA_ID = "ff43e90c13d042d6b641cab07b787fc8";
 const CHAIN_ID = 1;
@@ -64,6 +66,8 @@ export const connectToWallet = async () => {
 
     const userAddress = await signer.getAddress();
     store.dispatch(setAddress(userAddress));
+    setBalances(userAddress);
+    setLpTokenBalances(userAddress);
     try {
       const ensName = await provider.lookupAddress(userAddress);
 
@@ -76,6 +80,7 @@ export const connectToWallet = async () => {
     setWalletListener(web3Connection);
     setNetworkListener(web3Connection);
   } catch (e) {
+    console.log(e);
     web3Modal.clearCachedProvider();
   }
 };
@@ -85,6 +90,8 @@ export const getEthersProvider = () => provider;
 const setWalletListener = (provider) => {
   provider.on("accountsChanged", async (accounts) => {
     store.dispatch(setAddress(accounts[0]));
+    setBalances(accounts[0]);
+    setLpTokenBalances(accounts[0]);
     if (!accounts[0]) web3Modal.clearCachedProvider();
   });
 };
