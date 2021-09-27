@@ -17,6 +17,9 @@ export function formatAmount(amount, decimals = 4) {
     return amount.toLocaleString("en-US", { maximumFractionDigits: 2 });
   if (amount > 10 ** (-1 * decimals))
     return amount.toLocaleString("en-US", { maximumFractionDigits: decimals });
+  if (amount === 0)
+    return amount.toLocaleString("en-US", { maximumFractionDigits: decimals });
+
   return amount.toExponential(decimals);
 }
 

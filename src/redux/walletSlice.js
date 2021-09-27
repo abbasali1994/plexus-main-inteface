@@ -6,7 +6,7 @@ export const walletSlice = createSlice({
     address: null,
     ens: null,
     tokens: { totalValue: 0 },
-    liquidity: { totalValue: 0, lptokens: [] },
+    liquidity: { totalValue: 0, lpTokens: [] },
     stakings: {},
     rewards: {},
     errors: {},
