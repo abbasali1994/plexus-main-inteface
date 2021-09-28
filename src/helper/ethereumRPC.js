@@ -3,7 +3,10 @@ import store from "../store";
 import { convertToDecimal } from "./conversions";
 import { tokenAddressList } from "../utils/tokens";
 
-const retrieveTokenBalanceViaRPC = async (tokenAddresses, userAddress) => {
+export const retrieveTokenBalanceViaRPC = async (
+  tokenAddresses,
+  userAddress
+) => {
   const data = await fetch(`${constants.RPCEndpoint}`, {
     method: "POST",
     headers: {
