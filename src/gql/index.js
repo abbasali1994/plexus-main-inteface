@@ -3,7 +3,7 @@ import { client as sushiClient } from "./sushiswap";
 import { LP_POSITION_QUERY } from "./queries";
 import store from "../store";
 import { gql } from "@apollo/client";
-import { queryLPTokenBalances } from "./1inch";
+import { queryLPTokensInch } from "./1inch";
 
 const queryLpTokens = async (client, userAddress) => {
   try {
@@ -25,7 +25,7 @@ const queryLpTokens = async (client, userAddress) => {
 export const fetchLpTokens = async (userAddress) => {
   const Uniswap = queryLpTokens(uniClient, userAddress);
   const Sushiswap = queryLpTokens(sushiClient, userAddress);
-  const Inch = queryLPTokenBalances(userAddress);
+  const Inch = queryLPTokensInch(userAddress);
   const result = await Promise.all([Uniswap, Sushiswap, Inch]).then(
     (resolve) => {
       return {
