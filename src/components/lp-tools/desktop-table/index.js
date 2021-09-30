@@ -15,7 +15,7 @@ const DesktopTable = ({ selectedLiquidityData }) => {
     dispatch(changeSelectedLiquidityAsset(asset.id));
     dispatch(changeSidebar("user-stake-" + asset.protocol.toLowerCase()));
   };
-  if (!selectedLiquidityData.length) return;
+  if (!selectedLiquidityData.length) return "";
   return (
     <Table responsive="md" borderless>
       <thead>
