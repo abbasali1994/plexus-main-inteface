@@ -16,7 +16,7 @@ const DesktopTable = ({ selected, balances, totalValue }) => {
     dispatch(changeSelectedWalletAsset(id));
   };
 
-  return (
+  return balances?.length ? (
     <Table responsive="md" borderless>
       <thead>
         <tr className="text-gray-3">
@@ -92,6 +92,8 @@ const DesktopTable = ({ selected, balances, totalValue }) => {
         })}
       </tbody>
     </Table>
+  ) : (
+    <div className={"text-gray-3 w-20"}>No Tokens in Wallet</div>
   );
 };
 

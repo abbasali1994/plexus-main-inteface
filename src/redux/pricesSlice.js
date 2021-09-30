@@ -28,7 +28,6 @@ const pricesSlice = createSlice({
   },
   reducers: {
     updateTokenPrice: (state, { payload }) => {
-      console.log(payload);
       state.pricesUSD = { ...state.pricesUSD, ...payload };
     },
   },
