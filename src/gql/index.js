@@ -3,6 +3,7 @@ import { client as sushiClient } from "./sushiswap";
 import { LP_POSITION_QUERY } from "./queries";
 import store from "../store";
 import { gql } from "@apollo/client";
+import { queryLPTokenBalances } from "./1inch";
 
 const queryLpTokens = async (client, userAddress) => {
   try {
@@ -14,6 +15,7 @@ const queryLpTokens = async (client, userAddress) => {
     });
     if (data.user?.liquidityPositions)
       return { data: data.user.liquidityPositions, error };
+
     return { data: [], error };
   } catch (e) {
     return { data: [], error: e.message };
@@ -21,18 +23,26 @@ const queryLpTokens = async (client, userAddress) => {
 };
 
 export const fetchLpTokens = async (userAddress) => {
-  const Uniswap = await queryLpTokens(uniClient, userAddress);
-  const Sushiswap = await queryLpTokens(sushiClient, userAddress);
-  return {
-    lpTokens: [
-      ...processResult(Uniswap.data, "UNISWAP"),
-      ...processResult(Sushiswap.data, "SUSHISWAP"),
-    ],
-    errors: {
-      uniswap: Uniswap.error,
-      sushiswap: Sushiswap.error,
-    },
-  };
+  const Uniswap = queryLpTokens(uniClient, userAddress);
+  const Sushiswap = queryLpTokens(sushiClient, userAddress);
+  const Inch = queryLPTokenBalances(userAddress);
+  const result = await Promise.all([Uniswap, Sushiswap, Inch]).then(
+    (resolve) => {
+      return {
+        lpTokens: [
+          ...processResult(resolve[0].data, "UNISWAP"),
+          ...processResult(resolve[1].data, "SUSHISWAP"),
+          ...resolve[2].data,
+        ],
+        errors: {
+          uniswap: resolve[0].error,
+          sushiswap: resolve[1].error,
+          inch: resolve[2].error,
+        },
+      };
+    }
+  );
+  return result;
 };
 
 const processResult = (result, protocol) => {
@@ -40,7 +50,6 @@ const processResult = (result, protocol) => {
     tokens: { tokens },
     prices: { pricesUSD },
   } = store.getState();
-  console.log(pricesUSD);
   const lpTokens = [];
   result.forEach((liquidityPosition) => {
     let { pair, liquidityTokenBalance } = liquidityPosition;
@@ -56,7 +65,6 @@ const processResult = (result, protocol) => {
         const id2 = Object.keys(tokens).find(
           (id) => tokens[id].address === token1.id
         );
-        console.log(id1, id2, tokens);
         const lpToken1Price = pricesUSD[id1].usd;
         const lpToken2Price = pricesUSD[id2].usd;
         const token1Amount =
